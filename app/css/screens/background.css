@@ -1,0 +1,135 @@
+
+#game-background {
+	background:#c5d5d4 url(../../img/background/sky.png);
+	left:-10px;
+	top:-10px;
+	bottom:-10px;
+	right:-10px;
+	z-index: 0;
+}
+#game-background .ground {
+	position:absolute;
+	bottom:-10px;
+	left:-25px;
+	width:100%;
+	padding:5px 25px;
+	height:80px;
+	display: block;
+	z-index:1;
+	background:url(../../img/background/ground.png);
+}	
+
+#game-background .sun {
+	width:1417px;
+	height:1134px;
+	left:-300px;
+	bottom:-650px;
+	position:absolute;
+	display: block;
+	z-index:0;
+	background:url(../../img/background/sun.png) center center;
+}
+#game-background .cloud-1 {
+	background:url(../../img/background/cloud1.png);
+	width:173px;
+	height:66px;
+	top:280px;
+	left:-200px;
+}
+#game-background .cloud-2 {
+	background:url(../../img/background/cloud2.png);
+	width:92px;
+	height:35px;
+	left:-200px;
+	top:220px;
+	display: block;
+	position: absolute;
+/*	-webkit-animation-delay: 0s;
+*/
+}
+#game-background .cloud-1,
+#game-background .cloud-2,
+#game-background .trees-back,
+#game-background .trees-front,
+#game-background .tree-1,
+#game-background .tree-2,
+#game-background .tree-3,
+#game-background .tree-4,
+#game-background .tree-5,
+#game-background .tree-6,
+#game-background .tree-7 {
+	position: absolute;
+	display: block;
+
+}
+#game-background .trees-back {
+	height:133px;
+	background:url(../../img/background/trees-back.png) repeat-x 0 0;
+	bottom:100%;
+	left:0;
+	right:0;
+	-webkit-filter: blur(1px);
+	opacity: .78;
+}
+#game-background .trees-front {
+	height:133px;
+	background:url(../../img/background/trees-front.png) repeat-x 0 0;
+	bottom:80%;
+	left:0;
+	right:0;
+}
+
+/*#game-background .tree-1 {
+	background:url(../../img/background/tree1.png);
+	width:61px;
+	height:97px;
+	bottom:100%;
+	left:15%;
+}
+#game-background .tree-2 {
+	background:url(../../img/background/tree2.png);
+	width:58px;
+	height:97px;
+	bottom:100%;
+	left:30%;
+}
+#game-background .tree-3 {
+	background:url(../../img/background/tree3.png);
+	width:67px;
+	height:100px;
+	bottom:100%;
+	left:70%;
+}
+#game-background .tree-4 {
+	background:url(../../img/background/tree4.png);
+	width:59px;
+	height:101px;
+	bottom:90%;
+	left:55%;
+}
+#game-background .tree-5 {
+	background:url(../../img/background/tree5.png);
+	width:100px;
+	height:95px;
+	bottom:82%;
+	left:20%;
+}
+#game-background .tree-6 {
+	background:url(../../img/background/tree6.png);
+	width:64px;
+	height:130px;
+	bottom:100%;
+	left:70%;
+}
+#game-background .tree-7 {
+	background:url(../../img/background/tree7.png);
+	width:76px;
+	height:129px;
+	bottom:80%;
+	left:75%;
+}
+*/#game-background .ground-wrapper {
+	width:100%;
+	height:100%;
+	display: block;
+}

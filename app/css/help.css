@@ -1,0 +1,169 @@
+/*[data-help] {
+	position: relative;
+	z-index:10001;
+}
+*//*#game.help [data-help]:after {
+	position: absolute;
+  	font-family: 'Lato', sans-serif;
+  	font-weight:normal;
+  	font-size:23px;
+	left:100%;
+	margin-left:-120px;
+	margin-top:20px;
+	top:100%;
+	text-indent:0;
+	color:white;
+	content:attr(data-help);
+	display: block;
+	width:200px;
+	height:50px;
+	z-index:10001;
+}
+*/
+#game-help-screen {
+	z-index:20000;
+	background:#222;
+	background:rgba(30,30,30,.7);
+	position: absolute;
+	width:100%;
+	height:100%;
+	display: block;
+	display:none;
+}
+#game.help #game-help-screen {
+	display: block;
+}
+#game-help-screen .help-position {
+	position: absolute;
+}
+#game-help-screen .help-text {
+    font-family: 'Delius', cursive;
+  	position: absolute;
+  	font-weight:normal;
+  	font-size:23px;
+  	max-width:200px;
+    width:200px;
+  	text-align:center;
+	color:white;
+  	text-transform: lowercase;
+  	cursor:default;
+    min-width:40px;
+    text-shadow: 0 1px 5px rgba(85, 85, 85, .85);
+}
+#game-help-screen .help-text.tr {
+  	bottom:100%;
+  	left:50%;
+  	background:url(../img/help/tr.png) no-repeat bottom left;
+ }
+#game-help-screen .help-text.tl {
+  	bottom:100%;
+  	right:50%;
+  	background:url(../img/help/tl.png) no-repeat bottom right;
+ }
+#game-help-screen .help-text.lt {
+  	bottom:50%;
+  	right:100%;
+  	background:url(../img/help/lt.png) no-repeat bottom right;
+ }
+#game-help-screen .help-text.lb {
+  	top:50%;
+  	right:100%;
+  	background:url(../img/help/lb.png) no-repeat top right;
+ }
+
+#game-help-screen .help-text.rt {
+  	bottom:50%;
+  	left:100%;
+  	background:url(../img/help/rt.png) no-repeat bottom left;
+ }
+#game-help-screen .help-text.rb {
+  	top:50%;
+  	left:100%;
+  	background:url(../img/help/rb.png) no-repeat top left;  	
+ }
+#game-help-screen .help-text.br {
+  	top:100%;
+  	left:50%;
+  	background:url(../img/help/br.png) no-repeat top left;
+ }
+#game-help-screen .help-text.bl {
+  	top:100%;
+  	right:50%;
+  	background:url(../img/help/bl.png) no-repeat top right;
+ }
+
+
+#game-help-screen .help-text.tr,
+#game-help-screen .help-text.tl,
+#game-help-screen .help-text.lt,
+#game-help-screen .help-text.rt {
+  	padding-bottom:44px;
+}
+
+#game-help-screen .help-text.br,
+#game-help-screen .help-text.bl,
+#game-help-screen .help-text.lb,
+#game-help-screen .help-text.rb {
+  	padding-top:44px;
+}
+#game-help-screen .help-text.tr,
+#game-help-screen .help-text.br,
+#game-help-screen .help-text.rt,
+#game-help-screen .help-text.rb {
+	padding-left:26px;
+  text-align:left;
+}
+#game-help-screen .help-text.tl,
+#game-help-screen .help-text.bl,
+#game-help-screen .help-text.lt,
+#game-help-screen .help-text.lb {
+	padding-right:26px;
+  text-align:right;
+}
+#game-help-screen .help-text.tr,
+#game-help-screen .help-text.br {
+	margin-left: -9px;
+}
+#game-help-screen .help-text.rt,
+#game-help-screen .help-text.rb {
+	margin-left: 5px;
+}
+#game-help-screen .help-text.tl,
+#game-help-screen .help-text.bl {
+	margin-right: -9px;
+}
+#game-help-screen .help-text.lt,
+#game-help-screen .help-text.lb {
+	margin-right: 5px;
+}
+#game-help-screen .help-text.br,
+#game-help-screen .help-text.bl {
+  	margin-top: 5px;
+}
+#game-help-screen .help-text.rb,
+#game-help-screen .help-text.lb {
+  	margin-top: -9px;
+}
+#game-help-screen .help-text.tr,
+#game-help-screen .help-text.tl {
+  	margin-bottom: 5px;
+}
+#game-help-screen .help-text.rt,
+#game-help-screen .help-text.lt {
+  	margin-bottom: -9px;
+}
+#game-help-screen .help-text {
+	opacity:1;
+}
+/*#game-help-screen .help-position {
+	-webkit-box-sizing: border-box;
+	border:2px dotted rgba(255,255,255,.0);
+	border-radius:10px;
+	-webkit-transition: all .2s linear;
+}
+#game-help-screen .help-position:hover {
+	border-color:white;
+}
+*/#game-help-screen .help-position:hover .help-text {
+	opacity:1;
+}

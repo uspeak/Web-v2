@@ -1,0 +1,74 @@
+.game-logo-fatfingers {
+  text-indent:-10000px;
+  background:url(../../img/games/fatfinger/logo.png);
+  width:82px;
+  height:82px;
+  display: inline-block;
+
+}
+#game-fatfingers-placeholder{
+	margin-top:50px;
+}
+#game-fatfingers-placeholder li {
+	background:url(../../img/games/fatfinger/placeholder.png);
+	width:48px;
+	height:48px;
+	display: inline-block;
+	margin:0 2px 0 3px;
+	text-indent:-10000px;
+}
+#game-fatfingers-letters {
+	background:url(../../img/games/fatfinger/shalve.png);
+	width:800px;
+	padding-top:84px;
+	height:190px;
+	display: block;
+	margin:0 auto;
+	position: relative;
+	-webkit-user-select: none;
+/*	z-index:-1;
+*/}
+#game-fatfingers-letters li {
+	width:40px;
+	height:40px;
+	display: inline-block;
+	position: relative;
+	margin:0 4px;
+	cursor:pointer;
+	cursor:hand;
+}
+#game-fatfingers-letters li b{
+/*	position: absolute;
+*/
+	position: absolute;
+	top:0;
+	left:0;
+	display: block;
+	background:url(../../img/games/fatfinger/piece.png) center center;
+	width:40px;
+	height:40px;
+	font-size:30px;
+	z-index:10;
+	text-transform:uppercase;
+	color:white;
+	font-weight: bold;
+	text-shadow:0 -1px 0 rgba(0,0,0,.4);
+/*	z-index:1000;
+*/}
+#game-fatfingers-letters li::before {
+	content:'';
+	position: absolute;
+	background:url(../../img/games/fatfinger/piece_shadow.png) center center;
+	width:79px;
+	height:24px;
+	display: block;
+	z-index:1;
+	opacity:.6;
+	margin-bottom:-11px;
+	bottom:0;
+	margin-left:-17px;
+/*	left:-17px;
+*/}
+#game-fatfingers-letters li.completed::before {
+	opacity: 0;
+}

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> 
+  <html 
+    class="no-js ie6 oldie" 
+    lang="en" 
+    xmlns:ng="http://angularjs.org/" 
+    ng-app="uspeak"> 
+<![endif]-->
+<!--[if IE 7]> 
+  <html 
+    class="no-js ie7 oldie" 
+    lang="en" 
+    xmlns:ng="http://angularjs.org/" 
+    ng-app="uspeak"> 
+<![endif]-->
+<!--[if IE 8]>  
+  <html 
+    class="no-js ie8 oldie" 
+    lang="en" 
+    xmlns:ng="http://angularjs.org/" 
+    ng-app="uspeak"> 
+<![endif]-->
+<!--[if gt IE 8]><!--> 
+<html 
+  class="no-js" 
+  lang="en" 
+  xmlns:ng="http://angularjs.org/"
+  ng-app="uspeak"> <!--  manifest="manifest.appcache" -->
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>uSpeak App</title>
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/help.css" />
+  <link rel="stylesheet" href="css/loading.css" />
+  <link rel="stylesheet" href="css/screens/main.css" />
+  <link rel="stylesheet" href="css/screens/background.css" />
+  <link rel="stylesheet" href="css/screens/dialog.css" />
+  <link rel="stylesheet" href="css/screens/topbar.css" />
+  <link rel="stylesheet" href="css/screens/settings.css" />
+  <link rel="stylesheet" href="css/games/main.css" />
+  <link rel="stylesheet" href="css/games/association.css" />
+  <link rel="stylesheet" href="css/games/whichone.css" />
+  <link rel="stylesheet" href="css/games/fatfingers.css" />
+  <link rel="stylesheet" href="css/games/flipcards.css" />
+  <link rel="stylesheet" href="css/games/yayornay.css" />
+  <link rel="stylesheet" href="css/games/clock.css" />
+  <link rel="stylesheet" href="css/user/games.css" />
+
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <script src="js/loader.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+  <script>
+    DEBUG = true;
+    DEBUG = DEBUG && !(document.domain.indexOf('uspeakapp.com')>-1);
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <div id="javascript-disabled">
+      Your web browser must have JavaScript enabled in order for this application to display correctly.
+    </div>
+  </noscript>
+
+  <div id="game" ng-controller="App" ng-class="{effects:effects}" ng-init="effects=false&&support.effects;"> <!--  class="effects" class="play" class="loading" -->
+   <div id="game-loader">
+    <div id="game-loader-progress">
+     <span class="b1">2%</span><span class="b2">5%</span><span class="b3">8%</span><span class="b4">11%</span><span class="b5">13%</span><span class="b6">16%</span><span class="b7">19%</span><span class="b8">22%</span><span class="b9">25%</span><span class="b10">27%</span><span class="b11">30%</span><span class="b12">33%</span><span class="b13">36%</span><span class="b14">38%</span><span class="b15">41%</span><span class="b16">44%</span><span class="b17">47%</span><span class="b18">50%</span><span class="b19">52%</span><span class="b20">55%</span><span class="b21">58%</span><span class="b22">61%</span><span class="b23">63%</span><span class="b24">66%</span><span class="b25">69%</span><span class="b26">72%</span><span class="b27">75%</span><span class="b28">77%</span><span class="b29">80%</span><span class="b30">83%</span><span class="b31">86%</span><span class="b32">88%</span><span class="b33">91%</span><span class="b34">94%</span><span class="b35">97%</span><span class="b36">100%</span>
+    </div>
+    <span id="uSpeak-white-logo">uSpeak languages</span>
+   </div>
+   <div id="game-canvas" class="ng-cloak">
+    <div id="game-help-screen"></div>
+    <div id="game-loading-screen">
+      <span class="loading-text">Cargando</span>
+      <span class="l-1"></span>
+      <span class="l-2"></span>
+      <span class="l-3"></span>
+      <span class="l-4"></span>
+      <span class="l-5"></span>
+      <span class="l-6"></span>
+    </div>
+    <screens>
+      <div id="game-background">
+        <div class="sun "></div>
+        <div class="ground-wrapper js-plaxify" data-xrange="5" data-yrange="3" data-invert="true">
+          <div class="ground">
+            <div class="trees-back"></div>
+            <div class="trees-front js-plaxify" data-xrange="10" data-yrange="5"></div>
+          </div>
+        </div>
+        <div class="cloud-1 js-plaxify" data-xrange="4" data-yrange="4" data-invert="true"></div>
+        <div class="cloud-2 js-plaxify" data-xrange="2" data-yrange="2" data-invert="true"></div>
+      </div>
+      <h1 id="top-bar"><a class="help" data-help="Ayuda" data-help-position="bl" ng-click="showHelp()">?</a><span>{{title}}</span><a class="settings" data-help="Ajustes" data-help-position="br" ng-click="toggleSettings()">ajustes</a></h1>
+      <screen title="Home" screen-id="home">
+        <dialog class="big animate1-2">
+          <p>Un viaje de mil kilometros empieza con el primer paso.</p>
+          <p class="chinese-welcome">千里之行，始于足下!</p>
+          <p>A thousand-mile journey begins with the first step.</p>
+        </dialog>
+        <dialog class="small animate2-2">
+          <p>¿Ya estás aprendiendo con uSpeak?</p>
+            <a href="" class="button button-yes" ng-click="goScreen('user-login')" data-help="Si" data-help-position="lb">Yes</a>
+            <a href="" class="button button-no" ng-click="goScreen('diagnostic-pre')" data-help="No" data-help-position="rt">No</a>
+        </dialog>
+      </screen>
+      <screen title="Welcome back" screen-id="user-login">
+        <dialog class="big animate1-2">
+          <h2 data-help="Título">Welcome</h2>
+          <p>Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas. Por eso creamos uSpeak.</p>
+          <p>¡Esperamos que lo disfrutes!</p>
+        </dialog>
+        <dialog class="small animate2-2">
+          <form>
+            <input type="text" name="email" placeholder="email" ng-model="login_name" />
+            <input type="password" name="password" placeholder="contraseña" ng-model="login_pass" />
+            <a href="" ng-click="login()" class="button" ng-class="{disabled:!login_name || !login_pass}">entrar</a>
+          </form>
+        </dialog>
+      </screen>
+      <screen title="Welcome back" screen-id="user-home">
+        <dialog class="big animate1-2">
+          <h2>Bienvenido!</h2>
+          <p>Hoy hace un día precioso, disfrútalo.</p>
+        </dialog>
+        <div class="stick-big">
+          <a href="" class="sign-right" data-help="Juegos" data-help-position="lb" ng-click="goScreen('user-games')">Games</a>
+        </div>
+      </screen>
+      <screen title="Games" screen-id="user-games" screen-init>
+        <dialog class="big animate1-2"> <!--  dialog-index="1" -->
+          <div ng-show="!userGameChoosed">
+            <h2 id="user-games-intro">Elige un juego a continuación!</h2>
+          </div>
+        </dialog>
+        <ul id="user-games-choose">
+          <li><a href="" stroke-text="Association game" ng-click="playGame('association');">Association game</a></li>
+          <li><a href="" stroke-text="Fat fingers" ng-click="playGame('fatfingers');">Fat fingers</a></li>
+          <li><a href="" stroke-text="Which one?" ng-click="playGame('whichone');">Which one?</a></li>
+          <li><a href="" stroke-text="Flip Cards" ng-click="playGame('flipcards');">Flip cards</a></li>
+          <li><a href="" stroke-text="Flip Cards" ng-click="playGame('yayornay');">Yay or nay</a></li>
+        </ul>
+      </screen>
+      <screen title="Home" screen-id="diagnostic-pre">
+        <dialog class="big animate1-1">
+          <h2 data-help="Título">Welcome</h2>
+          <p>Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas. Por eso creamos uSpeak.</p>
+          <p>¡Esperamos que lo disfrutes!</p>
+        </dialog>
+        <div class="stick-big">
+          <a href="" class="sign-right" data-help="Juegos" data-help-position="lb" ng-click="goScreen('diagnostic-games')">Games</a>
+        </div>
+      </screen>
+      <screen title="Games" screen-id="diagnostic-games">
+        <dialog class="big animate1-2">
+          <h2>Aquí es donde comienza la magia</h2>
+          <p>Vamos a jugar a algunos juegos para definir tu punto de partida, pero primero necesitamos saber tu nivel.</p>
+          <p>¿Qué tal tu inglés?</p>
+        </dialog>
+        <dialog class="small animate2-2">
+          <a class="level-prev" ng-click="diagnostic.level= (3+diagnostic.level-1)%3;">Prev</a>
+          <a class="level-next" ng-click="diagnostic.level= (3+diagnostic.level+1)%3;">Next</a>
+          <div id="game-level-selector" data-help="Elije la opción que mejor se adapte a tu nivel" data-help-position="tr" ng-class="'level-'+diagnostic.level" >
+            <div class="game-level-0">
+              <h4>Nothing</h4>
+              <blockquote>Soy un principiante total</blockquote>
+            </div>
+            <div class="game-level-1">
+              <h4>A little</h4>
+              <blockquote>Tengo un vocabulario basico</blockquote>
+            </div>
+            <div class="game-level-2">
+              <h4>A lot</h4>
+              <blockquote>Me expreso libremente</blockquote>
+            </div>
+          </div>
+          <a href="" class="button" ng-click="loadDiagnostic()">¡vamos!</a> <!-- ng-click="goScreen('games-pre')"  -->
+        </dialog>
+      </screen>
+      <screen title="Games" screen-id="diagnostic-games-intro">  <!-- screen-init -->
+        <dialog class="big animate1-2">
+            <div ng-show="diagnostic.gameIndex==0">
+              <h2>Que comienze el juego</h2>
+              <p>Tómate tu tiempo y cuida tus vidas - solo tienes tres.</p>
+              <p>Y acuérdate, si no aciertas no pasa nada!</p>
+            </div>
+            <div ng-show="diagnostic.gameIndex==1">
+              <h2>¡Buen Trabajo!</h2>
+              <p>Ahora vamos a agregar algunos distractores más para no perder el ritmo.</p>
+            </div>
+        </dialog>
+        <dialog class="small animate2-2">
+          <span ng-class="'game-logo-'+diagnostic.game().type">{{diagnostic.gameTitle()}}{{diagnostic.game()}}</span>
+          <p ng-show="diagnostic.game().type=='whichone'">Verás que fácil ¡es pan comido!<br>¿Cuál es la opción correcta?</p>
+          <p ng-show="diagnostic.game().type=='association'">Descarta los distractores.<br>Elige la opción correcta.</p>
+          <p ng-show="diagnostic.game().type=='fatfingers'">Toca las letras en el orden correcto y escribe la respuesta.</p>
+          <a href="" class="button" ng-click="playDiagnosticGame(diagnostic.game().type,diagnostic.data())">let's go!</a>
+        </dialog>
+      </screen>
+      <screen title="Games" screen-id="diagnostic-register">  <!-- screen-init -->
+        <dialog class="big animate1-2">
+          <h2>¡Felicidades!</h2>
+          <p>
+            Ya hemos creado tu mapa de lenguaje.
+            <br>
+            Por favor, toma un momento y completa la información para guardar tu progreso y disfrutar de un aprendizaje personalizado.
+          </p>
+          <p>¡Ahora viene la parte interesante!</p>
+        </dialog>
+        <dialog class="small animate2-2">
+          <form id="user-register">
+            <div class="error-messages">
+              <span data-error="442" data-error-field="email">Email inválido</span>
+              <span data-error="443" data-error-field="email">Email duplicado</span>
+              <span data-error="401" data-error-field="email">Email duplicado</span>
+              <span data-error="444" data-error-field="name">Nombre de usuario existente</span>
+              <span data-error="400">Inténtelo de nuevo</span>
+              <span data-error="500">Error de servidor</span>
+            </div>
+            <input type="text" name="name" placeholder="nombre" ng-model="user_name" />
+            <input type="text" name="email" placeholder="email" ng-model="user_email" />
+            <input type="password" name="password" placeholder="contraseña" ng-model="user_pass" />
+            <a ng-click="register()" class="button" ng-class="{disabled:!user_name || !user_email || !user_pass}">registrar</a>
+          </form>
+        </dialog>
+      </screen>
+      <screen title="Settings" screen-id="settings" id="game-screen-settings">
+        <dialog class="medium animate1-1">
+          <fieldset>
+            <legend>Sonido</legend>
+            <p>
+              <label>Musica</label>
+              <input type="checkbox" ng-model="$root.audio">
+            </p>
+            <p>
+              <label>Efectos</label>
+              <input type="checkbox" ng-model="$root.effects" ng-disabled="!support.effects">
+            </p>
+          </fieldset>
+          <fieldset>
+            <legend>Compartir</legend>
+            <p>
+              <label>Con un amigo</label>
+              <a href="http://facebook.com/" class="settings-go">Ir</a>
+            </p>
+            <p>
+              <label>Tu Feedback</label>
+              <a href="feedback/" class="settings-go">Ir</a>
+            </p>
+          </fieldset>
+        </dialog>
+        <div class="stick-small">
+          <a href="" class="sign-left" ng-click="backScreen()">Atrás</a>
+        </div>
+      </screen>
+    </screens>
+    <games>
+      <div id="game-header">
+        <div id="game-clock" data-help="Clock" data-help-position="br"></div>
+        <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{total_rounds}}</b></div>
+        <h1>{{title}}</h1>
+        <ul id="game-lifes" ng-show="diagnostic.lifes!=false" ng-class="'lifes-'+diagnostic.lifes" data-help="Vidas" data-help-position="bl">
+          <li class="game-life-{{life}}" ng-repeat="life in [1,2,3]"><span>Life</span></li>
+        </ul>
+        <div id="game-points" data-help="Puntos" data-help-position="bl">Points:<b>{{points}}</b></div>
+      </div>
+      <game game-id="whichone" game-title="Which one">
+        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
+        <ul id="game-whichone-notes" class="game-selector-options">
+          <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> <!-- note-{{$index+1}} -->
+        </ul>
+      </game>
+      <game game-id="flipcards" game-title="Flip cards">  <!-- ng-init="active=true;" -->
+        <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Match the Spanish word and it's English translation</span>
+        <ul id="game-flipcards-cards" ng-class="'items-'+cards.length">
+          <li ng-repeat="card in cards" ng-click="selectCard()" ng-class="{selected:card.selected, correct:card.selected && card.correct, incorrect:card.selected && card.correct != undefined && !card.correct}"><span class="front"></span><span class="back">{{card.word||card.translation}}</span></li> <!-- note-{{$index+1}} -->
+        </ul>
+      </game>
+      <game game-id="association" game-title="Association">
+        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
+        <ul id="game-association-notes" class="game-selector-options">
+          <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> 
+        </ul>
+      </game>
+      <game game-id="yayornay" game-title="Yay or Nay">
+        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Es peluda?</span>
+        <ul id="game-yayornay-notes" class="game-selector-options">
+          <li ng-click="selectOption(true)" ng-class="{correct:correct && clicked[true],incorrect:!correct && clicked[true]}"><span></span>Yes</li> 
+          <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
+        </ul>
+      </game>
+      <game game-id="fatfingers" game-title="Fat Fingers">  <!-- ng-init="active=true; word='dsa';translation=['a','s','d']; translation_shuffled=['a','s','d'];" -->
+        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-help" data-help="Haz click en las letras en el orden correcto" data-help-position="br">Tap the letters in the correct order</span>
+
+        <ul id="game-fatfingers-placeholder">
+          <li ng-repeat="letter in translation">{{letter}}</li> 
+        </ul>
+        <ul id="game-fatfingers-letters">
+          <li ng-repeat="letter in translation_shuffled" ng-click="clickLetter($event)"><b>{{letter}}</b></li> 
+        </ul>
+      </game>
+
+      <div id="game-settings">
+        <a class="exit" ng-click="exit()">Salir</a>
+        <a class="help" ng-click="showHelp()">Ayuda</a>
+        <a class="pause" ng-click="pauseGame()">Pausar</a> <!-- paused?resumeGame():pauseGame() -->
+        <a class="sound" ng-click="$root.audio = !$root.audio" ng-class="{muted:!$root.audio}">Sonido</a>
+      </div>
+    </games>
+   </div>
+  </div>
+  <script data-main="js/bootstrap" src="js/require.js"></script>  
+  <!--[if lt IE 8 ]>
+  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+</body>
+</html>

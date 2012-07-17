@@ -1,0 +1,205 @@
+/*      ''.join(['<span class="b%d">%d%%</span>'%((i+1),(i+1)/39.*100) for i in range(39)])
+      ', '.join(['.b%d'%(i+1) for i in range(39)])'
+*/
+#game-loader {
+  z-index:20000;
+}
+#game.loaded #game-loader{
+  z-index:0;
+}
+.b1,.b2,.b3,.b4,.b5,.b6,.b7,.b8,.b9,.b10,.b11,.b12,.b13,.b14,.b15,.b16,.b17,.b18,.b19,.b20,.b21,.b22,.b23,.b24,.b25,.b26,.b27,.b28,.b29,.b30,.b31,.b32,.b33,.b34,.b35,.b36
+{
+  position:absolute;
+  text-indent:-10000px;
+  width:198px;
+  height:189px;
+  top:0;
+  left:0;
+  display:none;
+}
+
+.b1
+{
+  background-image:url(../img/splashscreen/splash_1.png);
+}
+
+.b2
+{
+  background-image:url(../img/splashscreen/splash_2.png);
+}
+
+.b3
+{
+  background-image:url(../img/splashscreen/splash_3.png);
+}
+
+.b4
+{
+  background-image:url(../img/splashscreen/splash_4.png);
+}
+
+.b5
+{
+  background-image:url(../img/splashscreen/splash_5.png);
+}
+
+.b6
+{
+  background-image:url(../img/splashscreen/splash_6.png);
+}
+
+.b7
+{
+  background-image:url(../img/splashscreen/splash_7.png);
+}
+
+.b8
+{
+  background-image:url(../img/splashscreen/splash_8.png);
+}
+
+.b9
+{
+  background-image:url(../img/splashscreen/splash_9.png);
+}
+
+.b10
+{
+  background-image:url(../img/splashscreen/splash_10.png);
+}
+
+.b11
+{
+  background-image:url(../img/splashscreen/splash_11.png);
+}
+
+.b12
+{
+  background-image:url(../img/splashscreen/splash_12.png);
+}
+
+.b13
+{
+  background-image:url(../img/splashscreen/splash_13.png);
+}
+
+.b14
+{
+  background-image:url(../img/splashscreen/splash_14.png);
+}
+
+.b15
+{
+  background-image:url(../img/splashscreen/splash_15.png);
+}
+
+.b16
+{
+  background-image:url(../img/splashscreen/splash_16.png);
+}
+
+.b17
+{
+  background-image:url(../img/splashscreen/splash_17.png);
+}
+
+.b18
+{
+  background-image:url(../img/splashscreen/splash_18.png);
+}
+
+.b19
+{
+  background-image:url(../img/splashscreen/splash_19.png);
+}
+
+.b20
+{
+  background-image:url(../img/splashscreen/splash_20.png);
+}
+
+.b21
+{
+  background-image:url(../img/splashscreen/splash_21.png);
+}
+
+.b22
+{
+  background-image:url(../img/splashscreen/splash_22.png);
+}
+
+.b23
+{
+  background-image:url(../img/splashscreen/splash_23.png);
+}
+
+.b24
+{
+  background-image:url(../img/splashscreen/splash_24.png);
+}
+
+.b25
+{
+  background-image:url(../img/splashscreen/splash_25.png);
+}
+
+.b26
+{
+  background-image:url(../img/splashscreen/splash_26.png);
+}
+
+.b27
+{
+  background-image:url(../img/splashscreen/splash_27.png);
+}
+
+.b28
+{
+  background-image:url(../img/splashscreen/splash_28.png);
+}
+
+.b29
+{
+  background-image:url(../img/splashscreen/splash_29.png);
+}
+
+.b30
+{
+  background-image:url(../img/splashscreen/splash_30.png);
+}
+
+.b31
+{
+  background-image:url(../img/splashscreen/splash_31.png);
+}
+
+.b32
+{
+  background-image:url(../img/splashscreen/splash_32.png);
+}
+
+.b33
+{
+  background-image:url(../img/splashscreen/splash_33.png);
+}
+
+.b34
+{
+  background-image:url(../img/splashscreen/splash_34.png);
+}
+
+.b35
+{
+  background-image:url(../img/splashscreen/splash_35.png);
+}
+
+.b36
+{
+  background-image:url(../img/splashscreen/splash_36.png);
+}
+
+#game-loader-progress .ld
+{
+  display:block;
+
+}

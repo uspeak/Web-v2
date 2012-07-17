@@ -1,0 +1,97 @@
+#game-flipcards-help {
+	display: block;
+	margin-top:30px;
+  	font-family: 'Delius', cursive;
+	font-size:28px;
+	color:gray;
+	text-align: center;
+}
+#game-flipcards-cards {
+	margin:40px auto 0;
+}
+#game-flipcards-cards li {
+	display: inline-block;
+	position: relative;
+}
+#game-flipcards-cards li .front,
+#game-flipcards-cards li .back
+ {
+	display: inline-block;
+	border-radius: 9px;
+	border:4px solid white;
+	background:white;
+	text-align: center;
+	box-shadow: 0 1px 5px rgba(0,0,0,.15);
+  position: relative;
+  color:#569fb4;
+  font-weight: bold;
+  display:none;
+}
+#game-flipcards-cards.items-6 {
+	width:600px;
+}
+#game-flipcards-cards.items-6 li {
+	width:145px;
+	height:145px;
+	font-size:18px;
+	line-height: 132px;
+	margin:12px;
+}
+#game-flipcards-cards.items-12 {
+	margin-top:24px;
+	width:500px;
+}
+#game-flipcards-cards.items-18 {
+	margin-top:24px;
+	width:100%;
+}
+#game-flipcards-cards.items-24 {
+	margin-top:20px;
+	width:600px;
+}
+
+#game-flipcards-cards.items-12 li,
+#game-flipcards-cards.items-18 li {
+	width:110px;
+	height:110px;
+	font-size:16px;
+	line-height: 98px;
+	margin:6px;
+}
+#game-flipcards-cards.items-24 li {
+	width:78px;
+	height:78px;
+	font-size:14px;
+	line-height: 66px;
+	margin:5px;
+}
+
+#game-flipcards-cards li .front,
+#game-flipcards-cards li .back {
+	width:100%;
+	height: 100%;
+	box-sizing:border-box;
+}
+
+#game-flipcards-cards li .back,
+#game-flipcards-cards li.correct .front {
+	display: block;
+}
+#game-flipcards-cards li.correct .front {
+	z-index: 1000;
+}
+/*#game-flipcards-cards li:hover .front {
+  -webkit-transform: rotateY(180deg);
+
+}
+*/
+#game-flipcards-cards li .front {
+  position: absolute;
+  background: url(../../img/games/flipcards/card-background.png) repeat;
+}
+#game-flipcards-cards li.selected .back  {
+	border-color:#6BB7D1;
+}
+#game-flipcards-cards li.selected.incorrect .back  {
+	border-color:red;
+}

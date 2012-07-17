@@ -1,0 +1,30 @@
+.game-logo-association {
+  text-indent:-10000px;
+  background:url(../../img/games/association/logo.png);
+  width:102px;
+  height:87px;
+  display: inline-block;
+}
+
+#game-association-notes {
+  margin-top:60px;
+  display: inline-block;
+}
+
+#game-association-notes li {
+  background:url(../../img/games/association/note.png) no-repeat ;
+  padding:36px 7px 36px 0;
+  line-height:1;
+  font-size:28px;
+  width:243px;
+  margin-left: 100px;
+  margin-top: 0;
+  text-transform:lowercase;
+  color:gray;
+  display: block;
+  float: left;
+  font-family: 'Delius', cursive;
+  position: relative;
+  cursor:pointer;
+  cursor:hand;
+}

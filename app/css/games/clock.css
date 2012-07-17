@@ -1,0 +1,63 @@
+#game-clock {
+  /* The .clock div. Created dynamically by jQuery */
+  /*	background-color:#252525;*/
+  background:url(../../img/games/clock_empty.png) no-repeat right top;
+  height:34px;
+  width:34px;
+  position:relative;
+  overflow:hidden;
+}
+
+#game-clock .rotate {
+  /* There are two .rotate divs - one for each half of the background */
+  position:absolute;
+  width:34px;
+  height:34px;
+  top:0;
+  left:0;
+}
+
+#game-clock .rotate.right{
+  display:none;
+  z-index:11;
+}
+
+#game-clock .bg, #game-clock .front{
+  width:17px;
+  height:34px;
+/*  background-color:#252525;*/
+  background:url(../../img/games/clock_empty.png) no-repeat left top;
+  position:absolute;
+  top:0;
+}
+#game-clock .display{
+  /* Holds the number of seconds, minutes or hours respectfully */
+  position:absolute;
+  z-index:20;
+  color:#F5F5F5;
+  font-size: 20px;
+  font-weight: bold;
+  text-align:center;
+  top:3px;
+  right:0;
+  left:0;
+
+  /* CSS3 text shadow: */
+  text-shadow:0px 3px 6px rgba(0,0,0,.35);
+}
+/* The left part of the background: */
+
+#game-clock .bg.left{ left:0; }
+
+/* Individual styles for each color: */
+#game-clock .bg.left{ background:url(../../img/games/clock_full.png) no-repeat left top; }
+
+/* The right part of the background: */
+#game-clock .bg.right{ left:17px; }
+
+#game-clock .bg.right{ background:url(../../img/games/clock_full.png) no-repeat right top;  }
+
+#game-clock .front.left{
+  left:0;
+  z-index:10;
+}

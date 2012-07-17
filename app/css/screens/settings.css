@@ -1,0 +1,54 @@
+#game-screen-settings {
+
+}
+#game-screen-settings fieldset {
+	margin:0 auto;
+	width:300px;
+	margin-top:40px;
+	background:#fffbe8;
+	border-radius:18px;
+	box-shadow:inset 0 1px rgba(0,0,0,.2);
+	position: relative;
+	margin-bottom:20px;
+}
+#game-screen-settings legend {
+	font-size:20px;
+	display: block;
+	font-weight:bold;
+	text-shadow:0 2px white;
+	position: absolute;
+	bottom:100%;
+	margin-bottom:6px;
+	margin-left:20px;
+}
+#game-screen-settings fieldset p {
+	font-size:16px;
+	float: left;
+	display: block;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	width:100%;
+	clear: both;
+	border-bottom:1px solid rgba(0,0,0,.1);
+	padding:13px 20px;
+	margin:0;
+}
+#game-screen-settings fieldset p:last-child{
+	border:none;
+}
+#game-screen-settings fieldset label {
+	float:left;
+	text-transform:lowercase;
+}
+#game-screen-settings fieldset input {
+	float:right;
+}
+#game-screen-settings .settings-go {
+	text-indent:-10000px;
+	background:url(../../img/settings/go.png) no-repeat 0 0;
+	width:24px;
+	height:18px;
+	display: block;
+	float: right;
+}

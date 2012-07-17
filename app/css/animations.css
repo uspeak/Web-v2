@@ -1,0 +1,704 @@
+@-webkit-keyframes sun-rotation { 
+    0% {  -webkit-transform: rotate(0deg) }
+
+    100% {  -webkit-transform: rotate(360deg) }
+}
+@-moz-keyframes sun-rotation { 
+    0% {  -moz-transform: rotate(0deg) }
+
+    100% {  -moz-transform: rotate(360deg) }
+}
+
+@-webkit-keyframes clouds { 
+    0% {  left: -200px }
+
+    100% {  left: 820px }
+}
+@-moz-keyframes clouds { 
+    0% {  left: -200px }
+
+    100% {  left: 820px }
+}
+
+@-webkit-keyframes FlipDialog { 
+    0% {
+      -webkit-transform: perspective(400px) rotateX(-90deg);
+      opacity: 0;
+    }
+
+    50% {
+      -webkit-transform: perspective(400px) rotateX(5deg);
+      opacity: .75;
+    }
+
+    75% {  -webkit-transform: perspective(400px) rotateX(-3deg) }
+
+    100% {
+      -webkit-transform: perspective(400px) rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes fadeInScale {
+  0% {
+      -webkit-transform: scale(1.6);
+      opacity: 0;
+  }  
+  100% {
+      -webkit-transform: scale(1);
+      opacity: 1;
+  }
+}
+@-moz-keyframes fadeInScale {
+  0% {
+      -moz-transform: scale(1.6);
+      opacity: 0;
+  }  
+  100% {
+      -moz-transform: scale(1);
+      opacity: 1;
+  }
+}
+@-ms-keyframes fadeInScale {
+  0% {
+      -ms-transform: scale(1.6);
+      opacity: 0;
+  }  
+  100% {
+      -ms-transform: scale(1);
+      opacity: 1;
+  }
+}
+@-o-keyframes fadeInScale {
+  0% {
+      -o-transform: scale(1.6);
+      opacity: 0;
+  }  
+  100% {
+      -o-transform: scale(1);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+      transform: scale(1.6);
+      opacity: 0;
+  }  
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+@-moz-keyframes FlipDialog { 
+    0% {
+      -moz-transform: perspective(400px) rotateX(-90deg);
+      opacity: 0;
+    }
+
+    50% {
+      -moz-transform: perspective(400px) rotateX(5deg);
+      opacity: .75;
+    }
+
+    75% {  -moz-transform: perspective(400px) rotateX(-3deg) }
+
+    100% {
+      -webkit-transform: perspective(400px) rotateX(0deg);
+      opacity: 1;
+    }
+}
+
+@-webkit-keyframes FlipDialogBack { 
+    0% {
+      -webkit-transform: perspective(400px) rotateX(0deg);
+      opacity: 1;
+    }
+
+    25% {  -webkit-transform: perspective(400px) rotateX(-3deg) }
+
+    50% {
+      -webkit-transform: perspective(400px) rotateX(5deg);
+      opacity: .75;
+    }
+
+    100% {
+      -webkit-transform: perspective(400px) rotateX(-90deg);
+      opacity: 0;
+    }
+}
+
+@-moz-keyframes FlipDialogBack { 
+    0% {
+      -moz-transform: perspective(400px) rotateX(0deg);
+      opacity: 1;
+    }
+
+    25% {  -moz-transform: perspective(400px) rotateX(-3deg) }
+
+    50% {
+      -moz-transform: perspective(400px) rotateX(5deg);
+      opacity: .75;
+    }
+
+    100% {
+      -moz-transform: perspective(400px) rotateX(-90deg);
+      opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeInBackground { 
+    0% {  opacity: .5 }
+
+    100% {  opacity: 1 }
+}
+
+@-moz-keyframes fadeInBackground { 
+    0% {  opacity: .5 }
+
+    100% {  opacity: 1 }
+}
+
+@-ms-keyframes fadeInBackground { 
+    0% {  opacity: .5 }
+
+    100% {  opacity: 1 }
+}
+
+@-o-keyframes fadeInBackground { 
+    0% {  opacity: .5 }
+
+    100% {  opacity: 1 }
+}
+
+@keyframes fadeInBackground { 
+    0% {  opacity: .5 }
+
+    100% {  opacity: 1 }
+}
+
+@-webkit-keyframes incorrect { 
+    0%,
+    100% {  -webkit-transform: translateX() }
+
+    20%,
+    60% {  -webkit-transform: translateX(-10px) }
+
+    40%,
+    80% {  -webkit-transform: translateX(10px) }
+}
+
+@-moz-keyframes shake { 
+    0%,
+    100% {  -moz-transform: translateX() }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {  -moz-transform: translateX(-10px) }
+
+    20%,
+    40%,
+    60%,
+    80% {  -moz-transform: translateX(10px) }
+}
+
+@-ms-keyframes shake { 
+    0%,
+    100% {  -ms-transform: translateX() }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {  -ms-transform: translateX(-10px) }
+
+    20%,
+    40%,
+    60%,
+    80% {  -ms-transform: translateX(10px) }
+}
+
+@-o-keyframes shake { 
+    0%,
+    100% {  -o-transform: translateX() }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {  -o-transform: translateX(-10px) }
+
+    20%,
+    40%,
+    60%,
+    80% {  -o-transform: translateX(10px) }
+}
+
+@keyframes shake { 
+    0%,
+    100% {  transform: translateX() }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {  transform: translateX(-10px) }
+
+    20%,
+    40%,
+    60%,
+    80% {  transform: translateX(10px) }
+}
+
+#game.effects {
+  -webkit-transition: all 3s linear;
+  -moz-transition: all 3s linear;
+}
+
+#game-loader-progress .ld {
+  -webkit-animation-name: bounceIn;
+  -moz-animation-name: bounceIn;
+  -ms-animation-name: bounceIn;
+  -o-animation-name: bounceIn;
+  animation-name: bounceIn;
+  /*      -webkit-transform-origin: center top;;*/
+  -webkit-animation-duration: .4s;
+  -moz-animation-duration: .4s;
+  -ms-animation-duration: .4s;
+  -o-animation-duration: .4s;
+  animation-duration: .4s;
+}
+
+#game.effects.help #game-help-screen {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -ms-animation-name: fadeIn;
+  -o-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  -ms-animation-duration: .5s;
+  -o-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#game.loaded.effects #game-loader {
+  display: block;
+  -webkit-animation-name: fadeOut;
+  -moz-animation-name: fadeOut;
+  -ms-animation-name: fadeOut;
+  -o-animation-name: fadeOut;
+  animation-name: fadeOut;
+  -webkit-animation-duration: .6s;
+  -moz-animation-duration: .6s;
+  -ms-animation-duration: .6s;
+  -o-animation-duration: .6s;
+  animation-duration: .6s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#game.loaded.effects #game-background {
+  -webkit-animation-delay: .2s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-name: fadeInBackground;
+  -moz-animation-name: fadeInBackground;
+  -ms-animation-name: fadeInBackground;
+  -o-animation-name: fadeInBackground;
+  animation-name: fadeInBackground;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -ms-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#game.loaded.effects #game-background .ground {
+  -webkit-animation: fadeInUp 3s ease-in;
+  -webkit-animation-delay: 1.3s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation: fadeInUp 3s ease-in;
+  -moz-animation-delay: 1.3s;
+  -moz-animation-fill-mode: both;
+}
+
+#game.effects #game-background .trees-front,
+#game.effects #game-background .trees-back {
+-webkit-transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+   -moz-transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+    -ms-transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+     -o-transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+        transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); /* custom */
+}
+#game.loaded.effects #game-background .sun {
+  -webkit-animation: fadeIn 3s ease-in, sun-rotation 340s infinite linear;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-delay: 2s;
+  -moz-animation: fadeIn 3s ease-in, sun-rotation 340s infinite linear;
+  -moz-animation-fill-mode: both;
+  -moz-animation-delay: 2s;
+}
+
+#game.loaded.effects #game-background .cloud-1 {
+  -webkit-animation: clouds 60s infinite linear;
+  -webkit-animation-delay: 30s;
+  -moz-animation: clouds 60s infinite linear;
+  -moz-animation-delay: 30s;
+}
+
+#game.loaded.effects #top-bar {
+  -webkit-animation-name: fadeInDown;
+  -moz-animation-name: fadeInDown;
+  -ms-animation-name: fadeInDown;
+  -o-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 4s;
+}
+
+#game.loaded.effects #game-background .cloud-2 {
+  -webkit-animation: clouds 90s infinite ease;
+  -moz-animation: clouds 90s infinite ease;
+}
+
+#game.effects .dialog.big.show,
+#game.effects .dialog.medium.show {
+  -webkit-animation-name: bounceInDown;
+  -webkit-animation-duration: 1s;
+  /*  -webkit-animation-delay: 4.4s;;*/
+  -webkit-animation-fill-mode: both;
+  -moz-animation-name: bounceInDown;
+  -moz-animation-duration: 1s;
+  /*  -webkit-animation-delay: 4.4s;;*/
+  -moz-animation-fill-mode: both;
+}
+
+#game.effects .screen.active {
+  z-index: 500;
+}
+#game.effects .dialog.small.show {
+  -webkit-animation-duration: .6s;
+  -moz-animation-duration: .6s;
+  -ms-animation-duration: .6s;
+  -o-animation-duration: .6s;
+  animation-duration: .6s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease;
+  -webkit-backface-visibility: visible !important;
+  -webkit-animation-name: FlipDialog;
+  -moz-animation-name: FlipDialog;
+  -webkit-transform-origin: center -10px;
+  -moz-transform-origin: center -10px;
+  /*      -webkit-animation-delay: 5.55s;;*/
+}
+
+#game.effects .dialog.big.hide,
+#game.effects .dialog.medium.hide {
+  -webkit-animation-name: bounceOutUp;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-name: bounceOutUp;
+  -moz-animation-duration: 1s;
+  -moz-animation-fill-mode: both;
+}
+
+#game.effects .dialog.small.hide {
+  -webkit-animation-duration: .6s;
+  -moz-animation-duration: .6s;
+  -ms-animation-duration: .6s;
+  -o-animation-duration: .6s;
+  animation-duration: .6s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease;
+  -webkit-backface-visibility: visible !important;
+  -webkit-animation-name: FlipDialogBack;
+  -moz-animation-name: FlipDialogBack;
+  -webkit-transform-origin: center -10px;
+  -moz-transform-origin: center -10px;
+}
+#game.effects #top-bar a {
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+}
+
+#game.effects #top-bar a.settings {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+}
+
+#game.effects #top-bar a.settings:hover {
+  -webkit-transform: translate(-.5px,-1px) rotate(90deg);
+  -moz-transform: translate(-.5px,-1px) rotate(90deg);
+}
+
+#game.effects #game-help-screen .help-text {
+  -webkit-transition: opacity .2s ease;
+  -moz-transition: opacity .2s ease;
+}
+
+#game.effects #game-level-selector .game-level-0,
+#game.effects #game-level-selector .game-level-1,
+#game.effects #game-level-selector .game-level-2 {
+  -webkit-transition: all .6s ease;
+  -moz-transition: all .6s ease;
+}
+
+#game.effects .game-selector-options .correct span,
+#game.effects .game-selector-options .incorrect span {
+  -webkit-animation-name: fadeInScale;
+  -moz-animation-name: fadeInScale;
+  -ms-animation-name: fadeInScale;
+  -o-animation-name: fadeInScale;
+  animation-name: fadeInScale;
+  -webkit-animation-duration: .4s;
+  -moz-animation-duration: .4s;
+  -ms-animation-duration: .4s;
+  -o-animation-duration: .4s;
+  animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* ********************************************************************************
+   ================================================== */
+
+#game.effects {
+  -webkit-perspective: 1400px;
+  -moz-perspective: 1400px;
+  overflow: none;
+}
+
+#game.effects .screens,
+#game.effects .games {
+  -webkit-perspective: 1400px;
+  -moz-perspective: 1400px;
+  overflow: hidden;
+  display: block!important;
+
+}
+#game.effects .screens {
+  -webkit-transform: rotateY(0deg);
+  /*      -webkit-transform-style: preserve-3d;;*/
+  -webkit-backface-visibility: hidden;
+  -moz-transform: rotateY(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .65s ease-in-out;
+  transition: all .8s ease-in-out;
+}
+
+#game.effects .games {
+  z-index: -1000;
+  -webkit-transform: rotateY(-180deg);
+  /*      -webkit-transform-style: preserve-3d;;*/
+  -webkit-backface-visibility: hidden;
+  -moz-transform: rotateY(-180deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .65s ease-in-out;
+  transition: all .8s ease-in-out;
+}
+
+#game.effects.play .screens {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+#game.effects.play .games {
+  z-index: 1000;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+#game.effects #game-lifes.lifes-2 .game-life-3 span,
+#game.effects #game-lifes.lifes-1 .game-life-3 span,
+#game.effects #game-lifes.lifes-1 .game-life-2 span,
+#game.effects #game-lifes.lifes-0 span
+{
+  display: block;
+  -webkit-animation-name: bounceOut;
+  -moz-animation-name: bounceOut;
+  -ms-animation-name: bounceOut;
+  -o-animation-name: bounceOut;
+  animation-name: bounceOut;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+#game.effects #game-fatfingers-letters li.completed b {
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+
+#game.effects #game-flipcards-cards li.selected .back  {
+    -webkit-transition: -webkit-transform .6s ease-in-out;
+    -moz-transition: -moz-transform .6s ease-in-out;
+    -ms-transition: -ms-transform .6s ease-in-out;
+    -o-transition: -o-transform .6s ease-in-out;
+    transition: transform .6s ease-in-out;
+}
+#game.effects #game-flipcards-cards li.selected.incorrect .back  {
+   -webkit-transition: none;
+   -moz-transition: none;
+   -ms-transition: none;
+   -o-transition: none;
+   transition: none;
+}
+#game.effects #game-flipcards-cards li.correct .front,
+#game.effects #game-flipcards-cards li .back   {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+#game.effects #game-flipcards-cards li .front {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+#game.effects #game-flipcards-cards li .front,
+#game.effects #game-flipcards-cards li .back {
+  display: block!important;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .6s ease-in-out, border .4s;
+    -moz-backface-visibility: hidden;
+    -moz-transition: -moz-transform .6s ease-in-out, border .4s;
+    -ms-backface-visibility: hidden;
+    -ms-transition: -ms-transform .6s ease-in-out, border .4s;
+    -o-backface-visibility: hidden;
+    -o-transition: -o-transform .6s ease-in-out, border .4s;
+    backface-visibility: hidden;
+    transition: transform .6s ease-in-out, border .4s;
+}
+
+#game.effects #game-flipcards-cards li.correct .back {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+
+/***********************************
+***********************************/
+
+#game.effects #game-loading-screen span[class*="l-"] {
+  -webkit-animation: loader 4s infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  -webkit-animation-fill-mode: both;
+  -moz-animation: loader 4s infinite;
+  -moz-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  -moz-animation-fill-mode: both;
+  -ms-animation: loader 4s infinite;
+  -ms-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  -ms-animation-fill-mode: both;
+  animation: loader 4s infinite;
+  animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+  animation-fill-mode: both;
+  display: block;
+}
+#game.effects #game-loading-screen .loading-text {
+    text-indent:-10000px;
+}
+#game.effects #game-loading-screen span.l-1 {margin-left:-39px; -webkit-animation-delay: 1s;animation-delay: 1s;-ms-animation-delay: 1s;-moz-animation-delay: 1s;}
+#game.effects #game-loading-screen span.l-2 {margin-left:-26px; -webkit-animation-delay: 0.8s;animation-delay: 0.8s;-ms-animation-delay: 0.8s;-moz-animation-delay: 0.8s;}
+#game.effects #game-loading-screen span.l-3 {margin-left:-13px; -webkit-animation-delay: 0.6s;animation-delay: 0.6s;-ms-animation-delay: 0.6s;-moz-animation-delay: 0.6s;}
+#game.effects #game-loading-screen span.l-4 {margin-left:0; -webkit-animation-delay: 0.4s;animation-delay: 0.4s;-ms-animation-delay: 0.4s;-moz-animation-delay: 0.4s;}
+#game.effects #game-loading-screen span.l-5 {margin-left:13px; -webkit-animation-delay: 0.2s;animation-delay: 0.2s;-ms-animation-delay: 0.2s;-moz-animation-delay: 0.2s;}
+#game.effects #game-loading-screen span.l-6 {margin-left:26px; -webkit-animation-delay: 0;animation-delay: 0;-ms-animation-delay: 0;-moz-animation-delay: 0;}
+
+@-webkit-keyframes loader {
+  0% {-webkit-transform: translateX(-30px); opacity: 0;}
+  25% {opacity: 1;}
+  50% {-webkit-transform: translateX(30px); opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@-moz-keyframes loader {
+  0% {-moz-transform: translateX(-30px); opacity: 0;}
+  25% {opacity: 1;}
+  50% {-moz-transform: translateX(30px); opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@-keyframes loader {
+  0% {-transform: translateX(-30px); opacity: 0;}
+  25% {opacity: 1;}
+  50% {-transform: translateX(30px); opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@-ms-keyframes loader {
+  0% {-ms-transform: translateX(-30px); opacity: 0;}
+  25% {opacity: 1;}
+  50% {-ms-transform: translateX(30px); opacity: 0;}
+  100% {opacity: 0;}
+}

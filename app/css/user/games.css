@@ -1,0 +1,49 @@
+#user-games-choose {
+	position: absolute;
+	bottom:70px;
+	left: 25%;
+}
+#user-games-choose li {
+	background: url(../../img/games/sign.png) no-repeat top left;
+	width: 115px;
+	height: 159px;
+	display: block;
+	position: relative;
+	float: left;
+	margin-right: -36px;
+}
+#user-games-choose a {
+	position: absolute;
+	display: block;
+	font-size: 22px;
+	top:28px;
+	width:100%;
+	font-family: 'Lobster', cursive;
+	line-height:.8;
+   text-shadow:none;
+/*	-webkit-text-fill-color: white;
+   -webkit-text-stroke-width: 3px;
+   -webkit-text-stroke-color: green;
+*/
+   -webkit-transform:rotate(-10deg);
+	
+	color:#9B8066;
+	text-shadow: 0 -1px rgba(0, 0, 0, .5), 0 1px rgba(255, 255, 255, .6);
+
+}
+/*#user-games-choose a:before {
+	content:attr(stroke-text);
+	position:absolute;
+	 -webkit-text-stroke:0;
+	 color:white;
+	top:0;
+	left:0;
+	right: 0;
+}
+*/#user-games-intro {
+	font-family: 'Lobster', cursive;
+	font-size:54px
+}
+#user-games-choose li:nth-child(2n) {
+	top: 60px;
+}

@@ -1,0 +1,100 @@
+/*#top-bar {
+  background:url(../../img/topbar.png) no-repeat;
+  width:835px;
+  height:102px;
+  display: block;
+  position: absolute;
+  z-index:100;
+  text-align:center;
+  top:30px;
+  left:0;
+}
+#game.loaded #top-bar {
+    -webkit-animation-name: fadeInDown;
+      -moz-animation-name: fadeInDown;
+      -ms-animation-name: fadeInDown;
+      -o-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  -ms-animation-duration:.5s;
+  -o-animation-duration:.5s;
+  animation-duration:.5s;
+  -webkit-animation-fill-mode: both;
+     -moz-animation-fill-mode: both;
+      -ms-animation-fill-mode: both;
+       -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 4s;
+}
+#top-bar a {
+  display: block;
+  width:34px;
+  height:34px;
+  position: absolute;
+  text-indent:-10000px;
+  top:43px;
+}
+#top-bar span {
+  display: block;
+  text-shadow:0 -1px 0 rgba(0,0,0,.5);
+  font-family: 'Paytone One', sans-serif;
+  color:white;
+  font-size:35px;
+  margin-top:12px;
+}
+#top-bar a.help {
+  left:64px;
+  background:url(../../img/help.png) no-repeat center center;
+}
+#top-bar a.settings {
+  right:64px;
+  background:url(../../img/settings.png) no-repeat center center;
+}*/
+
+#top-bar {
+  margin:0;
+  background:url(../../img/topbar.png) no-repeat;
+  width:723px;
+  left:50%;
+  margin-left:-361px;
+  height:113px;
+  display: block;
+  position: absolute;
+  z-index:1000;
+  text-align:center;
+  top:14px;
+  text-shadow:0 -1px 0 rgba(0,0,0,.35);
+  
+  color:white;
+  font-size:34px;
+  line-height:1;
+}
+#top-bar a {
+  display: block;
+  width:34px;
+  height:34px;
+  position: absolute;
+  top:48px;
+  color:white;
+  text-decoration:none;
+  opacity: .85;
+  cursor:hand;
+  cursor:pointer;
+}
+#top-bar span {
+  display: block;
+  margin-top:26px;
+}
+#top-bar a:hover {
+  opacity:1;
+}
+#top-bar a.help {
+  left:60px;
+  top:46px;
+}
+#top-bar a.settings {
+  right:60px;
+  text-indent:-10000px;
+  background:url(../../img/settings.png) no-repeat center center;
+}

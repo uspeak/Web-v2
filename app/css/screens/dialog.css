@@ -1,0 +1,56 @@
+.dialog {
+  background:transparent;
+  border:4px solid #fffbe9;
+  display:table;
+  width:400px;
+  padding:10px;
+  border-radius:20px;
+/*  box-shadow:-2px 3px rgba(100,100,100,.1);
+*/
+  box-shadow: 0 4px 12px rgba(100, 100, 100, .25);
+  margin:0 auto;
+  position: relative;
+  z-index:1;
+  margin-top:140px;
+/*  position:absolute;
+  top:125px;
+  left:50%;
+  margin-left:-204px;
+*/
+  background:#f8ebd2;
+  text-align:center;
+  color:gray;
+  font-size:18px;
+  display: none;
+}
+.dialog.big {
+  width:540px;
+/*  margin-left:-274px;
+*/
+}
+.dialog.small {
+  margin-top:16px;
+  width:300px;
+  background: -webkit-linear-gradient(top, #faefda, #f8ebd2);
+  background: -moz-linear-gradient(top, #faefda, #f8ebd2);
+  background: -ms-linear-gradient(top, #faefda, #f8ebd2);
+  background: -o-linear-gradient(top, #faefda, #f8ebd2);
+  background: linear-gradient(top, #faefda, #f8ebd2);
+}
+.dialog.medium {
+  width:420px;
+}
+.dialog.big, .dialog.medium {
+  background: -webkit-linear-gradient(top, #faf1de, #f9eed8);
+  background: -moz-linear-gradient(top, #faf1de, #f9eed8);
+  background: -ms-linear-gradient(top, #faf1de, #f9eed8);
+  background: -o-linear-gradient(top, #faf1de, #f9eed8);
+  background: linear-gradient(top, #faf1de, #f9eed8);
+}
+.dialog.show,
+.dialog.hide {
+  display: table;
+}
+.dialog h2 {
+  margin:.4em 0 .6em;
+}
