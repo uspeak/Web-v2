@@ -8,7 +8,8 @@ define([
 	, 'controllers/games/FatfingersController' // Main Application Controller - contains routing logic
 	, 'controllers/games/FlipcardsController' // Main Application Controller - contains routing logic
 	, 'controllers/games/YayornayController' // Main Application Controller - contains routing logic
-], function (Console, app, selectGeneric, fatfingers, flipcards, yayornay){
+	, 'controllers/games/BraintickleController' // Main Application Controller - contains routing logic
+], function (Console, app, selectGeneric, fatfingers, flipcards, yayornay, braintickle){
 	"use strict";
 	Console.group("Entering controllers module.");
 	Console.info("AppController", app);
@@ -23,7 +24,8 @@ define([
 		  controller('Game-association', selectGeneric).
 		  controller('Game-fatfingers', fatfingers).
 		  controller('Game-flipcards', flipcards).
-		  controller('Game-yayornay', yayornay)
+		  controller('Game-yayornay', yayornay).
+		  controller('Game-braintickle', braintickle)
 		;
 		Console.debug("Custom controllers initialized.");
 	}

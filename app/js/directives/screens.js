@@ -20,9 +20,9 @@ define([
                 trees_front = $('#game-background .trees-front');
             trees_back.css('background-position-x',direction+'=200px')
             trees_front.css('background-position-x',direction+'=500px');
-            if ($scope.effects) {
+            if ($scope.$root.effects) {
               var x = to=='left'?1000:-1000;
-              var time = 1500;
+              var time = 1800;
               var easing = 'cubic-bezier(0.530, 0.180, 0.425, 0.860)';
               screens[prev].element.removeClass('effects').children(':not(.dialog)').css({transformOrigin: 'bottom center'}).transit({x:x,opacity:.5,scale:.8},time,easing);
               screens[next].element.addClass('effects').children(':not(.dialog)').css({x:-x,opacity:.5,scale:.8,transformOrigin: 'bottom center'}).transit({x:0,opacity:1,scale:1},time,easing);
@@ -92,7 +92,7 @@ define([
                 $scope.goScreen(name);
               });
               // Console.log('******************************************',$scope.$root.effects, $scope.effects)
-              if (!$scope.effects) $("#top-bar").trigger('animationend');
+              if (!$scope.$root.effects) $("#top-bar").trigger('animationend');
             }
           }
         },

@@ -6,18 +6,23 @@ define([
   , 'controllers/games/SelectGenericController'
 ], function (Console, $, _, SelectGenericController) {
   "use strict";
-  Console.group("Entering YayornayController module.");
+  Console.group("Entering BraintickleController module.");
     var controller = function($scope, $injector) {
       $injector.invoke(SelectGenericController, this, {$scope: $scope});
       var $this = this;
+
       this.total_options = 2;
       this.goRound = function(round) {
         var data_round = $this.data.W[round];
         var sound_id = $this.hash_sound.format(data_round.w);
         $this.playAudio(sound_id);
         Console.info('Data round',data_round)
+        $this.scope.first = round==0;
+
         $this.scope.word = data_round.w;
-        $this.scope.correct = data_round.m
+        $this.scope.lastType = $this.scope.type;
+        $this.scope.type = data_round.m;
+        $this.scope.correct = $this.scope.lastType==$this.scope.type;
         $this.scope.clicked = {};
         $this.scope.$apply();
       };

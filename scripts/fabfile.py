@@ -5,7 +5,7 @@ from fabric.contrib.project import rsync_project
 def sync():
     gitignore = file('../.gitignore')
     excludes = [line.strip() for line in gitignore.readlines()]
-    excludes.append('../.git/*')
+    excludes.append('.git/*')
     rsync_project("/home/uspeak/games/testapp", "../",exclude=excludes)
     #restart()
 

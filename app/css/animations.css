@@ -341,11 +341,11 @@
 
 #game.effects #game-background .trees-front,
 #game.effects #game-background .trees-back {
--webkit-transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
-   -moz-transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
-    -ms-transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
-     -o-transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
-        transition: background-position 1500ms cubic-bezier(0.530, 0.180, 0.425, 0.860); /* custom */
+-webkit-transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+   -moz-transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+    -ms-transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+     -o-transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+        transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); /* custom */
 }
 #game.loaded.effects #game-background .sun {
   -webkit-animation: fadeIn 3s ease-in, sun-rotation 340s infinite linear;
@@ -399,6 +399,13 @@
   -moz-animation-fill-mode: both;
 }
 
+#game.effects .button {
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
 #game.effects .screen.active {
   z-index: 500;
 }

@@ -105,7 +105,7 @@ define([
       this.startData(_data);
       this.isDiagnostic = diagnostic;
       this.start();
-      this.scope.$root.round = DEBUG?this.totalRounds()-4:0;
+      this.scope.$root.round = 0; //DEBUG?this.totalRounds()-4:0;
       this.scope.$root.total_rounds = this.totalRounds();
       this.scope.$root.$digest();
       if (_onFinish) this._onFinish = _onFinish;

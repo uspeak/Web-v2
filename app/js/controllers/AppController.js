@@ -39,6 +39,7 @@ define([
         $scope.support =  {
           effects: Modernizr.cssanimations && Modernizr.csstransitions
         }
+        $scope.$root.effects = EFFECTS && $scope.support.effects;
         Console.info('Support', $scope.support);
         $scope.showHelp = function() {
           gamehelpscreen.click(function() {
