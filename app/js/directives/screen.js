@@ -2,7 +2,9 @@ define(['Console','jQuery','Underscore'], function (Console,$,_) {
     "use strict";
     Console.group("Entering screen directive module.");
 
-    var directive = function() {
+    var directive = function($compile,$controller) {
+      var template = '<div class="screen" ng-class="{active:active}" nga-controller="Screen-{0}">' + /* ng-controller="prueba" */
+          '</div>';
       return {
         require: '^screens',
         restrict: 'E',
@@ -38,13 +40,27 @@ define(['Console','jQuery','Underscore'], function (Console,$,_) {
             if (dialog) {
               var elem = $(dialog.element);
               Console.info('{0} dialog '.format(show?'Showing':'Hiding'),index,dialog,elem,$scope);
-              dialog.scope.show = show;
-              dialog.scope.hide = !show;
-              elem.one('animationend webkitAnimationEnd oanimationend MSAnimationEnd',function() {
+              // dialog.scope.show = show;
+              // dialog.scope.hide = !show;
+              var dialog_element = $(dialog.element);
+              if ($scope.$root.effects) {
+                var animation;
+                if (index==1) animation = show?'bounceInDown':'bounceOutUp';
+                else animation = show?'FlipDialog':'FlipDialogBack'
+                if (show) dialog_element.addClass('show');
+                // if (show && index==1) dialog_element.css({trand:-2000})
+                dialog_element.keyframe(animation, (index>1)?600:1000, function() {
+                  if (!show) dialog_element.removeClass('show');
+                  // else  dialog_element.css({y:0})
+                  recursiveDialog(index+next,show,onfinish);
+                });
+              }
+              else {
+                if (show) $(dialog.element).addClass('show');
+                else $(dialog.element).removeClass('show');
                 recursiveDialog(index+next,show,onfinish);
-              })
-              if (!$scope.$root.effects) elem.trigger('animationend');
-              dialog.scope.$apply();
+              }
+              // dialog.scope.$apply();
             }
             else onfinish(index-next);
           }
@@ -69,6 +85,21 @@ define(['Console','jQuery','Underscore'], function (Console,$,_) {
             });
           }
         },
+        // compile:function (tElement, tAttrs, transclude) {
+        //   var self = this;
+        //   var transclude = tElement.contents();
+        //   var new_html = angular.element(template.format(tAttrs['screenId']));
+        //   new_html.append(transclude);
+        //   $controller(self.controller);
+        //   return function (scope, element, attrs, screensCtrl) {
+        //       element.replaceWith(new_html)
+        //       $compile(new_html)(scope);
+              
+        //       screensCtrl.addScreen(scope, new_html, attrs);
+        //       self.controller(scope, new_html, attrs);
+        //   }
+        // },
+        // replace: true
         link: function(scope, element, attrs, screensCtrl) {
           screensCtrl.addScreen(scope,element,attrs)
         },

@@ -89,6 +89,9 @@ define([
               });
             });
           }
+          $scope.$parent.gameDescription = function(name) {
+            return games[name].attrs.gameDescription;
+          }
           this.addGame = function (scope, element, attrs) {
             var name = attrs.gameId;
             var controller = element.controller();

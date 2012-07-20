@@ -57,9 +57,14 @@ dialog, game, games, screen, screens {
 #game.loaded #game-loader {
   display: none;
 }
-h1,h2,h3,h4,h5,h6, .sign-right,.sign-left {
+h1,h2,h3,h4,h5,h6, .sign-right,.sign-left,strong {
   font-family: 'Paytone One', sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
   font-size:1.2em;
+}
+strong {
+  display: block;
 }
 p {
   margin:.5em 0;
@@ -116,6 +121,7 @@ img.typekit-badge {
   margin:15px auto 5px;
   background:#f17b21 url(../img/grid_button_background.png);
   background-image: -webkit-linear-gradient(top, #f09322 , rgb(241,123,33));
+  background-image: -moz-linear-gradient(top, #f09322 , rgb(241,123,33));
   border: 3px solid #FDBD23;
   position: relative;
   border-radius: 23px;
@@ -123,6 +129,7 @@ img.typekit-badge {
 }
 .button:not(.disabled):hover {
   background-image: -webkit-linear-gradient(top, #f0a652 , #f09322);
+  background-image: -moz-linear-gradient(top, #f0a652 , #f09322);
 /*  box-shadow: 0 0px 2px rgba(0, 0, 0, .1) inset, 0 0px 1px rgba(0, 0, 0, 0);
 */  
 /*  -webkit-transform:scale(1.04);
@@ -137,6 +144,7 @@ img.typekit-badge {
 */ 
   border-color:rgb(201,98,24);
   background-image: -webkit-linear-gradient(top, rgb(201,98,24), rgb(227,111,28));
+  background-image: -moz-linear-gradient(top, rgb(201,98,24), rgb(227,111,28));
   color:#F6F6F6;
 /*  box-shadow: 0 3px 20px rgba(0, 0, 0, .05) inset, 0 -1px 1px rgba(0, 0, 0, .45);
 */  text-shadow:0 -1px 0 rgba(0,0,0,.5);
@@ -156,6 +164,7 @@ img.typekit-badge {
 */
 .button-yes, .button-no {
   background-image: -webkit-linear-gradient(top, #AAA , #999);
+  background-image: -moz-linear-gradient(top, #AAA , #999);
   border-color:#bcbcbc;
 }
 .button-yes:before, .button-no:before {

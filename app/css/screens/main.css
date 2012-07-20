@@ -61,7 +61,9 @@
 	margin-left:-50px;
 }
 */
-
+.screen {
+	padding-top: 120px;
+}
 .screen.active {
 	display: block;
 }
@@ -114,15 +116,19 @@ a.sign-left {
 	margin-bottom: 10px;
 	background: url(../../img/sign_left.png) no-repeat left top;
 }
-
-#game-level-selector {
+.selector {
+	position: relative;
+}
+.selector-choices {
 	border-radius:16px;
 	background:#fffbe8;
 	overflow: hidden;
 	margin:6px;
-	height:92px;
 	display: block;
 	position: relative;
+}
+#game-level-selector{
+	height:92px;
 }
 #game-level-selector h4 {
 	color:#64b8d4;
@@ -150,22 +156,23 @@ a.sign-left {
 	left:-100%;
 	opacity:0;
 }
-a.level-prev,
-a.level-next {
+.selector a.go-prev,
+.selector a.go-next {
 	z-index: 100;
-	top: 40px;
+	top: 50%;
+	margin-top:-19px;
 	display: block;
 	position: absolute;
 	text-indent:-10000px;
 	width:43px;
 	height:38px;
 }
-a.level-prev {
-	left: -12px;
+.selector a.go-prev {
+	left: -22px;
 	background:url(../../img/level_prev.png);
 }
-a.level-next {
-	right: -12px;
+.selector a.go-next {
+	right: -22px;
 	background:url(../../img/level_next.png);
 }
 /*.stick-medium a.sign-right {

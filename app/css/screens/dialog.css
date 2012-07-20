@@ -11,7 +11,7 @@
   margin:0 auto;
   position: relative;
   z-index:1;
-  margin-top:140px;
+  margin-top:18px; /*16px*/
 /*  position:absolute;
   top:125px;
   left:50%;
@@ -22,14 +22,13 @@
   color:gray;
   font-size:18px;
   display: none;
+  -webkit-transform-origin: center -10px;
+  -moz-transform-origin: center -10px;
 }
 .dialog.big {
   width:540px;
-/*  margin-left:-274px;
-*/
 }
 .dialog.small {
-  margin-top:16px;
   width:300px;
   background: -webkit-linear-gradient(top, #faefda, #f8ebd2);
   background: -moz-linear-gradient(top, #faefda, #f8ebd2);
@@ -47,8 +46,7 @@
   background: -o-linear-gradient(top, #faf1de, #f9eed8);
   background: linear-gradient(top, #faf1de, #f9eed8);
 }
-.dialog.show,
-.dialog.hide {
+.dialog.show {
   display: table;
 }
 .dialog h2 {

@@ -341,11 +341,11 @@
 
 #game.effects #game-background .trees-front,
 #game.effects #game-background .trees-back {
--webkit-transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
-   -moz-transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
-    -ms-transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
-     -o-transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
-        transition: background-position 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); /* custom */
+-webkit-transition: all 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+   -moz-transition: all 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+    -ms-transition: all 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+     -o-transition: all 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); 
+        transition: all 1800ms cubic-bezier(0.530, 0.180, 0.425, 0.860); /* custom */
 }
 #game.loaded.effects #game-background .sun {
   -webkit-animation: fadeIn 3s ease-in, sun-rotation 340s infinite linear;
@@ -387,18 +387,16 @@
   -moz-animation: clouds 90s infinite ease;
 }
 
-#game.effects .dialog.big.show,
+/*#game.effects .dialog.big.show,
 #game.effects .dialog.medium.show {
   -webkit-animation-name: bounceInDown;
   -webkit-animation-duration: 1s;
-  /*  -webkit-animation-delay: 4.4s;;*/
   -webkit-animation-fill-mode: both;
   -moz-animation-name: bounceInDown;
   -moz-animation-duration: 1s;
-  /*  -webkit-animation-delay: 4.4s;;*/
   -moz-animation-fill-mode: both;
 }
-
+*/
 #game.effects .button {
   -webkit-transition: all .2s;
   -moz-transition: all .2s;
@@ -409,7 +407,7 @@
 #game.effects .screen.active {
   z-index: 500;
 }
-#game.effects .dialog.small.show {
+/*#game.effects .dialog.small.show {
   -webkit-animation-duration: .6s;
   -moz-animation-duration: .6s;
   -ms-animation-duration: .6s;
@@ -426,7 +424,6 @@
   -moz-animation-name: FlipDialog;
   -webkit-transform-origin: center -10px;
   -moz-transform-origin: center -10px;
-  /*      -webkit-animation-delay: 5.55s;;*/
 }
 
 #game.effects .dialog.big.hide,
@@ -456,22 +453,22 @@
   -moz-animation-name: FlipDialogBack;
   -webkit-transform-origin: center -10px;
   -moz-transform-origin: center -10px;
-}
+}*/
 #game.effects #top-bar a {
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
+  -webkit-transition: all 150ms ease;
+  -moz-transition: all 150ms ease;
 }
 
-#game.effects #top-bar a.settings {
+/*#game.effects #top-bar a.settings {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
 }
 
 #game.effects #top-bar a.settings:hover {
-  -webkit-transform: translate(-.5px,-1px) rotate(90deg);
-  -moz-transform: translate(-.5px,-1px) rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
 }
-
+*/
 #game.effects #game-help-screen .help-text {
   -webkit-transition: opacity .2s ease;
   -moz-transition: opacity .2s ease;
@@ -708,4 +705,8 @@
   25% {opacity: 1;}
   50% {-ms-transform: translateX(30px); opacity: 0;}
   100% {opacity: 0;}
+}
+#game.effects #user-games-selector>* {
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
 }

@@ -12,7 +12,7 @@ define(['Console'], function (Console) {
           screenCtrl.addDialog(scope,element,attrs);
         },
         template:
-          '<div class="dialog" ng-class="{show: show,hide:hide}" ng-transclude>' +
+          '<div class="dialog" ng-transclude>' +
           '</div>',
         replace: true
       };

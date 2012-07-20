@@ -66,7 +66,8 @@
   <script>
     DEBUG = true;
     DEBUG = DEBUG && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = !DEBUG;
+    EFFECTS = true || !DEBUG;
+    LANG_DIR = 2; //2 aprender inglés, 1 español
   </script>
 </head>
 
@@ -107,26 +108,26 @@
         <div class="cloud-1 js-plaxify" data-xrange="4" data-yrange="4" data-invert="true"></div>
         <div class="cloud-2 js-plaxify" data-xrange="2" data-yrange="2" data-invert="true"></div>
       </div>
-      <h1 id="top-bar"><a class="help" data-help="Ayuda" data-help-position="bl" ng-click="showHelp()">?</a><span>{{title}}</span><a class="settings" data-help="Ajustes" data-help-position="br" ng-click="toggleSettings()">ajustes</a></h1>
-      <screen title="Home" screen-id="home" screen-init>
-        <dialog class="big animate1-2">
+      <h1 id="top-bar"><a class="help" data-help="Ayuda" data-help-position="bl" ng-click="showHelp()">?</a><span>{{title}}</span><a class="settings" data-help="Ajustes" data-help-position="br" ng-click="toggleSettings()"><i class="icon-cog"></i></a></h1>
+      <screen title="Home" screen-id="home">
+        <dialog class="big">
           <p>Un viaje de mil kilometros empieza con el primer paso.</p>
           <p class="chinese-welcome">千里之行，始于足下!</p>
           <p>A thousand-mile journey begins with the first step.</p>
         </dialog>
-        <dialog class="small animate2-2">
+        <dialog class="small">
           <p>¿Ya estás aprendiendo con uSpeak?</p>
             <a href="" class="button button-yes" ng-click="goScreen('user-login')" data-help="Si" data-help-position="lb">Yes</a>
             <a href="" class="button button-no" ng-click="goScreen('diagnostic-pre')" data-help="No" data-help-position="rt">No</a>
         </dialog>
       </screen>
       <screen title="Welcome back" screen-id="user-login">
-        <dialog class="big animate1-2">
+        <dialog class="big">
           <h2 data-help="Título">Welcome</h2>
           <p>Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas. Por eso creamos uSpeak.</p>
           <p>¡Esperamos que lo disfrutes!</p>
         </dialog>
-        <dialog class="small animate2-2">
+        <dialog class="small">
           <form>
             <input type="text" name="email" placeholder="email" ng-model="login_name" />
             <input type="password" name="password" placeholder="contraseña" ng-model="login_pass" />
@@ -134,21 +135,37 @@
           </form>
         </dialog>
       </screen>
-      <screen title="Welcome back" screen-id="user-home">
-        <dialog class="big animate1-2">
+      <screen title="Welcome back" screen-id="user-home" screen-init>
+        <dialog class="big">
           <h2>Bienvenido!</h2>
           <p>Hoy hace un día precioso, disfrútalo.</p>
         </dialog>
         <div class="stick-big">
-          <a href="" class="sign-right" data-help="Juegos" data-help-position="lb" ng-click="goScreen('user-games')">Games</a>
+          <a href="" class="sign-right" data-help="Juegos" data-help-position="lb" ng-click="goGames()">Games</a>
         </div>
       </screen>
       <screen title="Games" screen-id="user-games">
-        <dialog class="big animate1-2"> <!--  dialog-index="1" -->
-          <div ng-show="!userGameChoosed">
+        <dialog class="medium" id="user-games-main"> <!--  dialog-index="1" -->
+          <div ng-show="auserGameChoosed">
             <h2 id="user-games-intro">Elige un juego a continuación!</h2>
           </div>
+          <div ng-repeat="game in gameList" ng-show="$index==-gameIndex">
+            <img src="img/games/{{game.type}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.type)}}</p>
+            <strong>Rounds: {{game.wcount}}</strong>
+            <strong>Time: {{game.seconds}} secs</strong>
+            <a href="" class="button" ng-click="playGame(game.type)">Play now!</a>
+          </div>
         </dialog>
+        <dialog class="medium">
+          <div class="selector">
+            <a class="go-prev" ng-click="$parent.gameIndex = $parent.gameIndex+1">Prev</a>
+            <a class="go-next" ng-click="$parent.gameIndex = $parent.gameIndex-1">Next</a>
+            <div id="user-games-selector" class="selector-choices">
+              <img ng-repeat="game in gameList" ng-src="img/games/{{game.type}}/logo_text.png" class="position-{{gameIndex+1+$index}}" ng-click="$parent.$parent.gameIndex=-$index"/>
+            </div>
+          </div>
+        </dialog>
+<!--
         <ul id="user-games-choose">
           <li><a href="" stroke-text="Association game" ng-click="playGame('association');">Association game</a></li>
           <li><a href="" stroke-text="Fat fingers" ng-click="playGame('fatfingers');">Fat fingers</a></li>
@@ -157,9 +174,10 @@
           <li><a href="" stroke-text="Flip Cards" ng-click="playGame('yayornay');">Yay or nay</a></li>
           <li><a href="" stroke-text="Flip Cards" ng-click="playGame('braintickle');">Braintickle</a></li>
         </ul>
+ -->      
       </screen>
       <screen title="Home" screen-id="diagnostic-pre">
-        <dialog class="big animate1-1">
+        <dialog class="big">
           <h2 data-help="Título">Welcome</h2>
           <p>Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas. Por eso creamos uSpeak.</p>
           <p>¡Esperamos que lo disfrutes!</p>
@@ -169,33 +187,35 @@
         </div>
       </screen>
       <screen title="Games" screen-id="diagnostic-games">
-        <dialog class="big animate1-2">
+        <dialog class="big">
           <h2>Aquí es donde comienza la magia</h2>
           <p>Vamos a jugar a algunos juegos para definir tu punto de partida, pero primero necesitamos saber tu nivel.</p>
           <p>¿Qué tal tu inglés?</p>
         </dialog>
-        <dialog class="small animate2-2">
-          <a class="level-prev" ng-click="diagnostic.level= (3+diagnostic.level-1)%3;">Prev</a>
-          <a class="level-next" ng-click="diagnostic.level= (3+diagnostic.level+1)%3;">Next</a>
-          <div id="game-level-selector" data-help="Elije la opción que mejor se adapte a tu nivel" data-help-position="tr" ng-class="'level-'+diagnostic.level" >
-            <div class="game-level-0">
-              <h4>Nothing</h4>
-              <blockquote>Soy un principiante total</blockquote>
-            </div>
-            <div class="game-level-1">
-              <h4>A little</h4>
-              <blockquote>Tengo un vocabulario basico</blockquote>
-            </div>
-            <div class="game-level-2">
-              <h4>A lot</h4>
-              <blockquote>Me expreso libremente</blockquote>
+        <dialog class="small">
+          <div class="selector">
+            <a class="go-prev" ng-click="diagnostic.level= (3+diagnostic.level-1)%3;">Prev</a>
+            <a class="go-next" ng-click="diagnostic.level= (3+diagnostic.level+1)%3;">Next</a>
+            <div id="game-level-selector" data-help="Elije la opción que mejor se adapte a tu nivel" data-help-position="tr" class="selector-choices level-{{diagnostic.level}}" >
+              <div class="game-level-0">
+                <h4>Nothing</h4>
+                <blockquote>Soy un principiante total</blockquote>
+              </div>
+              <div class="game-level-1">
+                <h4>A little</h4>
+                <blockquote>Tengo un vocabulario basico</blockquote>
+              </div>
+              <div class="game-level-2">
+                <h4>A lot</h4>
+                <blockquote>Me expreso libremente</blockquote>
+              </div>
             </div>
           </div>
           <a href="" class="button" ng-click="loadDiagnostic()">¡vamos!</a> <!-- ng-click="goScreen('games-pre')"  -->
         </dialog>
       </screen>
       <screen title="Games" screen-id="diagnostic-games-intro">  <!-- screen-init -->
-        <dialog class="big animate1-2">
+        <dialog class="big">
             <div ng-show="diagnostic.gameIndex==0">
               <h2>Que comience el juego</h2>
               <p>Tómate tu tiempo y cuida tus vidas - solo tienes tres.</p>
@@ -206,8 +226,8 @@
               <p>Ahora vamos a agregar algunos distractores más para no perder el ritmo.</p>
             </div>
         </dialog>
-        <dialog class="small animate2-2">
-          <span ng-class="'game-logo-'+diagnostic.game().type">{{diagnostic.gameTitle()}}{{diagnostic.game()}}</span>
+        <dialog class="small">
+          <span class="game-logo-{{diagnostic.game().type}}">{{diagnostic.gameTitle()}}{{diagnostic.game()}}</span>
           <p ng-show="diagnostic.game().type=='whichone'">Verás que fácil ¡es pan comido!<br>¿Cuál es la opción correcta?</p>
           <p ng-show="diagnostic.game().type=='association'">Descarta los distractores.<br>Elige la opción correcta.</p>
           <p ng-show="diagnostic.game().type=='fatfingers'">Toca las letras en el orden correcto y escribe la respuesta.</p>
@@ -215,7 +235,7 @@
         </dialog>
       </screen>
       <screen title="Games" screen-id="diagnostic-register">  <!-- screen-init -->
-        <dialog class="big animate1-2">
+        <dialog class="big">
           <h2>¡Felicidades!</h2>
           <p>
             Ya hemos creado tu mapa de lenguaje.
@@ -224,7 +244,7 @@
           </p>
           <p>¡Ahora viene la parte interesante!</p>
         </dialog>
-        <dialog class="small animate2-2">
+        <dialog class="small">
           <form id="user-register">
             <div class="error-messages">
               <span data-error="442" data-error-field="email">Email inválido</span>
@@ -242,7 +262,7 @@
         </dialog>
       </screen>
       <screen title="Settings" screen-id="settings" id="game-screen-settings">
-        <dialog class="medium animate1-1">
+        <dialog class="medium">
           <fieldset>
             <legend>Sonido</legend>
             <p>
@@ -276,32 +296,32 @@
         <div id="game-clock" data-help="Clock" data-help-position="br"></div>
         <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{total_rounds}}</b></div>
         <h1>{{title}}</h1>
-        <ul id="game-lifes" ng-show="diagnostic.lifes!=false" ng-class="'lifes-'+diagnostic.lifes" data-help="Vidas" data-help-position="bl">
+        <ul id="game-lifes" ng-show="diagnostic.lifes!=false" class="lifes-{{diagnostic.lifes}}" data-help="Vidas" data-help-position="bl">
           <li class="game-life-{{life}}" ng-repeat="life in [1,2,3]"><span>Life</span></li>
         </ul>
         <div id="game-points" data-help="Puntos" data-help-position="bl">Points:<b>{{points}}</b></div>
       </div>
-      <game game-id="whichone" game-title="Which one">
+      <game game-id="whichone" game-title="Which one" game-description="Super simple, which one is correct?">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
         <ul id="game-whichone-notes" class="game-selector-options">
           <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> <!-- note-{{$index+1}} -->
         </ul>
       </game>
-      <game game-id="flipcards" game-title="Flip cards">  <!-- ng-init="active=true;" -->
+      <game game-id="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Match the Spanish word and it's English translation</span>
-        <ul id="game-flipcards-cards" ng-class="'items-'+cards.length">
+        <ul id="game-flipcards-cards" class="items-{{cards.length}}">
           <li ng-repeat="card in cards" ng-click="selectCard()" ng-class="{selected:card.selected, correct:card.selected && card.correct, incorrect:card.selected && card.correct != undefined && !card.correct}"><span class="front"></span><span class="back">{{card.word||card.translation}}</span></li> <!-- note-{{$index+1}} -->
         </ul>
       </game>
-      <game game-id="association" game-title="Association">
+      <game game-id="association" game-title="Association" game-description="Descripción association">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
         <ul id="game-association-notes" class="game-selector-options">
           <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> 
         </ul>
       </game>
-      <game game-id="yayornay" game-title="Yay or Nay">
+      <game game-id="yayornay" game-title="Yay or Nay" game-description="Descripción yayornay">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Es peluda?</span>
         <ul id="game-yayornay-notes" class="game-selector-options">
@@ -309,7 +329,7 @@
           <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
         </ul>
       </game>
-      <game game-id="braintickle" game-title="Brain Tickle">
+      <game game-id="braintickle" game-title="Brain Tickle" game-description="Descripción braintickle">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" ng-show="first">Esta palabra existía hace 500 años?</span>
         <span class="game-main-help" ng-hide="first">Esta palabra está en el mismo género que la anterior "Existía hace 500 años"?</span>
@@ -318,7 +338,7 @@
           <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
         </ul>
       </game>
-      <game game-id="fatfingers" game-title="Fat Fingers">  <!-- ng-init="active=true; word='dsa';translation=['a','s','d']; translation_shuffled=['a','s','d'];" -->
+      <game game-id="fatfingers" game-title="Fat Fingers" game-description="Descripción fatfingers">  <!-- ng-init="active=true; word='dsa';translation=['a','s','d']; translation_shuffled=['a','s','d'];" -->
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="Haz click en las letras en el orden correcto" data-help-position="br">Tap the letters in the correct order</span>
 

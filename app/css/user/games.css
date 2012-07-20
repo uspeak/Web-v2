@@ -44,6 +44,87 @@
 	font-family: 'Lobster', cursive;
 	font-size:54px
 }
+#user-games-main {
+	height: 210px;
+	overflow: hidden;
+}
 #user-games-choose li:nth-child(2n) {
 	top: 60px;
 }
+.user-games-mainlogo {
+	float: left;
+	margin:10px;
+}
+#user-games-selector {
+	height:100px;
+-webkit-perspective: 600;
+-moz-perspective: 600;
+}
+/*,csstransforms3d*/
+#user-games-selector>* {
+	position: absolute;
+	left:50%;
+	top:18px;
+	margin-left:-60px;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	display: none;
+}
+#user-games-selector .position--1 {
+opacity: 0;
+-webkit-transform:  translateX(-250px) translateZ(-100px) rotateY(70deg);
+-moz-transform:  translateX(-250px) translateZ(-100px) rotateY(70deg);
+}
+#user-games-selector .position-0 {
+opacity: .3;
+-webkit-transform:  translateX(-130px) translateZ(-80px) rotateY(60deg);
+-moz-transform:  translateX(-130px) translateZ(-80px) rotateY(60deg);
+}
+#user-games-selector .position-1 {
+opacity: 1;
+}
+#user-games-selector .position-2 {
+opacity: .3;
+-webkit-transform:  translateX(130px) translateZ(-80px) rotateY(-60deg);
+-moz-transform:  translateX(130px) translateZ(-80px) rotateY(-60deg);
+}
+#user-games-selector .position-3 {
+opacity: 0;
+-webkit-transform:  translateX(250px) translateZ(-100px) rotateY(-70deg);
+-moz-transform:  translateX(250px) translateZ(-100px) rotateY(-70deg);
+}
+#user-games-selector .position--1,
+#user-games-selector .position-0,
+#user-games-selector .position-1,
+#user-games-selector .position-2,
+#user-games-selector .position-3 {
+	display: block;
+}
+/*#user-games-selector .position--1,
+#user-games-selector .position--2,
+#user-games-selector .position--3,
+#user-games-selector .position--4 {
+opacity: 0;
+-webkit-transform:  translateX(-250px) translateZ(-90px) rotateY(80deg);
+}
+#user-games-selector .position-0 {
+opacity: .2;
+-webkit-transform:  translateX(-170px) translateZ(-70px) rotateY(70deg);
+}
+#user-games-selector .position-1 {
+opacity: .5;
+-webkit-transform:  translateX(-100px) translateZ(-70px) rotateY(70deg);
+}
+#user-games-selector .position-3 {
+opacity: .5;
+-webkit-transform:  translateX(100px) translateZ(-70px) rotateY(-70deg);
+}
+#user-games-selector .position-4 {
+opacity: .2;
+-webkit-transform:  translateX(170px) translateZ(-70px) rotateY(-70deg);
+}
+#user-games-selector .position-5,
+#user-games-selector .position-6 {
+opacity: 0;
+-webkit-transform:  translateX(250px) translateZ(-90px) rotateY(-80deg);
+}*/

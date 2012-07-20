@@ -67,16 +67,17 @@
 	background:url(../../img/background/trees-back.png) repeat-x 0 0;
 	bottom:100%;
 	left:0;
-	right:0;
-	-webkit-filter: blur(1px);
-	opacity: .78;
+	width:10000px;
+	margin-bottom:-1px;
+/*	-webkit-filter: blur(1px);
+	opacity: .78;*/
 }
 #game-background .trees-front {
 	height:133px;
 	background:url(../../img/background/trees-front.png) repeat-x 0 0;
 	bottom:80%;
 	left:0;
-	right:0;
+	width:10000px;
 }
 
 /*#game-background .tree-1 {

@@ -7,7 +7,7 @@ define([
 	"use strict";
 	Console.group("Entering AppController module.");
 
-    var controller = function($scope, DiagnosticWordsService, user, games) {
+    var controller = function($scope, DiagnosticWordsService, GamesService, user, games) {
     	Console.group("AppController entered");
         var gamehelpscreen = $('#game-help-screen'),
           game = $('#game'),
@@ -77,17 +77,32 @@ define([
         $scope.loadDiagnostic = function() {
           Console.group("Diagnostic");
           $scope.diagnostic.lifes = 3;
-          var diagnostic_data = {lang_dir:2,profile:$scope.diagnostic.level+1};
+          var diagnostic_data = {lang_dir:LANG_DIR,profile:$scope.diagnostic.level+1}; 
           Console.info("Loading: ", diagnostic_data);
           game.addClass('loading');
           DiagnosticWordsService.get(diagnostic_data,function(response) {
+            game.removeClass('loading');
             diagnosticWords = response;
             Console.info("Data loaded: ", response);
             Console.groupEnd();
             $scope.goScreen('diagnostic-games-intro');
-            game.removeClass('loading');
           });
         }
+        $scope.goGames = function() {
+          Console.group("User games");
+          
+          game.addClass('loading');
+          Console.info("Loading");
+          GamesService.get({lang_dir:LANG_DIR},function(response) {
+            game.removeClass('loading');
+            Console.info("Data loaded: ", response);
+            Console.groupEnd();
+            $scope.gameList  = _.map(response,function(game) {game.Game.type = games.id(parseInt(game.Game.id)).type; return game.Game});
+            $scope.gameIndex = 0;
+            $scope.$apply();
+            $scope.goScreen('user-games');
+          });
+        };
         $scope.register = function () {
           var $this = this;
           var form = $('#user-register');
@@ -100,7 +115,7 @@ define([
             password:this.user_pass||"",
             email:this.user_email||"",
             profile: 3,
-            lang_dir: 2,
+            lang_dir: LANG_DIR,
             points: 1000
           },{
             success: function(data) {
@@ -130,7 +145,7 @@ define([
           });
         };
       };
-    controller.$inject = ['$scope','DiagnosticWordsService','user','games'];
+    controller.$inject = ['$scope','DiagnosticWordsService','GamesService','user','games'];
 	//controller.$eager = true;
 
 	Console.groupEnd();

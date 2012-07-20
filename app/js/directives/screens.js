@@ -18,14 +18,18 @@ define([
             var direction = to=='left'?'+':'-';
             var trees_back = $('#game-background .trees-back'),
                 trees_front = $('#game-background .trees-front');
-            trees_back.css('background-position-x',direction+'=200px')
-            trees_front.css('background-position-x',direction+'=500px');
+            trees_back.css('x',direction+'=200px')
+            trees_front.css('x',direction+'=500px');
             if ($scope.$root.effects) {
               var x = to=='left'?1000:-1000;
               var time = 1800;
               var easing = 'cubic-bezier(0.530, 0.180, 0.425, 0.860)';
-              screens[prev].element.removeClass('effects').children(':not(.dialog)').css({transformOrigin: 'bottom center'}).transit({x:x,opacity:.5,scale:.8},time,easing);
-              screens[next].element.addClass('effects').children(':not(.dialog)').css({x:-x,opacity:.5,scale:.8,transformOrigin: 'bottom center'}).transit({x:0,opacity:1,scale:1},time,easing);
+              screens[prev].element.removeClass('effects').children(':not(.dialog,.static)').css({transformOrigin: 'bottom center'}).transit({x:x,opacity:.5,scale:.8},time,easing);
+              screens[next].element.addClass('effects').children(':not(.dialog,.static)').css({x:-x,opacity:.5,scale:.8,transformOrigin: 'bottom center'}).transit({x:0,opacity:1,scale:1},time,easing);
+            }
+            else {
+               screens[next].element.removeClass('effects').children(':not(.dialog,.static)').css({x:0,y:0,opacity:1});
+               screens[prev].element.removeClass('effects').children(':not(.dialog,.static)').css({x:0,y:0,opacity:1});
             }
             // screens[prev].element.find('.movable').removeClass('showed').addClass('hided');
             // screens[next].element.find('.movable').removeClass('hided').addClass('showed');

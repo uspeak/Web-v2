@@ -7,7 +7,8 @@ define([
     , 'services/DiagnosticWordsService'
     , 'services/UserService'
     , 'services/GameWordsService'
-], function(Console, _ , dws, us, gws){
+    , 'services/GamesService'
+], function(Console, _ , dws, us, gws, gs){
     "use strict";
     Console.group("Entering Service module.");
     Console.info("DiagnosticWordsService", dws);
@@ -17,6 +18,7 @@ define([
             factory('DiagnosticWordsService', dws).
             factory('GameWordsService', gws).
             factory('UserService', us).
+            factory('GamesService', gs).
             factory('user',function(UserService){
                 var user = new UserService();
                 if (DEBUG) user.setToken('testuser');

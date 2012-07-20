@@ -63,7 +63,7 @@ define([
                 } else {
                     this.wrong();
                     if (this.errors() > 2) this.nextRound(true);
-                    else e.cssanimation('incorrect', 400);
+                    else e.keyframe('incorrect', 400);
                 }
             }
             $scope.$root.clickLetter = function ($event) {

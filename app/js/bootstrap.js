@@ -71,17 +71,17 @@ require(['jQuery'],function ($) {
                 setTimeout(function() {game.addClass('loaded');},600)
             }
         }, 120);
-        require(['order!libs/plax'], function () {
-            $(document).ready(function() {
-                $('.js-plaxify').plaxify();
-                $.plax.enable();
-            });
-        });
+        // require(['order!libs/plax'], function () {
+        //     $(document).ready(function() {
+        //         $('.js-plaxify').plaxify();
+        //         $.plax.enable();
+        //     });
+        // });
     }
     else {
         game.addClass('loaded');
     }
-    require(['libs/jquery.transit','libs/jquery.cssanimation.min','libs/jquery.tzineClock'], function () {
+    require(['libs/jquery.transit','libs/jquery.keyframe','libs/jquery.cssanimation.min','libs/jquery.tzineClock'], function () {
         loader.setLoaded('jQuery-plugins');
     });
 });
