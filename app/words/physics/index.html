@@ -1,0 +1,140 @@
+<html>
+<head>
+    <title>CoffeePhysics</title>
+    <style type="text/css" media="screen">
+
+        html, body {
+background: #F2F2F2;
+font-family: 'Lato', sans-serif;
+line-height: 1.2;
+min-width: 1024px;
+min-height: 768px;
+        }
+
+        .stats {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        #container {
+            position: relative;
+            width:1024px;
+            height:768px;
+  background: url(img/background.png) center center;
+/*position: absolute;
+top: 50%;
+left: 50%;
+margin-top: -300px;
+margin-left: -400px;
+*/overflow: hidden;
+border: 1px solid #999;
+box-shadow: 0 1px 10px rgba(0, 0, 0, .3);
+        }
+        #container>* {
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div class="zoom"></div>
+        </div>
+
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://raw.github.com/mrdoob/stats.js/master/build/Stats.js"></script>
+    <script>
+        Array.prototype.remove=function(s){
+            for(i=0;i<this.length;i++) if(s==this[i]) this.splice(i, 1);
+        };
+    </script>
+    <!-- Core -->
+    <script src="compiled/base.js"></script>
+    <script src="compiled/math/Random.js"></script>
+    <script src="compiled/math/Vector.js"></script>
+    <!-- Integrators -->
+    <script src="compiled/engine/integrator/Integrator.js"></script>
+    <script src="compiled/engine/integrator/Euler.js"></script>
+    <script src="compiled/engine/integrator/ImprovedEuler.js"></script>
+    <script src="compiled/engine/integrator/Verlet.js"></script>
+    <!-- Engine -->
+    <script src="compiled/engine/Particle.js"></script>
+    <script src="compiled/engine/Physics.js"></script>
+    <script src="compiled/engine/Spring.js"></script>
+    <!-- Behaviours -->
+    <script src="compiled/behaviour/Behaviour.js"></script>
+    <script src="compiled/behaviour/Attraction.js"></script>
+    <script src="compiled/behaviour/ParticleAttraction.js"></script>
+    <script src="compiled/behaviour/Collision.js"></script>
+    <script src="compiled/behaviour/ConstantForce.js"></script>
+    <script src="compiled/behaviour/EdgeBounce.js"></script>
+    <script src="compiled/behaviour/EdgeWrap.js"></script>
+    <script src="compiled/behaviour/Wander.js"></script>
+    <script src="compiled/behaviour/Force.js"></script>
+    <!-- Demo Renderers -->
+    <script src="compiled/demos/renderer/Renderer.js"></script>
+    <script src="compiled/demos/renderer/CanvasRenderer.js"></script>
+    <script src="compiled/demos/renderer/WebGLRenderer.js"></script>
+    <script src="compiled/demos/renderer/DOMRenderer.js"></script>
+    <!-- Demos -->
+    <script src="compiled/demos/Demo.js"></script>
+    <script src="compiled/demos/AttractionDemo.js"></script>
+    <script src="compiled/demos/BalloonDemo.js"></script>
+    <script src="compiled/demos/BoundsDemo.js"></script>
+    <script src="compiled/demos/ClothDemo.js"></script>
+    <script src="compiled/demos/ChainDemo.js"></script>
+    <script src="compiled/demos/CollisionDemo.js"></script>
+    <script src="compiled/demos/uSpeakDemo.js"></script>
+    <script>
+window.requestAnimFrame = (function(callback){
+    return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function(callback){
+        window.setTimeout(callback, 1000 / 60);
+    };
+})();
+
+        (function() {
+
+            var list;
+            var demo;
+            var stats;
+            var renderer;
+            var container;
+
+            var $renderer;
+
+            // Initialises the testbed and starts the default demo.
+                stats = new Stats();
+                // renderer = 'WebGLRenderer';
+                container = $('#container');
+
+                demo = new uSpeakDemo();
+                renderer = new DOMRenderer();
+                demo.init(container.get(0),renderer);
+                $renderer = $('#renderer-select a');
+                //container.click(function() {demo.addParticles(demo.center,5);})
+                stats.domElement.className = 'stats';
+                document.body.appendChild(stats.domElement);
+                update();
+
+            function update() {
+
+                requestAnimationFrame(update);
+                demo.step();
+                stats.update();
+            }
+        })()
+        
+    </script>
+</body>
+</html>
