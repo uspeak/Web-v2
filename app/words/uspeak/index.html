@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Force-Directed Layout (Dynamic)</title>
+    <script type="text/javascript" src="../../d3.v2.js"></script>
+    <style type="text/css">
+
+rect {
+  fill: #fff;
+}
+
+.node {
+/*  fill: #000;
+*/  /*fill:url(#g);*/
+  fill:url(#node-main);
+  fill:#f9eed8;
+  stroke:#fffbe9;
+  stroke-width: 5;
+  background: blue;
+/*  -webkit-svg-shadow:0px 0px 10px red;
+*//*  filter:url(#dropshadow);*/
+}
+#chart-elements .node {
+/*  fill: #000;
+*/  /*fill:url(#g);*/
+font-family: 'Paytone One', sans-serif;
+  position: absolute;
+  background:#f9eed8;
+  border: 5px solid #fffbe9;
+  width:90px;
+  height: 90px;
+  margin-top:-45px;
+  margin-left:-45px;
+  border-radius: 50%;
+  box-shadow: 0 3px 9px rgba(0,0,0,.15);
+  line-height: 90px;
+  text-align: center;
+  color:#666;
+/*  filter:url(#dropshadow);
+*/}
+#chart-elements .node.main {
+  background: url(img/node-selected.png) no-repeat center center;
+  line-height: 140px;
+  color: white;
+  border-radius: none;
+  box-shadow: none;
+  border: none;
+  width:151px;
+  margin-left: -75px;
+  margin-top:-75px;
+  height: 151px;
+  z-index: 100;
+}
+.node.main {
+/*  fill: #000;
+*/  /*fill:url(#g);*/
+  fill:red;
+}
+.cursor {
+/*  fill: -webkit-linear-gradient(white,blue);
+*/
+  background: blue;
+  pointer-events: none;
+}
+
+.link {
+  stroke: #333;
+  stroke-width: 5;
+  opacity:.5;
+  /*  filter:url(#dropshadow-link);
+*/}
+#chart {
+  background: url(img/background.png)  center center;
+width:1280px;
+  height: 960px;
+  position: relative;
+  -webkit-user-select: none;
+}
+
+#chart-svg, #chart-elements {
+/*  filter:url(#dropshadow);
+*/  
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow: hidden;
+}
+#chart-elements {
+  z-index: 1;
+}
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="chart">
+      <div id="nodes">
+      <div id="chart-elements">
+
+      </div>
+      <svg id="chart-svg">
+        <defs>
+<!--     <pattern id="node-main" patternUnits="userSpaceOnUse" width="100" height="100">
+        <image xlink:href="img/node-selected" x="0" y="0" width="100" height="100" />
+    </pattern>
+ -->          <filter id="dropshadow" height="130%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> 
+            <feOffset dx="2" dy="2" result="offsetblur"/>
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="0.1"/>
+            </feComponentTransfer>
+            <feMerge> 
+              <feMergeNode/>
+              <feMergeNode in="SourceGraphic"/> 
+            </feMerge>
+          </filter>
+          <filter id="dropshadow-link" height="130%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> 
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="0.2"/>
+            </feComponentTransfer>
+            <feMerge> 
+              <feMergeNode/>
+              <feMergeNode in="SourceGraphic"/> 
+            </feMerge>
+          </filter>
+        </defs>
+<!--         <linearGradient id="g">
+          <stop offset="0" stop-color="blue" />
+          <stop offset="0.3" stop-color="yellow" />
+          <stop offset="0.6" stop-color="orange" />
+          <stop offset="1" stop-color="red" />
+        </linearGradient>
+ -->
+      </svg>
+    </div>
+    </div>
+    <script type="text/javascript">
+var HTML = true;
+var width = 1280,
+    height = 960,
+    fill = d3.scale.category10(),
+    nodes = [],
+    links = [];
+
+// var vis = d3.select("#chart").append("svg")
+//     .attr('id','chart-svg')
+//     .attr("width", width)
+//     .attr("height", height);
+
+var vis = d3.select("#chart-svg");
+var el = d3.select("#chart-elements");
+// vis.append("rect")
+//     .attr("width", width)
+//     .attr("height", height);
+
+var force = d3.layout.force()
+    .nodes(nodes)
+    .gravity(0)
+    .links(links)
+    .distance(1000)
+    .friction(.8)
+    .linkStrength(function(x) {
+        if (x.source.weight<=1 || !x.target.fixed) return .1
+        else return 1;
+    })
+    .charge(function(x) {
+      return x.fixed?-3000:-300;
+    })
+    .linkDistance(function(x) {
+      console.log(x.source,x.source.weight,x.target.weight,x.target);
+        if (x.source.weight<=1 || !x.target.fixed) return 20;
+        return 1000;
+    })
+    .size([width, height]);
+
+// var cursor = vis.append("circle")
+//     .attr("r", 30)
+//     .attr("transform", "translate(-100,-100)")
+//     .attr("class", "cursor");
+
+force.on("tick", function() {
+  vis.selectAll("line.link")
+      .attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+if (HTML) {
+  el.selectAll(".node")
+      .style("left", function(d) { return d.x + "px"; })
+      .style("top", function(d) { return d.y + "px"; });
+}
+else {
+  vis.selectAll("circle.node")
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+}
+});
+
+// vis.on("mousemove", function() {
+//   cursor.attr("transform", "translate(" + d3.mouse(this) + ")");
+// });
+var main = {x: width/2, y: height/2,fixed:true};
+nodes.push(main);
+el.on("mousedown", function() {
+  var point = d3.mouse(this);
+  
+  var pusha = function(angle) {
+  var a = 10*Math.cos(angle);
+  var b = 10*Math.sin(angle);
+var      node = {x: main.x+a, y: main.y+b, patata:'c'},
+      n = nodes.push(node);
+
+  // add links to any nearby nodes
+  // nodes.forEach(function(target) {
+  //   var x = target.x - node.x,
+  //       y = target.y - node.y;
+  //   if (Math.sqrt(x * x + y * y) < 200) {
+  //     links.push({source: node, target: target});
+  //   }
+  // });
+      links.push({source: main, target: node});
+  if (nodes.length%20==0) {
+    main.fixed = false;
+    console.log(nodes)
+    node.fixed = true;
+    main = node;
+  }
+  }
+  var total = 8;
+  var angle = 2*Math.PI/total;
+  for (var i=0; i<total; i++) {
+  pusha(angle*i);
+  }
+  restart();
+});
+
+restart();
+
+function restart() {
+  force.start();
+
+  vis.selectAll("line.link")
+      .data(links)
+    .enter().insert("line", "circle.node")
+      .attr("class", "link")
+      .attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+  if (HTML) {
+
+  el.selectAll(".node")
+      .data(nodes)
+    .enter().append("div")
+      .attr("class", function(d) {return d.fixed?'node main':'node'})
+      .style("left", function(d) { return d.x + "px"; })
+      .style("top", function(d) { return d.y + "px"; })
+      .call(force.drag)
+      .append('span').text('a');
+  }
+  else {
+  vis.selectAll("circle.node")
+      .data(nodes)
+    .enter().insert("circle", "circle.cursor")
+      .attr("class", function(d) {return d.fixed?'node main':'node'})
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; })
+      .attr("r", 44)
+      .call(force.drag);
+  }
+}
+
+    </script>
+  </body>
+</html>
