@@ -2,10 +2,10 @@ define([
     'Console'       // lib/console/console
     , 'jQuery'      // lib/jquery/jquery
 ], function (Console, $) {
-	"use strict";
-	Console.group("Entering games directive module.");
+  "use strict";
+  Console.group("Entering games directive module.");
 
-	var directive = function() {
+  var directive = function() {
       return {
         restrict: 'E',
         transclude: true,
@@ -108,6 +108,6 @@ define([
       };
     }
 
-	Console.groupEnd();
-	return directive;
+  Console.groupEnd();
+  return directive;
 });

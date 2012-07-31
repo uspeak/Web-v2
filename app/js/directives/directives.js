@@ -7,8 +7,11 @@ define([
   , 'directives/screen'
   , 'directives/dialog'
   , 'directives/game'
+  , 'directives/gameVariation'
   , 'directives/games'
-], function(Console, screens, screen, dialog, game, games){
+  , 'directives/popups'
+  , 'directives/popup'
+], function(Console, screens, screen, dialog, game, gameVariation, games, popups, popup){
   "use strict";
   Console.group("Entering Directives module.");
 
@@ -18,7 +21,10 @@ define([
       directive('screen', screen).
       directive('dialog', dialog).
       directive('games', games).
-      directive('game', game)
+      directive('gameVariation', gameVariation).
+      directive('game', game).
+      directive('popups', popups).
+      directive('popup', popups)
     ;
     Console.debug("Custom directives initialized.");
   }

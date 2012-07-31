@@ -1,0 +1,269 @@
+
+<html>
+<body>
+<script src="raphael-min.js"></script>
+<script>
+function Vector(x, y)
+{
+	this.x = x;
+	this.y = y;
+}
+
+Vector.random = function()
+{
+	return new Vector(Math.random(),Math.random());
+}
+
+Vector.prototype.add = function(v2)
+{
+	return new Vector(this.x + v2.x, this.y + v2.y);
+};
+
+Vector.prototype.subtract = function(v2)
+{
+	return new Vector(this.x - v2.x, this.y - v2.y);
+};
+
+Vector.prototype.multiply = function(n)
+{
+	return new Vector(this.x * n, this.y * n);
+};
+
+Vector.prototype.divide = function(n)
+{
+	return new Vector(this.x / n, this.y / n);
+};
+
+Vector.prototype.magnitude = function()
+{
+	return Math.sqrt(this.x*this.x + this.y*this.y);
+};
+
+Vector.prototype.normalise = function()
+{
+	return this.divide(this.magnitude());
+};
+
+
+function Point(position, mass)
+{
+	this.p = position; // position
+	this.m = mass; // mass
+	this.v = new Vector(0, 0); // velocity
+	this.f = new Vector(0, 0); // force
+
+	Point.points.push(this);
+}
+Point.points = [];
+
+Point.prototype.applyForce = function(force)
+{
+	this.f = this.f.add(force.divide(this.m));
+};
+
+// points are slightly repulsed by other points
+Point.applyCoulombsLaw = function()
+{
+	var ke = 200.0; // repulsion constant
+
+	Point.points.forEach(function(point1) {
+		Point.points.forEach(function(point2) {
+			if (point1 !== point2)
+			{
+				var d = point1.p.subtract(point2.p);
+				var distance = d.magnitude() + 1.0;
+				var direction = d.normalise();
+
+				// apply force to each end point
+				point1.applyForce(direction.multiply(ke).divide(distance * distance * 0.5));
+				point2.applyForce(direction.multiply(ke).divide(distance * distance * -0.5));
+			}
+		});
+	});
+};
+
+Point.updateVelocity = function(timestep)
+{
+	var damping = 0.5; // damping constant, points lose velocity over time
+	Point.points.forEach(function(p) {
+		p.v = p.v.add(p.f.multiply(timestep)).multiply(damping);
+		p.f = new Vector(0,0);
+	});
+};
+
+Point.updatePosition = function(timestep)
+{
+	Point.points.forEach(function(p) {
+		p.p = p.p.add(p.v.multiply(timestep));
+	});
+};
+
+
+function Spring(point1, point2, length, k)
+{
+	this.point1 = point1;
+	this.point2 = point2;
+	this.length = length; // spring length at rest
+	this.k = k; // spring constant (See Hooke's law) .. how stiff the spring is
+
+	Spring.springs.push(this);
+}
+
+Spring.springs = [];
+
+Spring.applyHookesLaw = function()
+{
+	Spring.springs.forEach(function(s){
+		var d = s.point2.p.subtract(s.point1.p); // the direction of the spring
+		var displacement = s.length - d.magnitude();
+		var direction = d.normalise();
+
+		// apply force to each end point
+		s.point1.applyForce(direction.multiply(s.k * displacement * -0.5));
+		s.point2.applyForce(direction.multiply(s.k * displacement * 0.5));
+	});
+};
+
+function start(animIntervalId)
+{
+	var intervalId = setInterval(function() {
+		Point.applyCoulombsLaw();
+		Spring.applyHookesLaw();
+		Point.updateVelocity(0.05);
+		Point.updatePosition(0.05);
+
+		// calculate kinetic energy of system
+		var k = 0.0;
+		Point.points.forEach(function(p){
+			var speed = p.v.magnitude();
+			k += speed * speed;;
+		});
+
+		// stop simulation when
+		if (k < 0.01)
+		{
+			clearInterval(intervalId);
+			clearInterval(animIntervalId);
+		}
+	}, 10);
+}
+</script>
+
+
+
+<script>
+
+var width = 640;
+var height = 480;
+var zoom = 30;
+
+// convert point to screen coordinates
+Point.prototype.screenX = function() {
+	return this.p.x * zoom + width/2.0;
+};
+
+Point.prototype.screenY = function() {
+	return this.p.y * zoom + height/2.0;
+};
+
+var paper = Raphael(10, 50, 640, 480);
+
+var animIntervalId = setInterval(function() {
+	paper.clear();
+
+	Point.points.forEach(function(p){
+		var c = paper.circle(p.screenX(), p.screenY(), 5);
+		c.attr("fill", "black");
+		c.click(function() {
+			paper.clear();
+			var pun = new Point(Vector.random(), 1.0);
+			var s10 = new Spring(pun, p, 1.0, 500.0);
+			console.log(pun,p,s10,Spring.springs.length);
+		});
+		c.hover(function (event) {
+			this.attr({r: "8"});
+		}, function (event) {
+			this.attr({r: "5"});
+		});
+	});
+	Spring.springs.forEach(function(s){
+			var x1 = Math.floor(s.point1.screenX());
+			var y1 = Math.floor(s.point1.screenY());
+			var x2 = Math.floor(s.point2.screenX());
+			var y2 = Math.floor(s.point2.screenY());
+			var c = paper.path(["M", x1, y1, "L", x2, y2]);
+	});
+
+
+}, 10);
+
+
+
+
+
+var p1 = new Point(Vector.random(), 1.0);
+var p2 = new Point(Vector.random(), 1.0);
+var p3 = new Point(Vector.random(), 1.0);
+var p4 = new Point(Vector.random(), 1.0);
+var p5 = new Point(Vector.random(), 1.0);
+var p6 = new Point(Vector.random(), 1.0);
+var p7 = new Point(Vector.random(), 1.0);
+var p8 = new Point(Vector.random(), 1.0);
+var p9 = new Point(Vector.random(), 1.0);
+var p10 = new Point(Vector.random(), 1.0);
+var p11 = new Point(Vector.random(), 1.0);
+var p12 = new Point(Vector.random(), 1.0);
+var p13 = new Point(Vector.random(), 1.0);
+var p14 = new Point(Vector.random(), 1.0);
+var p15 = new Point(Vector.random(), 1.0);
+// var p16 = new Point(Vector.random(), 1.0);
+// var p17 = new Point(Vector.random(), 1.0);
+// var p18 = new Point(Vector.random(), 1.0);
+// var p19 = new Point(Vector.random(), 1.0);
+// var p20 = new Point(Vector.random(), 1.0);
+
+
+var s1 = new Spring(p1, p2, 1.0, 500.0);
+var s2 = new Spring(p1, p3, 1.0, 500.0);
+var s4 = new Spring(p1, p4, 1.0, 500.0);
+var s5 = new Spring(p1, p5, 1.0, 500.0);
+var s6 = new Spring(p1, p6, 1.0, 500.0);
+var s7 = new Spring(p1, p7, 1.0, 200.0);
+var s8 = new Spring(p1, p8, 1.0, 200.0);
+var s9 = new Spring(p1, p9, 1.0, 200.0);
+// var s3 = new Spring(p3, p1, 1.0, 500.0);
+var s10 = new Spring(p9, p10, 1.0, 500.0);
+var s11 = new Spring(p9, p11, 1.0, 500.0);
+var s12 = new Spring(p9, p12, 1.0, 500.0);
+var s13 = new Spring(p9, p13, 1.0, 500.0);
+var s14 = new Spring(p9, p14, 1.0, 500.0);
+var s15 = new Spring(p9, p15, 1.0, 500.0);
+
+var p = [];
+var s = [];
+for (var i=0;i<1;i++) {
+	p.push(new Point(Vector.random(), 1.0));
+	s.push(new Spring(p1, p[i], 1.0, 200.0));
+
+}
+// var s16 = new Spring(p12, p15, 1.0, 500.0);
+// var s17 = new Spring(p1, p16, 1.0, 500.0);
+// var s18 = new Spring(p2, p16, 1.0, 500.0);
+// var s19 = new Spring(p3, p17, 1.0, 500.0);
+// var s20 = new Spring(p4, p17, 1.0, 500.0);
+// var s21 = new Spring(p5, p17, 1.0, 500.0);
+// var s22 = new Spring(p6, p18, 1.0, 500.0);
+// var s23 = new Spring(p7, p18, 1.0, 500.0);
+// var s24 = new Spring(p8, p18, 1.0, 500.0);
+// var s25 = new Spring(p9, p19, 1.0, 500.0);
+// var s26 = new Spring(p10, p20, 1.0, 500.0);
+// var s27 = new Spring(p11, p20, 1.0, 500.0);
+
+
+
+start(animIntervalId);
+
+
+</script>
+</body>
+</html>

@@ -3,6 +3,8 @@ body
   background:#F2F2F2; /*#D2D2D2*/
   font-family: 'Lato', sans-serif;
   line-height:1.2;
+  min-width:800px;
+  min-height: 600px;
 }
 
 #game
@@ -311,8 +313,16 @@ input:focus {
 ::selection {
   color: white;
   background: #6bb7d1;
-};
+}
 
+p.highlight {
+  border-radius:16px;
+  background:#fffbe8;
+  overflow: hidden;
+  padding:12px 16px;
+  display: block;
+
+}
 /*****************/
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none;

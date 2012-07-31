@@ -30,6 +30,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=800px; initial-scale=1.0; maximum-scale=1.0;"/>
 
   <title>uSpeak App</title>
   <meta name="description" content="" />
@@ -57,6 +58,8 @@
   <link rel="stylesheet" href="css/games/clock.css" />
   <link rel="stylesheet" href="css/user/games.css" />
 
+  <link rel="stylesheet" href="css/popups.css" />
+
   <link rel="stylesheet" href="css/font-awesome.css" />
   <link rel="stylesheet" href="css/animations.css" />
 
@@ -64,9 +67,9 @@
   <script src="js/utils.js"></script>
   <script src="js/libs/modernizr-2.5.3.min.js"></script>
   <script>
-    DEBUG = true;
+    DEBUG = false;
     DEBUG = DEBUG && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = true || !DEBUG;
+    EFFECTS = false || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
   </script>
 </head>
@@ -109,16 +112,18 @@
         <div class="cloud-2 js-plaxify" data-xrange="2" data-yrange="2" data-invert="true"></div>
       </div>
       <h1 id="top-bar"><a class="help" data-help="Ayuda" data-help-position="bl" ng-click="showHelp()">?</a><span>{{title}}</span><a class="settings" data-help="Ajustes" data-help-position="br" ng-click="toggleSettings()"><i class="icon-cog"></i></a></h1>
-      <screen title="Home" screen-id="home">
+      <screen title="Home" screen-id="home" screen-init>
         <dialog class="big">
-          <p>Un viaje de mil kilometros empieza con el primer paso.</p>
+          <h2 data-help="Título">Welcome</h2>
+          <p class="highlight">Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas.<br> Por eso creamos uSpeak.</p>
+<!--           <p>Un viaje de mil kilometros empieza con el primer paso.</p>
           <p class="chinese-welcome">千里之行，始于足下!</p>
           <p>A thousand-mile journey begins with the first step.</p>
-        </dialog>
+ -->        </dialog>
         <dialog class="small">
           <p>¿Ya estás aprendiendo con uSpeak?</p>
             <a href="" class="button button-yes" ng-click="goScreen('user-login')" data-help="Si" data-help-position="lb">Yes</a>
-            <a href="" class="button button-no" ng-click="goScreen('diagnostic-pre')" data-help="No" data-help-position="rt">No</a>
+            <a href="" class="button button-no" ng-click="goScreen('diagnostic-games')" data-help="No" data-help-position="rt">No</a>
         </dialog>
       </screen>
       <screen title="Welcome back" screen-id="user-login">
@@ -135,7 +140,7 @@
           </form>
         </dialog>
       </screen>
-      <screen title="Welcome back" screen-id="user-home" screen-init>
+      <screen title="Welcome back" screen-id="user-home">
         <dialog class="big">
           <h2>Bienvenido!</h2>
           <p>Hoy hace un día precioso, disfrútalo.</p>
@@ -291,6 +296,16 @@
         </div>
       </screen>
     </screens>
+    <popups>
+      <popup>
+      <h2>Login</h2>
+        <form>
+          <input type="text" name="email" placeholder="email" ng-model="login_name" />
+          <input type="password" name="password" placeholder="contraseña" ng-model="login_pass" />
+          <a href="" ng-click="login()" class="button" ng-class="{disabled:!login_name || !login_pass}">entrar</a>
+        </form>
+      </popup>
+    </popups>
     <games>
       <div id="game-header">
         <div id="game-clock" data-help="Clock" data-help-position="br"></div>
@@ -351,10 +366,10 @@
       </game>
 
       <div id="game-settings">
-        <a class="exit" ng-click="exit()">Salir</a>
-        <a class="help" ng-click="showHelp()">Ayuda</a>
-        <a class="pause" ng-click="pauseGame()">Pausar</a> <!-- paused?resumeGame():pauseGame() -->
-        <a class="sound" ng-click="$root.audio = !$root.audio" ng-class="{muted:!$root.audio}">Sonido</a>
+        <a class="exit" ng-click="exit()"><i class="icon-chevron-left"></i></a>
+        <a class="help" ng-click="showHelp()">?</a>
+        <a class="pause" ng-click="pauseGame()"><i class="icon-pause"></i></a> <!-- paused?resumeGame():pauseGame() -->
+        <a class="sound" ng-click="$root.audio = !$root.audio"><i ng-class="{'icon-volume-off':$root.audio,'icon-volume-up':!$root.audio}"></i></a>
       </div>
     </games>
    </div>
