@@ -67,7 +67,7 @@
   <script src="js/utils.js"></script>
   <script src="js/libs/modernizr-2.5.3.min.js"></script>
   <script>
-    DEBUG = false;
+    DEBUG = true;
     DEBUG = DEBUG && !(document.domain.indexOf('uspeakapp.com')>-1);
     EFFECTS = false || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
@@ -112,7 +112,7 @@
         <div class="cloud-2 js-plaxify" data-xrange="2" data-yrange="2" data-invert="true"></div>
       </div>
       <h1 id="top-bar"><a class="help" data-help="Ayuda" data-help-position="bl" ng-click="showHelp()">?</a><span>{{title}}</span><a class="settings" data-help="Ajustes" data-help-position="br" ng-click="toggleSettings()"><i class="icon-cog"></i></a></h1>
-      <screen title="Home" screen-id="home" screen-init>
+      <screen title="Home" screen-id="home">
         <dialog class="big">
           <h2 data-help="Título">Welcome</h2>
           <p class="highlight">Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas.<br> Por eso creamos uSpeak.</p>
@@ -140,7 +140,7 @@
           </form>
         </dialog>
       </screen>
-      <screen title="Welcome back" screen-id="user-home">
+      <screen title="Welcome back" screen-id="user-home" screen-init>
         <dialog class="big">
           <h2>Bienvenido!</h2>
           <p>Hoy hace un día precioso, disfrútalo.</p>
@@ -156,8 +156,8 @@
           </div>
           <div ng-repeat="game in gameList" ng-show="$index==-gameIndex">
             <img src="img/games/{{game.type}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.type)}}</p>
-            <strong>Rounds: {{game.wcount}}</strong>
-            <strong>Time: {{game.seconds}} secs</strong>
+            <span class="user-games-info"><b>{{game.wcount}}</b> rondas</span>
+            <span class="user-games-info"><b>{{game.seconds}}</b> segundos</span>
             <a href="" class="button" ng-click="playGame(game.type)">Play now!</a>
           </div>
         </dialog>
@@ -311,10 +311,15 @@
         <div id="game-clock" data-help="Clock" data-help-position="br"></div>
         <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{total_rounds}}</b></div>
         <h1>{{title}}</h1>
-        <ul id="game-lifes" ng-show="diagnostic.lifes!=false" class="lifes-{{diagnostic.lifes}}" data-help="Vidas" data-help-position="bl">
+        <ul id="game-lifes" class="lifes-{{lifes}}" data-help="Vidas" data-help-position="bl">
           <li class="game-life-{{life}}" ng-repeat="life in [1,2,3]"><span>Life</span></li>
         </ul>
         <div id="game-points" data-help="Puntos" data-help-position="bl">Points:<b>{{points}}</b></div>
+      </div>
+      <div id="game-pretexts">
+        <span class="game-pretext-ready">Ready</span>
+        <span class="game-pretext-set">Set</span>
+        <span class="game-pretext-go">Go!</span>
       </div>
       <game game-id="whichone" game-title="Which one" game-description="Super simple, which one is correct?">
         <span class="game-main-word">{{word}}</span>
@@ -326,11 +331,11 @@
       <game game-id="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Match the Spanish word and it's English translation</span>
         <ul id="game-flipcards-cards" class="items-{{cards.length}}">
-          <li ng-repeat="card in cards" ng-click="selectCard()" ng-class="{selected:card.selected, correct:card.selected && card.correct, incorrect:card.selected && card.correct != undefined && !card.correct}"><span class="front"></span><span class="back">{{card.word||card.translation}}</span></li> <!-- note-{{$index+1}} -->
+          <li ng-repeat="card in cards" ng-click="selectCard()" ng-class="{selected:card.selected, correct:card.selected && card.correct, incorrect:card.selected && card.correct != undefined && !card.correct}"><span class="front"></span><span class="back">{{card.word||card.translation}}</span></li> 
         </ul>
       </game>
       <game game-id="association" game-title="Association" game-description="Descripción association">
-        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-word" ng-class="{small:variation == '9'}">{{word}}</span>
         <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
         <ul id="game-association-notes" class="game-selector-options">
           <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> 
@@ -338,7 +343,8 @@
       </game>
       <game game-id="yayornay" game-title="Yay or Nay" game-description="Descripción yayornay">
         <span class="game-main-word">{{word}}</span>
-        <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Es peluda?</span>
+        <span class="game-main-help" game-variation="12">Estás jugando con la variación 12</span>
+        <span class="game-main-help" game-variation="11">"texto de la variación 11"?</span>
         <ul id="game-yayornay-notes" class="game-selector-options">
           <li ng-click="selectOption(true)" ng-class="{correct:correct && clicked[true],incorrect:!correct && clicked[true]}"><span></span>Yes</li> 
           <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
@@ -369,7 +375,7 @@
         <a class="exit" ng-click="exit()"><i class="icon-chevron-left"></i></a>
         <a class="help" ng-click="showHelp()">?</a>
         <a class="pause" ng-click="pauseGame()"><i class="icon-pause"></i></a> <!-- paused?resumeGame():pauseGame() -->
-        <a class="sound" ng-click="$root.audio = !$root.audio"><i ng-class="{'icon-volume-off':$root.audio,'icon-volume-up':!$root.audio}"></i></a>
+        <a class="sound" ng-click="toggleAudio()"><i ng-class="{'icon-volume-off':$root.audio,'icon-volume-up':!$root.audio}"></i></a>
       </div>
     </games>
    </div>

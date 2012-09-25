@@ -18,7 +18,6 @@ define([
         $this.playAudio(sound_id);
         Console.info('Data round',data_round)
         $this.scope.first = round==0;
-
         $this.scope.word = data_round.w;
         $this.scope.lastType = $this.scope.type;
         $this.scope.type = data_round.m;
@@ -28,6 +27,13 @@ define([
       };
       this.scope.selectOption = function(option) {
         if (!option==this.correct && !this.clicked[option]) $this.wrong();
+   
+        $this.send_data[$this.round] = {
+          id:$this.data.W[$this.round].id,
+          ref: option==this.correct?1:2,
+          choosen: option
+        };
+
         this.clicked[option] = true;
         setTimeout(function() {$this.nextRound($this.errors()>=1)},720);
       };

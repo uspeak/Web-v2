@@ -6,7 +6,7 @@ define([
 ], function (Console, soundManager, $) {
   "use strict";
   Console.group("Entering GameController module.");
-    var GameController = function ($scope) {
+    var GameController = function ($scope, GamesPlayed) {
       this.scope = $scope;
       this.data = false;
       var $this = this;
@@ -14,6 +14,7 @@ define([
       this.points = this.scope.$root.points = 0;
       this.round = 0;
       this.play_data = {};
+      this.send_data = [];
       var deregisterRound = this.scope.$root.$watch('round',function (round) {
         if (!$this.data || round==undefined || !$scope.active) return;
         var total = $this.totalRounds();
@@ -25,7 +26,6 @@ define([
         };
         $this.goRound(round);
       });
-      this._onFinish = function() {};
       this.wrong = function() {
         this.play_data[this.round].errors++;
       }
@@ -43,11 +43,13 @@ define([
       }
       this.errors = function() {return this.play_data[this.round].errors}
       this.kill = function() {
-        if (!$this.isDiagnostic) return;
+
+        //if (!$this.isDiagnostic) return;
         Console.info('Life less')
-        $this.scope.diagnostic.lifes = $this.scope.diagnostic.lifes-1;
-        $this.scope.$apply();
-        if ($this.scope.diagnostic.lifes==0) {
+        //Console.info($this.scope,$this.scope.lifes)
+        $this.scope.$root.lifes = $this.scope.$root.lifes-1;
+        $this.scope.$root.$apply();
+        if ($this.scope.$parent.$parent.lifes==0) {
           Console.info('No more lifes. Game over')
           $this.finish();
         }
@@ -70,6 +72,37 @@ define([
         });
 
       }
+      this.send = function() {
+          GamesPlayed.send(this,{});
+      }
+      this.start = function() {
+        var states = $('#game-pretexts').children(),
+            states_progress = 0,
+            state = states.first();
+        state.addClass('visible');
+        $this.scope.$parent.variation = $this.data.vid;
+        var $state_interval = setInterval(function() {
+          state.removeClass('visible');
+          state = state.next();
+          if(state.length == 0) {
+            console.log('finish');
+            $this.clock = $('#game-clock').tzineClock($this.getTime(),function() {
+              Console.info('Timeout!')
+              $this.scope.diagnostic.timeout = true;
+              $this.finish();
+            });
+            $this.scope.$root.round = 0;
+            $this.scope.$root.total_rounds = $this.totalRounds();
+            $this.scope.$root.$digest();
+            clearInterval($state_interval);
+          }
+          else {
+            state.addClass('visible');
+          }
+        },1000);
+        $state_interval.resume();
+      }
+
       this.calculePoints = function(errors) {
         return 0;
       }
@@ -90,7 +123,8 @@ define([
       }
       this.finish = function() {
         this.clock.pause();
-        this._onFinish(this.points);
+        this.send();
+        this.onFinish(this.points);
       }
       this.pause = function() {
         this.clock.pause();
@@ -99,16 +133,14 @@ define([
         this.clock.resume();
       }
     }
-    GameController.prototype.initialize = function(_data,_onFinish,diagnostic) {
+    GameController.prototype.initialize = function(_data,onFinish,diagnostic) {
       Console.info('Initializing', _data)
+      if (!diagnostic) this.scope.$root.lifes = 3;
+      this.onFinish = onFinish || function() {};
       this.data = _data;
       this.startData(_data);
       this.isDiagnostic = diagnostic;
       this.start();
-      this.scope.$root.round = 0; //DEBUG?this.totalRounds()-4:0;
-      this.scope.$root.total_rounds = this.totalRounds();
-      this.scope.$root.$digest();
-      if (_onFinish) this._onFinish = _onFinish;
     }
     return GameController;
   Console.groupEnd();

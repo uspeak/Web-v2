@@ -30,16 +30,13 @@ define([
         var sup = inf+round_cards[round];
         matches_count = 0;
         data_round = $this.data.W.slice(inf,sup);
-        // matches = _.map([1, 2, 3], function(num){ return num * 3; });
-        // console.log('*********',data_round)
         cards = [];
         matches = {};
         var key;
         _.each(data_round,function(wt) {
-          cards.push({word:wt.w});
-          cards.push({translation:wt.m});
-          key = hash_match.format(wt.w,wt.m);
-          matches[key] = false;
+          cards.push({word:wt.w,id:wt.id});
+          cards.push({translation:wt.m,id:wt.id});
+          matches[wt.id] = false;
         });
         $this.scope.cards = _.shuffle(cards);
         $this.scope.$apply();
@@ -50,25 +47,20 @@ define([
         this.card.selected = true;
         this.card.correct = undefined;
         if ($this.selected_card) {
-          var key = this.card.translation?
-              hash_match.format($this.selected_card.word,this.card.translation) :
-              hash_match.format(this.card.word,$this.selected_card.translation);
-          var correct = matches.hasOwnProperty(key);
+          var correct = $this.selected_card.id == this.card.id;
           Console.info(correct?'Matched':'Unmatched',wordOrTranslation($this.selected_card) , wordOrTranslation(this.card));
           this.card.correct = $this.selected_card.correct = correct;
           if (correct) {
-            matches[key] = true;
+            matches[this.card.id] = true;
             $this.selected_card = false;
           }
           else {
             var $$ = this;
             setTimeout(function() { $$.card.selected = false; $this.selected_card.selected = false; $scope.$apply();$this.selected_card = false; }, 300)
-            // 
           }
           if (_.all(_.values(matches),_.identity)) setTimeout($this.nextRound,1000);
         }
         else $this.selected_card = this.card;
-        //this.scope.apply();
       };
       this.calculePoints = function(errors) {
         return 0;

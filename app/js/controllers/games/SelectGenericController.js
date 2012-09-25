@@ -52,8 +52,17 @@ define([
         if (!correct && !this.clicked) $this.wrong();
         if (!$this.clickedInCorrect) this.clicked = true;
         $this.clickedInCorrect = correct;
+        $this.send_data[$this.round] = $this.send_data[$this.round] || {
+          id:$this.data.W[$this.round].id,
+          choosen:[],
+        };
+        $this.send_data[$this.round].ref = correct?1:2;
+        $this.send_data[$this.round].choosen.push(this.option.word);
+        $this.send_data[$this.round].errors = $this.errors();
         var kill = ($this.errors()>=$this.maxErrors());
-        if (correct || kill) setTimeout(function() {$this.nextRound(kill)},720);
+        if (correct || kill) {
+          setTimeout(function() {$this.nextRound(kill)},720);
+        }
         //this.scope.apply();
       };
       this.calculePoints = function(errors) {

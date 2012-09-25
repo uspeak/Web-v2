@@ -710,3 +710,18 @@
   -webkit-transition: all .5s;
   -moz-transition: all .5s;
 }
+
+@-webkit-keyframes readySet {
+  0% {
+      -webkit-transform: scale(.5);
+      opacity: 0.5;
+  }  
+  100% {
+      -webkit-transform: scale(1);
+      opacity: 1;
+  }
+}
+
+#game.effects #game-pretexts span {
+  -webkit-animation: readySet 1s;
+}

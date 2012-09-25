@@ -115,6 +115,9 @@
 	margin-top:46px;
 	display: block;
 }
+.game-main-word.small {
+	font-size: 32px;
+}
 .game-main-help {
 	display: block;
 	margin-top:0;
@@ -197,4 +200,33 @@
 #game-settings a.sound,
 #game-settings a.pause {
 	float:right;
+}
+
+#game-pretexts span {
+	position: absolute;
+	top: 0;
+	font-family: 'Paytone One', sans-serif;
+	line-height: 600px;
+	z-index: 1000;
+	font-size: 100px;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	text-transform: lowercase;
+	text-shadow:0 2px 6px rgba(0,0,0,.6);
+	display: none;
+}
+#game-pretexts span.visible {
+	display: block;
+}
+#game-pretexts .game-pretext-ready {
+	color: red;
+}
+#game-pretexts .game-pretext-set {
+	color: orange;
+}
+#game-pretexts .game-pretext-go {
+	text-transform: uppercase;
+	color: green;
 }

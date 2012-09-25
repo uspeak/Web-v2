@@ -9,11 +9,6 @@ define(['Console','Angular'], function (Console,angular) {
         require: '^games',
         restrict: 'E',
         scope: true, 
-        // link: function(scope, element, attrs, gamesCtrl) {
-        //   element.html(template.format('whichonea'));
-        //   gamesCtrl.addGame(scope, element, attrs);
-        //   scope.isEditMode = true;
-        // },
         compile:function (tElement, tAttrs, transclude) {
           var transclude = tElement.contents()
           var new_html = angular.element(template.format(tAttrs['gameId']));

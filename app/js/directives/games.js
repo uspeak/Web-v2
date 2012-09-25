@@ -19,7 +19,7 @@ define([
           var games = {};
           var game_active;
           var $game = $('#game');
-          var play = function(gameId,gameData,onFinish,diagnostic) {
+          var play = function(gameId, gameData, onFinish, diagnostic) {
             angular.forEach(games, function(game,name) {
               game.scope.active = false;
             });
@@ -33,8 +33,6 @@ define([
               game_active = game;
               game.controller.initialize(gameData,onFinish,diagnostic);
             });
-            
-            // console.log('Games',games,gameId);
             
             return game;
           }
@@ -79,7 +77,7 @@ define([
             $game.addClass('loading');
             var gameInfo = _games.type(gameType);
             Console.info('Loading game',gameInfo);
-            GameWordsService.get({lang_dir:1,game:gameInfo.id,variation: gameInfo.variations[0]},function(data) {
+            GameWordsService.get({lang_dir:LANG_DIR,game:gameInfo.id},function(data) {
               $game.removeClass('loading');
               Console.info('Game loaded',data);
               var game = play(gameInfo.type, data[0] ,function() {
@@ -90,7 +88,8 @@ define([
             });
           }
           $scope.$parent.gameDescription = function(name) {
-            return games[name].attrs.gameDescription;
+            
+            return name && games[name].attrs.gameDescription;
           }
           this.addGame = function (scope, element, attrs) {
             var name = attrs.gameId;

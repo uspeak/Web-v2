@@ -4,9 +4,7 @@ define(['Console'], function (Console) {
 	
 	var controller = function () {
 		Console.group("HomeController entered.");
-
 		var scope = this;
-
 		Console.groupEnd();
 	};
 	controller.$inject = [];

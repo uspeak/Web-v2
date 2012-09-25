@@ -11,6 +11,7 @@ define([
                 $scope: $scope
             });
             var $this = this;
+            var typed_word;
             var accent_table = {
                 222: {
                     97: 225,
@@ -23,6 +24,7 @@ define([
             var last_key = undefined;
             //this.totalRounds = function() { return $this.data[117].length; }
             this.goRound = function (round) {
+                typed_word = "";
                 var data_round = $this.data.W[round];
                 //console.log('Data Round', data_round)
                 angular.element('#game-fatfingers-letters li').removeClass('completed').find('b').css({
@@ -39,8 +41,21 @@ define([
             this.calculePoints = function (errors) {
                 return 100 - 25 * errors; //+50
             };
+            var $nextRound = this.nextRound;
+            this.nextRound = function(kill) {
+                var errors = $this.errors();
+                var data_round = {
+                  id:$this.data.W[$this.round].id,
+                  ref:errors+1
+                };
+                if (errors) data_round['mispeell'] = typed_word;
+                $this.send_data[$this.round] = data_round;
+                //Console.info('**************************',data_round)
+                $nextRound(kill);
+            }
             this.selectLetter = function (e) {
                 if (!e.length) return;
+                typed_word += e.text();
                 //Console.info('Selected Letter "{0}"'.format(e.text()));
                 var lis = angular.element('#game-fatfingers-placeholder li:not(.completed)');
                 if (e.hasClass('completed')) return;

@@ -8,7 +8,8 @@ define([
     , 'services/UserService'
     , 'services/GameWordsService'
     , 'services/GamesService'
-], function(Console, _ , dws, us, gws, gs){
+    , 'services/GamesPlayed'
+], function(Console, _ , dws, us, gws, gs, gp){
     "use strict";
     Console.group("Entering Service module.");
     Console.info("DiagnosticWordsService", dws);
@@ -19,9 +20,10 @@ define([
             factory('GameWordsService', gws).
             factory('UserService', us).
             factory('GamesService', gs).
+            factory('GamesPlayed', gp).
             factory('user',function(UserService){
                 var user = new UserService();
-                if (DEBUG) user.setToken('testuser');
+                if (DEBUG) user.setToken('testtoken');
                 return user;
             }).
             factory('games',function() {

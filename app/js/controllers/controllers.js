@@ -16,6 +16,8 @@ define([
 	Console.info("SelectGenericController", selectGeneric);
 	Console.info("FatfingersController", fatfingers);
 	Console.info("FlipcardsController", flipcards);
+	Console.info("YayorNayController", yayornay);
+	Console.info("BraintickleController", braintickle);
 
     var initialize = function () {
 		angular.module('uspeak.controllers',[]).

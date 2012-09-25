@@ -10,6 +10,7 @@ define([
     var controller = function($scope, $injector) {
       $injector.invoke(SelectGenericController, this, {$scope: $scope});
       var $this = this;
+
       this.total_options = 2;
       this.goRound = function(round) {
         var data_round = $this.data.W[round];
@@ -23,6 +24,13 @@ define([
       };
       this.scope.selectOption = function(option) {
         if (!option==this.correct && !this.clicked[option]) $this.wrong();
+
+        $this.send_data[$this.round] = {
+          id:$this.data.W[$this.round].id,
+          ref: option==this.correct?1:2,
+          choosen: option
+        };
+
         this.clicked[option] = true;
         setTimeout(function() {$this.nextRound($this.errors()>=1)},720);
       };

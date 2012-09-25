@@ -44,6 +44,23 @@
 	font-family: 'Lobster', cursive;
 	font-size:54px
 }
+.user-games-info {
+	font-size: 13px;
+	background: #888;
+	color: #FAF1DE;
+	border-radius: 50%;
+	width: 78px;
+	height: 78px;
+	display: inline-block;
+	overflow: hidden;
+	font-family: 'Paytone One', sans-serif;
+}
+.user-games-info b{
+	display: block;
+	margin-top: .35em;
+	font-size: 2.3em;
+	line-height: 1.05;
+}
 #user-games-main {
 	height: 210px;
 	overflow: hidden;
