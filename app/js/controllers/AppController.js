@@ -114,7 +114,7 @@ define([
                 game.removeClass('loading');
                 Console.info("Data loaded: ", response);
                 Console.groupEnd();
-                $scope.gameList = _.map(response, function (game) {
+                $scope.gameList = _.map(response.Games, function (game) {
                     game.Game.type = games.id(parseInt(game.Game.id)).type;
                     return game.Game
                 });

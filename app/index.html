@@ -71,6 +71,8 @@
     DEBUG = DEBUG && !(document.domain.indexOf('uspeakapp.com')>-1);
     EFFECTS = false || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
+    OFFLINE = false || DEBUG;
+    API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
   </script>
 </head>
 
@@ -359,14 +361,24 @@
           <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
         </ul>
       </game>
-      <game game-id="fatfingers" game-title="Fat Fingers" game-description="Descripción fatfingers">  <!-- ng-init="active=true; word='dsa';translation=['a','s','d']; translation_shuffled=['a','s','d'];" -->
+      <game game-id="fatfingers" game-title="Fat Fingers" game-description="Descripción fatfingers">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="Haz click en las letras en el orden correcto" data-help-position="br">Tap the letters in the correct order</span>
-
         <ul id="game-fatfingers-placeholder">
           <li ng-repeat="letter in translation">{{letter}}</li> 
         </ul>
         <ul id="game-fatfingers-letters">
+          <li ng-repeat="letter in translation_shuffled" ng-click="clickLetter($event)"><b>{{letter}}</b></li> 
+        </ul>
+      </game>
+
+      <game game-id="challenge" game-title="Challenge" game-description="Descripción challenge">
+        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-help" data-help="Haz click en las letras en el orden correcto" data-help-position="br">Tap the letters in the correct order</span>
+        <ul id="game-challenge-placeholder">
+          <li ng-repeat="letter in translation">{{letter}}</li> 
+        </ul>
+        <ul id="game-challenge-letters">
           <li ng-repeat="letter in translation_shuffled" ng-click="clickLetter($event)"><b>{{letter}}</b></li> 
         </ul>
       </game>

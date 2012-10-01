@@ -22,7 +22,7 @@ define([
       if (DEBUG && $scope.$parent.active) {
         GameWordsService.get({lang_dir:1,game:1},function(d) {
           $this.initialize(d[0]);
-          console.log('************',$scope,d)
+          console.log('************',$scope,d);
         });
       }
       this.goRound = function(round) {

@@ -70,7 +70,6 @@ define([
           $this.scope.diagnostic.timeout = true;
           $this.finish();
         });
-
       }
       this.send = function() {
           GamesPlayed.send(this,{});

@@ -6,11 +6,11 @@ define([
 	, 'Angular'		// lib/angular/angular
 	
 	// Application Files
-	, 'services/services'
+	, 'build/services/services'
 	// , 'widgets/widgets'
 	, 'order!directives/directives'
 	, 'filters/filters'
-	, 'controllers/controllers'	
+	, 'build/controllers/controllers'	
 ], function (Console, $, _, angular, services, directives, filters, controllers) {
 	"use strict";
 	
@@ -23,10 +23,10 @@ define([
 		
 		// Console.group("Setup Angular");
 
-		services.initialize();
+		services();
 		filters.initialize();
 		directives.initialize();
-		controllers.initialize();
+		controllers();
 
 		angular.module('uspeak', [
 			'uspeak.filters',

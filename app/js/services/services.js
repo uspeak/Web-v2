@@ -26,6 +26,7 @@ define([
                 if (DEBUG) user.setToken('testtoken');
                 return user;
             }).
+            // factory('settings', Settings).
             factory('games',function() {
                 var games = [
                     {

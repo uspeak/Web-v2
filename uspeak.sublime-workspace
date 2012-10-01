@@ -1,0 +1,765 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"selec",
+				"selected_card"
+			],
+			[
+				"Gam",
+				"GamesPlayed"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"center",
+				"centerVector"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"last",
+				"last_force"
+			],
+			[
+				"set",
+				"setCenter"
+			],
+			[
+				"add",
+				"addParticles"
+			],
+			[
+				"game",
+				"gameList"
+			],
+			[
+				"ge",
+				"getVendorPropertyName"
+			],
+			[
+				"dialog",
+				"dialog_element"
+			],
+			[
+				"elem",
+				"element"
+			],
+			[
+				"chart",
+				"chart-svg"
+			],
+			[
+				"we",
+				"webkit-transform"
+			],
+			[
+				"sele",
+				"selected"
+			],
+			[
+				"mat",
+				"matches"
+			],
+			[
+				"matc",
+				"matches_count"
+			],
+			[
+				"round",
+				"round_cards"
+			],
+			[
+				"sel",
+				"selected_card"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"sta",
+				"startData"
+			],
+			[
+				"dialo",
+				"dialogIndex"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"sp",
+				"white-space"
+			],
+			[
+				"log",
+				"log"
+			],
+			[
+				"points",
+				"points"
+			],
+			[
+				"backgrou",
+				"background-position"
+			],
+			[
+				"on",
+				"onready"
+			],
+			[
+				"lang",
+				"lang_dir"
+			],
+			[
+				"use",
+				"username"
+			],
+			[
+				"sound",
+				"sound_id"
+			],
+			[
+				"time",
+				"timeout	setTimeout function"
+			],
+			[
+				"total",
+				"totalRounds"
+			],
+			[
+				"data",
+				"data_round"
+			],
+			[
+				"diagn",
+				"diagnostic_data"
+			],
+			[
+				"games",
+				"gamesCtrl"
+			],
+			[
+				"click",
+				"clickedInCorrect"
+			],
+			[
+				"contro",
+				"controllerGame"
+			],
+			[
+				"game-wh",
+				"game-whichone-coreelement"
+			],
+			[
+				"beta",
+				"beta_redirect"
+			],
+			[
+				"bet",
+				"beta_profile"
+			],
+			[
+				"backg",
+				"background	background-color: hex"
+			],
+			[
+				"scre",
+				"screensCtrl"
+			],
+			[
+				"roo",
+				"rootScope"
+			],
+			[
+				"url",
+				"urlencode"
+			],
+			[
+				"hel",
+				"help-position"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"bub",
+				"bubbles_progress"
+			],
+			[
+				"addM",
+				"addModule"
+			],
+			[
+				"method",
+				"method_map"
+			],
+			[
+				"metho",
+				"method_map"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/js/controllers/games/FlipcardsController.js",
+			"settings":
+			{
+				"buffer_size": 2922,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/src/test.coffee",
+			"settings":
+			{
+				"buffer_size": 420,
+				"line_ending": "Unix",
+				"name": "number   = 42"
+			}
+		},
+		{
+			"file": "app/Cakefile",
+			"settings":
+			{
+				"buffer_size": 221,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/src/test.js",
+			"settings":
+			{
+				"buffer_size": 828,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/loader.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/user/games.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/clock.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/bootstrap.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/game.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/gameVariation.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/games.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/GameWordsService.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/FlipcardsController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/HomeController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/controllers.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/FatfingersController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/BraintickleController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/YayornayController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/SelectGenericController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/AppController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/GamesPlayed.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/animations.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/utils.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/GameController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/main.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/index.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/demos/ChainDemo.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/d3/examples/uspeak/index.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/springy.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/services.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/behaviour/Attraction.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/math/Vector.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/jquery.drag.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/demos/renderer/DOMRenderer.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/index.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/behaviour/Force.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/engine/Physics.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/jquery.easing.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/demos/uSpeakDemo.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/engine/Particle.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/indexseg.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/springy_files/raphael-min.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/behaviour/ParticleAttraction.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/behaviour/Collision.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/demos/Demo.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/CakeFile",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/directives.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/popup.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/popups.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/popups.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/screen.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/dialog.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.keyframe.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/background.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/screens.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/app.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/main.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/fatfingers.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/dialog.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.cssanimation.min.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/GamesService.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/topbar.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/font-awesome.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/loading.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/flipcards.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/braintickle.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/README.md",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/.gitignore",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/scripts/fabfile.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/animate.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/UserService.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/d3/examples/uspeak/force-html.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/manifest.appcache",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/angular/angular.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.tzineClock.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screen.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/DiagnosticWordsService.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/underscore/underscore-min.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery/jquery.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/background.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/UserValue.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/app.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/DataService.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/settings.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.transit.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/plax.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/base64.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/dialog.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/locale/en_US/LC_MESSAGES/messages.po",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/clock.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/soundmanager2/soundmanager2.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/loader.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jQuery.tzineClock.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/settings.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/whichone.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/association.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/filters/filters.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/templates/v1/main.html",
+		"/Library/WebServer/Documents/welcomeScreen.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/templates/v1/partial/mainPanel.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/help.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/modules/diagnostic.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/modules/directives.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/topbar.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/media/js/v1/restFunctions.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/_boilerplate.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/games_old.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/__diagnostic.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/modernizr-2.0.6.min.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/AppController2.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/screens_old.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/vocab/index.jade",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/vocab/completed.jade",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/email/vocab/es.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/email/vocab/generic.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/admin_views.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/email/vocab/en.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/views.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/forms.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/models.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/locale/es/LC_MESSAGES/messages.po",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/urls.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/models.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/templates/email/beta_generic.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/admin_forms.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/templates/admin/beta/bulk_add.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/settings/base.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/media/css/vocab.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/context_processors.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/admin.py",
+		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/admin.py"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"deregisterRound",
+			"scree",
+			"game-main-word",
+			"popups",
+			"start",
+			"lang_dir",
+			"variation",
+			"variations",
+			"GamesService",
+			"variations\nvariations",
+			"LANG_DIR",
+			"hash_match",
+			"wordOrTranslation",
+			"send",
+			"nextround",
+			"send_data",
+			"nextRound",
+			"onFinish",
+			"lifes",
+			"$scope",
+			"isDiagnostic",
+			"diagnostic",
+			"lifes",
+			"diagnostic",
+			"this.finish",
+			"data_round",
+			"play_data",
+			"gamesService",
+			"goRound",
+			"clock",
+			"start",
+			"centerVector",
+			"zoom",
+			"particleCenter",
+			"bounds",
+			"collide",
+			"fixed",
+			"centerVector",
+			"nv.",
+			"particleCenter",
+			"this.center",
+			"particleCenter",
+			"click",
+			".x",
+			"particleCenter",
+			"setRadius",
+			"particleCenter",
+			"());\n",
+			"springToParent",
+			"attract",
+			"fixed",
+			"center_repulsion",
+			"bounds",
+			"_maxSteps",
+			"attract",
+			"repulsion",
+			"addParticles",
+			"domElement",
+			"renderSprings",
+			"this.canvas",
+			"canvas",
+			"resize",
+			"init(",
+			"renderer",
+			"physics",
+			"acc",
+			"pos",
+			"acc",
+			"fixed",
+			"Integr",
+			"Verlet",
+			"Euler",
+			"Attraction",
+			"FOREACH",
+			"foreach",
+			"Collision",
+			"Attraction",
+			"game",
+			"screen-init",
+			"gameDescrip",
+			"addDialog",
+			"cssanimation",
+			"Transition",
+			"bounceindown",
+			"effects",
+			"bounceInDown",
+			"dialog",
+			"opts",
+			"dialog",
+			"bounce",
+			"FlipDialog",
+			"fatfingers",
+			"ng-class",
+			"background",
+			"icon-ok",
+			"options",
+			"yayornay",
+			"play",
+			"hash_sound",
+			"options",
+			"disabled",
+			"effects",
+			"background",
+			"svg",
+			"DS_",
+			"  <link rel=\"stylesheet\" href=\"(.*)\" />",
+			"url(../",
+			"isDiagnostic",
+			"lifes",
+			"diagnostic",
+			"gameList",
+			"User",
+			"gameList",
+			"chooseGame",
+			"_",
+			"nextRound\nnextRound",
+			"nextRound",
+			"DEBUG",
+			".x",
+			"isChrome",
+			"transition",
+			"setfromstring",
+			"movable",
+			"movable\nmovable",
+			"movable",
+			"moveBackground",
+			"settings",
+			"unplay"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ParticleAttraction",
+			"Force",
+			"Animation",
+			"\\1",
+			"url(../../",
+			"UserService",
+			"goScreen",
+			"$scope.",
+			"",
+			"../img/",
+			"img/",
+			"/media/js/v1/",
+			"$.get(",
+			"/media/img/v1/",
+			"'Lato', sans-serif",
+			"'Lobster', cursive",
+			"/media/img/v1/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/js/controllers/games/FlipcardsController.js",
+					"settings":
+					{
+						"buffer_size": 2922,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								522,
+								522
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 191.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/js/src/test.coffee",
+					"settings":
+					{
+						"buffer_size": 420,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								420,
+								420
+							]
+						],
+						"settings":
+						{
+							"auto_name": "number   = 42",
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Cakefile",
+					"settings":
+					{
+						"buffer_size": 221,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								221,
+								221
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/js/src/test.js",
+					"settings":
+					{
+						"buffer_size": 828,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								252,
+								252
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 217.0,
+	"status_bar_visible": true
+}

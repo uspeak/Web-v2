@@ -31,7 +31,7 @@ define([
               game.scope.active = true;
               game.scope.$apply();
               game_active = game;
-              game.controller.initialize(gameData,onFinish,diagnostic);
+              game.controller.play(gameData,onFinish,diagnostic);
             });
             
             return game;
