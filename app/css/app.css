@@ -106,12 +106,14 @@ img.typekit-badge {
 .screen.active {
   display: block;
 }
+button.button {
+  min-height: 36px;
+}
 .button {
   min-width: 100px;
   font-family: 'Paytone One', sans-serif;
   font-size:18px;
   text-transform:uppercase;
-  min-height: 36px;
   text-decoration:none;
   text-align:center;
   text-shadow:0 1px 0 rgba(0,0,0,.5);

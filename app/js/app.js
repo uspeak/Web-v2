@@ -8,8 +8,8 @@ define([
 	// Application Files
 	, 'build/services/services'
 	// , 'widgets/widgets'
-	, 'order!directives/directives'
-	, 'filters/filters'
+	, 'build/directives/directives'
+	, 'build/filters/filters'
 	, 'build/controllers/controllers'	
 ], function (Console, $, _, angular, services, directives, filters, controllers) {
 	"use strict";
@@ -24,8 +24,8 @@ define([
 		// Console.group("Setup Angular");
 
 		services();
-		filters.initialize();
-		directives.initialize();
+		filters();
+		directives();
 		controllers();
 
 		angular.module('uspeak', [

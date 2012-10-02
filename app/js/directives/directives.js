@@ -3,19 +3,20 @@ define([
   'Console'   // lib/console/console
 
   // Custom Services
-  , 'directives/screens'
-  , 'directives/screen'
-  , 'directives/dialog'
+  , 'build/directives/screens'
+  , 'build/directives/screen'
+  , 'build/directives/dialog'
   , 'build/directives/game'
-  , 'directives/gameVariation'
+  , 'build/directives/gameVariation'
   , 'build/directives/games'
-  , 'directives/popups'
-  , 'directives/popup'
+  , 'build/directives/popups'
+  , 'build/directives/popup'
 ], function(Console, screens, screen, dialog, game, gameVariation, games, popups, popup){
   "use strict";
   Console.group("Entering Directives module.");
+  Console.groupEnd();
 
-  var initialize = function () {
+ return function () {
     angular.module('uspeak.directives',[]).
       directive('screens', screens).
       directive('screen', screen).
@@ -28,9 +29,4 @@ define([
     ;
     Console.debug("Custom directives initialized.");
   }
-
-  Console.groupEnd();
-  return { 
-    initialize: initialize
-  };
 });

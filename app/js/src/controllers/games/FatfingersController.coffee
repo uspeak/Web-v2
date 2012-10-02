@@ -48,11 +48,11 @@ define ["Console", "SoundManager", "jQuery","Underscore","build/controllers/game
       
       $(document)
         .keyup( (e) ->
-          return if not @scope.active
+          return if not @scope?.active
           lastKey = e.keyCode or e.charCode
         )
         .keypress( (e) =>
-          return if not @scope.active
+          return if not @scope?.active
           charcode = e.charCode
           if lastKey in accentTable then charcode = accentTable[lastKey][charcode]
           ch = String.fromCharCode charcode

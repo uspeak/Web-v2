@@ -63,13 +63,14 @@
           return selectLetter($(e.currentTarget));
         };
         $(document).keyup(function(e) {
-          if (!this.scope.active) {
+          var _ref;
+          if (!((_ref = this.scope) != null ? _ref.active : void 0)) {
             return;
           }
           return lastKey = e.keyCode || e.charCode;
         }).keypress(function(e) {
-          var ch, charcode, elem;
-          if (!_this.scope.active) {
+          var ch, charcode, elem, _ref;
+          if (!((_ref = _this.scope) != null ? _ref.active : void 0)) {
             return;
           }
           charcode = e.charCode;
