@@ -13,6 +13,7 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
     controller: ($scope, $element, games, GameWordsService, ChallengeWordsService) ->
       game_active = undefined
       $game = $("#game")
+      
       play = (gameData, onFinish, diagnostic) ->
         gameData = gameData[0] if _.isArray(gameData)
         angular.forEach games.games, (game, name) ->
@@ -89,6 +90,9 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
 
       $scope.$parent.gameDescription = (gameId) ->
         games.id(gameId).description if gameId
+
+      $scope.$parent.gameController = (gameId) ->
+        games.id(gameId).controller if gameId
 
       @addGame = (scope, element, attrs) ->
         controller = element.controller()

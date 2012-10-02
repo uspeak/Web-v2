@@ -157,7 +157,7 @@
             <h2 id="user-games-intro">Elige un juego a continuación!</h2>
           </div>
           <div ng-repeat="game in gameList" ng-show="$index==-gameIndex">
-            <img src="img/games/{{game.id}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.id)}}</p>
+            <img src="img/games/{{gameController(game.id)}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.id)}}</p>
             <span class="user-games-info"><b>{{game.wcount}}</b> rondas</span>
             <span class="user-games-info"><b>{{game.seconds}}</b> segundos</span>
             <a href="" class="button" ng-click="playGame(game.id)">Play now!</a>
@@ -168,7 +168,7 @@
             <a class="go-prev" ng-click="$parent.gameIndex = $parent.gameIndex+1">Prev</a>
             <a class="go-next" ng-click="$parent.gameIndex = $parent.gameIndex-1">Next</a>
             <div id="user-games-selector" class="selector-choices">
-              <img ng-repeat="game in gameList" ng-src="img/games/{{game.type}}/logo_text.png" class="position-{{gameIndex+1+$index}}" ng-click="$parent.$parent.gameIndex=-$index"/>
+              <img ng-repeat="game in gameList" ng-src="img/games/{{gameController(game.id)}}/logo_text.png" class="position-{{gameIndex+1+$index}}" ng-click="$parent.$parent.gameIndex=-$index"/>
             </div>
           </div>
         </dialog>

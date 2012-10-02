@@ -106,6 +106,11 @@
               return games.id(gameId).description;
             }
           };
+          $scope.$parent.gameController = function(gameId) {
+            if (gameId) {
+              return games.id(gameId).controller;
+            }
+          };
           return this.addGame = function(scope, element, attrs) {
             var controller;
             controller = element.controller();
