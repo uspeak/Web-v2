@@ -15,38 +15,40 @@
           user.setToken("testtoken");
         }
         return user;
-      }).factory("games", (function() {
+      }).factory("games", function() {
+        return new ((function() {
 
-        function _Class() {}
+          function _Class() {}
 
-        _Class.prototype.games = [];
+          _Class.prototype.games = [];
 
-        _Class.prototype.register = function(gameController, attrs) {
-          gameController.id = parseInt(attrs.gameId);
-          gameController.title = attrs.gameTitle;
-          gameController.description = attrs.gameDescription;
-          gameController.controller = attrs.gameController;
-          Console.info("Registered game " + gameController.title, gameController);
-          return this.games.push(gameController);
-        };
+          _Class.prototype.register = function(gameController, attrs) {
+            gameController.id = parseInt(attrs.gameId);
+            gameController.title = attrs.gameTitle;
+            gameController.description = attrs.gameDescription;
+            gameController.controller = attrs.gameController;
+            Console.info("Registered game " + gameController.title, gameController);
+            return this.games.push(gameController);
+          };
 
-        _Class.prototype.get = function(key, value) {
-          return _.find(this.games, function(obj) {
-            return obj[key] === value;
-          }) || {};
-        };
+          _Class.prototype.get = function(key, value) {
+            return _.find(this.games, function(obj) {
+              return obj[key] === value;
+            }) || {};
+          };
 
-        _Class.prototype.id = function(value) {
-          return this.get("id", parseInt(value));
-        };
+          _Class.prototype.id = function(value) {
+            return this.get("id", parseInt(value));
+          };
 
-        _Class.prototype.controller = function(value) {
-          return this.get("controller", value);
-        };
+          _Class.prototype.controller = function(value) {
+            return this.get("controller", value);
+          };
 
-        return _Class;
+          return _Class;
 
-      })());
+        })())();
+      });
     };
   });
 
