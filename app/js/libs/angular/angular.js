@@ -1,4 +1,4 @@
-define(['Console', 'order!http://code.angularjs.org/angular-1.0.1.min.js', 'order!http://code.angularjs.org/angular-resource-1.0.1.min.js'], function (Console) {
+define(['Console', 'order!http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js', 'order!http://code.angularjs.org/1.0.2/angular-resource.min.js'], function (Console) {
 //'order!libs/angular/angular-ie-compat',
 	Console.group("Entering Angular module.");
 	Console.info("Angular: ", angular);

@@ -37,12 +37,12 @@ require([
     Console.info("Underscore: ", _);
     Console.info("Angular: ", angular);
 
-    require(['app'], function (App) {
+    require(['build/app'], function (App) {
         loader.setLoaded('app');
         Console.group("Starting bootstrap.");
         Console.info("App: ", App);
 
-        App.initialize();
+        App();
         
         Console.groupEnd();
     });
@@ -102,7 +102,7 @@ require(['SoundManager'],function (soundManager) {
     soundManager.beginDelayedInit();
 });
 
-require(['WebFont'],function (WebFont) {
+require(['build/WebFont'],function (WebFont) {
     WebFont.load({
       google: {
         families: ['Lato:400,900', 'Delius', 'Paytone One', 'Lobster' ] 

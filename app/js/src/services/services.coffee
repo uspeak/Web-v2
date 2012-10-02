@@ -16,8 +16,8 @@ define ["Console", "Underscore", "build/services/DiagnosticWordsService", "build
         user = new UserService()
         user.setToken "testtoken" if DEBUG
         user
-      ).factory("games", ->
-        new (class 
+      ).factory("games",
+        class 
           games: []
           register: (gameController, attrs) ->
 
@@ -39,5 +39,4 @@ define ["Console", "Underscore", "build/services/DiagnosticWordsService", "build
 
           controller: (value) ->
             @get "controller", value
-        )()
       )
