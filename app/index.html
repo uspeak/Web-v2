@@ -69,7 +69,7 @@
   <script>
     DEBUG = true;
     DEBUG = DEBUG && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = true || !DEBUG;
+    EFFECTS = false || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
     OFFLINE = false || DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
@@ -128,21 +128,21 @@
             <a href="" class="button button-no" ng-click="goScreen('diagnostic-games')" data-help="No" data-help-position="rt">No</a>
         </dialog>
       </screen>
-      <screen title="Welcome back" screen-id="user-login">
+      <screen title="Welcome back" screen-id="user-login" screen-init>
         <dialog class="big">
           <h2 data-help="Título">Welcome</h2>
           <p>Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas. Por eso creamos uSpeak.</p>
           <p>¡Esperamos que lo disfrutes!</p>
         </dialog>
         <dialog class="small">
-          <form>
+          <form ng-submit="login()">
             <input type="text" name="email" placeholder="email" ng-model="login_name" />
             <input type="password" name="password" placeholder="contraseña" ng-model="login_pass" />
-            <a href="" ng-click="login()" class="button" ng-class="{disabled:!login_name || !login_pass}">entrar</a>
+            <button class="button" ng-class="{disabled:!login_name || !login_pass}">entrar</a>
           </form>
         </dialog>
       </screen>
-      <screen title="Welcome back" screen-id="user-home" screen-init>
+      <screen title="Welcome back" screen-id="user-home">
         <dialog class="big">
           <h2>Bienvenido!</h2>
           <p>Hoy hace un día precioso, disfrútalo.</p>
