@@ -6,9 +6,9 @@ define([
   , 'directives/screens'
   , 'directives/screen'
   , 'directives/dialog'
-  , 'directives/game'
+  , 'build/directives/game'
   , 'directives/gameVariation'
-  , 'directives/games'
+  , 'build/directives/games'
   , 'directives/popups'
   , 'directives/popup'
 ], function(Console, screens, screen, dialog, game, gameVariation, games, popups, popup){

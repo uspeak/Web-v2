@@ -13,6 +13,8 @@
 
       __extends(FatfingersController, _super);
 
+      FatfingersController.maxErrors = 2;
+
       accentTable = {
         222: {
           97: 225,
@@ -22,8 +24,6 @@
           117: 250
         }
       };
-
-      FatfingersController.prototype.maxErrors = 2;
 
       FatfingersController.prototype.placeholderSelector = '#game-fatfingers-placeholder';
 
@@ -63,9 +63,15 @@
           return selectLetter($(e.currentTarget));
         };
         $(document).keyup(function(e) {
+          if (!this.scope.active) {
+            return;
+          }
           return lastKey = e.keyCode || e.charCode;
         }).keypress(function(e) {
           var ch, charcode, elem;
+          if (!_this.scope.active) {
+            return;
+          }
           charcode = e.charCode;
           if (__indexOf.call(accentTable, lastKey) >= 0) {
             charcode = accentTable[lastKey][charcode];

@@ -8,8 +8,10 @@ define ["Console", "SoundManager", "jQuery","Underscore","build/controllers/game
       __ = @
       @scope.selectOption = (correct) ->
         correct ?= @option.correct
-        if !correct and !@clicked then __.mistake()
-        @clicked ?= not __.clickedCorrect
+        continue_ = false
+        if !correct and !@clicked
+          continue_ = __.mistake()
+        @clicked ?= not __.clickedCorrect if continue_
         if correct
           __.nextRound()
         __.clickedCorrect = correct

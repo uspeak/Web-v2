@@ -5,13 +5,17 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
   "use strict"
 
   class GameController
-    constructor: (@scope, @GamesPlayed) ->
-      Console.info @
+    constructor: (@scope, @element, @attrs, @GamesPlayed) ->
+      # Console.info 'Init controller of game', @, games
+      @id = @attrs.gameId
+      @name = @attrs.gameTitle
+      @description = @attrs.gameDescription
+
       @initScope()
 
-    maxMistakes: 3
+    @maxMistakes: 3
 
-    lifes: 3
+    @lifes: 3
     mistakes: {}
     info: {}
 
@@ -36,10 +40,12 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       states = $('#game-pretexts').children()
       states_progress = 0
       state = states.first()
+      state.addClass 'visible'
       interval = setInterval =>
         state.removeClass 'visible'
         state = state.next()
         if !state.length
+          @scope.active = true
           @start()
           clearInterval(interval)
         else
@@ -78,6 +84,8 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       @mistakes[@round]++
       if @mistakes[@round] >= @maxMistakes
         @kill()
+        return false
+      return true
 
     kill: ->
       Console.info 'Kill life'
@@ -103,5 +111,5 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     calcPoints: (errors) -> 0
 
-  GameController.$inject = ['$scope','GamesPlayed']
+  GameController.$inject = ['$scope','$element','$attrs','GamesPlayed']
   GameController

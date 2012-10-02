@@ -15,7 +15,7 @@
         return YayornayController.__super__.constructor.apply(this, arguments);
       }
 
-      YayornayController.prototype.maxMistakes = 1;
+      YayornayController.maxMistakes = 1;
 
       YayornayController.prototype.initScope = function() {
         var __;

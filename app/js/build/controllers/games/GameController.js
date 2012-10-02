@@ -9,16 +9,20 @@
     GameController = (function() {
       var timeout;
 
-      function GameController(scope, GamesPlayed) {
+      function GameController(scope, element, attrs, GamesPlayed) {
         this.scope = scope;
+        this.element = element;
+        this.attrs = attrs;
         this.GamesPlayed = GamesPlayed;
-        Console.info(this);
+        this.id = this.attrs.gameId;
+        this.name = this.attrs.gameTitle;
+        this.description = this.attrs.gameDescription;
         this.initScope();
       }
 
-      GameController.prototype.maxMistakes = 3;
+      GameController.maxMistakes = 3;
 
-      GameController.prototype.lifes = 3;
+      GameController.lifes = 3;
 
       GameController.prototype.mistakes = {};
 
@@ -52,10 +56,12 @@
         states = $('#game-pretexts').children();
         states_progress = 0;
         state = states.first();
+        state.addClass('visible');
         return interval = setInterval(function() {
           state.removeClass('visible');
           state = state.next();
           if (!state.length) {
+            _this.scope.active = true;
             _this.start();
             return clearInterval(interval);
           } else {
@@ -110,8 +116,10 @@
         }
         this.mistakes[this.round]++;
         if (this.mistakes[this.round] >= this.maxMistakes) {
-          return this.kill();
+          this.kill();
+          return false;
         }
+        return true;
       };
 
       GameController.prototype.kill = function() {
@@ -154,7 +162,7 @@
       return GameController;
 
     })();
-    GameController.$inject = ['$scope', 'GamesPlayed'];
+    GameController.$inject = ['$scope', '$element', '$attrs', 'GamesPlayed'];
     return GameController;
   });
 

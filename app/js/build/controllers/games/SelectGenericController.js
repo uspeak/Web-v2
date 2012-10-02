@@ -19,15 +19,18 @@
         var __;
         __ = this;
         return this.scope.selectOption = function(correct) {
-          var _ref;
+          var continue_, _ref;
           if (correct == null) {
             correct = this.option.correct;
           }
+          continue_ = false;
           if (!correct && !this.clicked) {
-            __.mistake();
+            continue_ = __.mistake();
           }
-          if ((_ref = this.clicked) == null) {
-            this.clicked = !__.clickedCorrect;
+          if (continue_) {
+            if ((_ref = this.clicked) == null) {
+              this.clicked = !__.clickedCorrect;
+            }
           }
           if (correct) {
             __.nextRound();

@@ -4,7 +4,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","build/controllers/game
   "use strict"
 
   class FlipcardsController extends GameController
-    maxErrors: 1000
+    @maxErrors: 1000
     roundCards = [6, 6, 6, 6, 6]
     matches = {}
     WOT = (obj) -> obj.word or obj.translation

@@ -548,6 +548,23 @@
   transition: all .8s ease-in-out;
 }
 
+#game.effects .game.active {
+  -webkit-animation-name: fadeInBackground;
+  -moz-animation-name: fadeInBackground;
+  -ms-animation-name: fadeInBackground;
+  -o-animation-name: fadeInBackground;
+  animation-name: fadeInBackground;
+  -webkit-animation-duration: .4s;
+  -moz-animation-duration: .4s;
+  -ms-animation-duration: .4s;
+  -o-animation-duration: .4s;
+  animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
 #game.effects.play .screens {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);

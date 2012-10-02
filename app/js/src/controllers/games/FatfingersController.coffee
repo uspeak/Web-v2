@@ -4,6 +4,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","build/controllers/game
   "use strict"
 
   class FatfingersController extends GameController
+    @maxErrors: 2
     accentTable = 
       222:
         97: 225
@@ -12,7 +13,6 @@ define ["Console", "SoundManager", "jQuery","Underscore","build/controllers/game
         111: 243
         117: 250
 
-    maxErrors: 2
     placeholderSelector: '#game-fatfingers-placeholder'
     lettersSelector: '#game-fatfingers-letters'
 
@@ -47,8 +47,12 @@ define ["Console", "SoundManager", "jQuery","Underscore","build/controllers/game
         selectLetter $(e.currentTarget)
       
       $(document)
-        .keyup( (e) -> lastKey = e.keyCode or e.charCode)
+        .keyup( (e) ->
+          return if not @scope.active
+          lastKey = e.keyCode or e.charCode
+        )
         .keypress( (e) =>
+          return if not @scope.active
           charcode = e.charCode
           if lastKey in accentTable then charcode = accentTable[lastKey][charcode]
           ch = String.fromCharCode charcode

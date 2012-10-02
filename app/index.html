@@ -69,7 +69,7 @@
   <script>
     DEBUG = true;
     DEBUG = DEBUG && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = false || !DEBUG;
+    EFFECTS = true || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
     OFFLINE = false || DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
@@ -157,10 +157,10 @@
             <h2 id="user-games-intro">Elige un juego a continuación!</h2>
           </div>
           <div ng-repeat="game in gameList" ng-show="$index==-gameIndex">
-            <img src="img/games/{{game.type}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.type)}}</p>
+            <img src="img/games/{{game.id}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.id)}}</p>
             <span class="user-games-info"><b>{{game.wcount}}</b> rondas</span>
             <span class="user-games-info"><b>{{game.seconds}}</b> segundos</span>
-            <a href="" class="button" ng-click="playGame(game.type)">Play now!</a>
+            <a href="" class="button" ng-click="playGame(game.id)">Play now!</a>
           </div>
         </dialog>
         <dialog class="medium">
@@ -312,56 +312,26 @@
       <div id="game-header">
         <div id="game-clock" data-help="Clock" data-help-position="br"></div>
         <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{total_rounds}}</b></div>
-        <h1>{{title}}</h1>
+        <h1>{{gameTitle}}</h1>
         <ul id="game-lifes" class="lifes-{{lifes}}" data-help="Vidas" data-help-position="bl">
           <li class="game-life-{{life}}" ng-repeat="life in [1,2,3]"><span>Life</span></li>
         </ul>
-        <div id="game-points" data-help="Puntos" data-help-position="bl">Points:<b>{{points}}</b></div>
+        <div id="game-points" data-help="Puntos" data-help-position="bl">Points:<b>{{gamePoints}}</b></div>
       </div>
       <div id="game-pretexts">
         <span class="game-pretext-ready">Ready</span>
         <span class="game-pretext-set">Set</span>
         <span class="game-pretext-go">Go!</span>
       </div>
-      <game game-id="whichone" game-title="Which one" game-description="Super simple, which one is correct?">
-        <span class="game-main-word">{{word}}</span>
-        <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
-        <ul id="game-whichone-notes" class="game-selector-options">
-          <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> <!-- note-{{$index+1}} -->
-        </ul>
-      </game>
-      <game game-id="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
+
+      <game game-id="1" game-controller="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Match the Spanish word and it's English translation</span>
         <ul id="game-flipcards-cards" class="items-{{cards.length}}">
           <li ng-repeat="card in cards" ng-click="selectCard()" ng-class="{selected:card.selected, correct:card.selected && card.correct, incorrect:card.selected && card.correct != undefined && !card.correct}"><span class="front"></span><span class="back">{{card.word||card.translation}}</span></li> 
         </ul>
       </game>
-      <game game-id="association" game-title="Association" game-description="Descripción association">
-        <span class="game-main-word" ng-class="{small:variation == '9'}">{{word}}</span>
-        <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
-        <ul id="game-association-notes" class="game-selector-options">
-          <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> 
-        </ul>
-      </game>
-      <game game-id="yayornay" game-title="Yay or Nay" game-description="Descripción yayornay">
-        <span class="game-main-word">{{word}}</span>
-        <span class="game-main-help" game-variation="12">Estás jugando con la variación 12</span>
-        <span class="game-main-help" game-variation="11">"texto de la variación 11"?</span>
-        <ul id="game-yayornay-notes" class="game-selector-options">
-          <li ng-click="selectOption(true)" ng-class="{correct:correct && clicked[true],incorrect:!correct && clicked[true]}"><span></span>Yes</li> 
-          <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
-        </ul>
-      </game>
-      <game game-id="braintickle" game-title="Brain Tickle" game-description="Descripción braintickle">
-        <span class="game-main-word">{{word}}</span>
-        <span class="game-main-help" ng-show="first">Esta palabra existía hace 500 años?</span>
-        <span class="game-main-help" ng-hide="first">Esta palabra está en el mismo género que la anterior "Existía hace 500 años"?</span>
-        <ul id="game-braintickle-notes" class="game-selector-options">
-          <li ng-click="selectOption(true)" ng-class="{correct:correct && clicked[true],incorrect:!correct && clicked[true]}"><span></span>Yes</li> 
-          <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
-        </ul>
-      </game>
-      <game game-id="fatfingers" game-title="Fat Fingers" game-description="Descripción fatfingers">
+
+      <game game-id="2" game-controller="fatfingers" game-title="Fat Fingers" game-description="Descripción fatfingers">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="Haz click en las letras en el orden correcto" data-help-position="br">Tap the letters in the correct order</span>
         <ul id="game-fatfingers-placeholder">
@@ -372,7 +342,43 @@
         </ul>
       </game>
 
-      <game game-id="challenge" game-title="Challenge" game-description="Descripción challenge">
+      <game game-id="3" game-controller="whichone" game-title="Which one" game-description="Super simple, which one is correct?">
+        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
+        <ul id="game-whichone-notes" class="game-selector-options">
+          <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> <!-- note-{{$index+1}} -->
+        </ul>
+      </game>
+
+      <game game-id="4" game-controller="yayornay" game-title="Yay or Nay" game-description="Descripción yayornay">
+        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-help" game-variation="12">Estás jugando con la variación 12</span>
+        <span class="game-main-help" game-variation="11">"texto de la variación 11"?</span>
+        <ul id="game-yayornay-notes" class="game-selector-options">
+          <li ng-click="selectOption(true)" ng-class="{correct:correct && clicked[true],incorrect:!correct && clicked[true]}"><span></span>Yes</li> 
+          <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
+        </ul>
+      </game>
+
+      <game game-id="5" game-controller="braintickle" game-title="Brain Tickle" game-description="Descripción braintickle">
+        <span class="game-main-word">{{word}}</span>
+        <span class="game-main-help" ng-show="first">Esta palabra existía hace 500 años?</span>
+        <span class="game-main-help" ng-hide="first">Esta palabra está en el mismo género que la anterior "Existía hace 500 años"?</span>
+        <ul id="game-braintickle-notes" class="game-selector-options">
+          <li ng-click="selectOption(true)" ng-class="{correct:correct && clicked[true],incorrect:!correct && clicked[true]}"><span></span>Yes</li> 
+          <li ng-click="selectOption(false)" ng-class="{correct:!correct && clicked[false],incorrect:correct && clicked[false]}"><span></span>No</li> 
+        </ul>
+      </game>
+
+      <game game-id="6" game-controller="association" game-title="Association" game-description="Descripción association">
+        <span class="game-main-word" ng-class="{small:variation == '9'}">{{word}}</span>
+        <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
+        <ul id="game-association-notes" class="game-selector-options">
+          <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> 
+        </ul>
+      </game>
+
+      <game game-id="8" game-controller="challenge" game-title="Challenge" game-description="Descripción challenge">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="Haz click en las letras en el orden correcto" data-help-position="br">Tap the letters in the correct order</span>
         <ul id="game-challenge-placeholder">

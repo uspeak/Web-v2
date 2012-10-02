@@ -4,7 +4,7 @@ define ["Console", "SoundManager", "jQuery","build/controllers/games/SelectGener
   "use strict"
 
   class YayornayController extends SelectGenericController
-    maxMistakes: 1
+    @maxMistakes: 1
     initScope: ->
       __ = @
       @scope.selectOption = (option) ->

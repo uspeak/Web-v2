@@ -12,7 +12,7 @@
 
       __extends(FlipcardsController, _super);
 
-      FlipcardsController.prototype.maxErrors = 1000;
+      FlipcardsController.maxErrors = 1000;
 
       roundCards = [6, 6, 6, 6, 6];
 
