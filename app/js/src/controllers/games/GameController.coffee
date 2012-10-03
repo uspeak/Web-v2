@@ -58,7 +58,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       Console.info 'Init data', @data
       @scope.$root.totalRounds = @totalRounds = @data.W.length
       @scope.$root.gameTitle = @name
-      @time = @data.time or data.seconds
+      @time = @data.time or @data.seconds
 
     play: (data, @onFinish, @diagnostic) ->
       Console.group "Game #{@name}"
@@ -76,7 +76,8 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     timeout: ->
       Console.info "Timeout!"
-      @finish()
+      @scope.active = false
+      timeout = setTimeout @finish, 1000
 
     goRound: (@round) ->
       Console.info "Round #{ @round } of #{ @totalRounds }"

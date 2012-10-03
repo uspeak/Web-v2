@@ -89,16 +89,17 @@
 			gVars = tmp;
 		
 		// Setting up a interval, executed every 1000 milliseconds:
+		animation(gVars, 0, total);
 		var s = 1;
 		var timer = new TimerInterval(function(){
 			// console.log('seconds',s);
 			step(s,total);
-			if (s-1==total) {
+			animation(gVars, s, total);
+			if (s==total) {
 				finish();
 				timer.pause();
 				return;
 			}
-			animation(gVars, s, total);
 			s++;
 		},1000);
 		return timer;

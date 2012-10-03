@@ -68,7 +68,7 @@
   <script src="js/libs/modernizr-2.5.3.min.js"></script>
   <script>
     DEBUG = true && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = true || !DEBUG;
+    EFFECTS = false || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
     OFFLINE = false || DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
@@ -323,7 +323,8 @@
         <span class="game-maintext" id="game-pretext-go">Go!</span>
       </div>
 
-      <span class="game-maintext" ng-class="{visible:gamePaused}">PAUSA</span>
+      <span class="game-maintext" ng-class="{visible:gamePaused}">Pausa</span>
+      <span class="game-maintext" ng-class="{visible:gameRemainSeconds<=0}">Sin tiempo!</span>
 
       <game game-id="1" game-controller="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Match the Spanish word and it's English translation</span>

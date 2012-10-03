@@ -77,7 +77,7 @@
         Console.info('Init data', this.data);
         this.scope.$root.totalRounds = this.totalRounds = this.data.W.length;
         this.scope.$root.gameTitle = this.name;
-        return this.time = this.data.time || data.seconds;
+        return this.time = this.data.time || this.data.seconds;
       };
 
       GameController.prototype.play = function(data, onFinish, diagnostic) {
@@ -100,8 +100,10 @@
       };
 
       GameController.prototype.timeout = function() {
+        var timeout;
         Console.info("Timeout!");
-        return this.finish();
+        this.scope.active = false;
+        return timeout = setTimeout(this.finish, 1000);
       };
 
       GameController.prototype.goRound = function(round) {
