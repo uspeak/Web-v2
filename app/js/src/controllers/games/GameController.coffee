@@ -30,10 +30,12 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
     
     pause: ->
       Console.info 'Pause'
+      @scope.active = false
       @clock.pause()
     
     resume: ->
       Console.info 'Resume'
+      @scope.active = true
       @clock.resume()
 
     preStart: ->
@@ -54,15 +56,23 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     initData: (@data) ->
       Console.info 'Init data', @data
-      @scope.$root.total_rounds = @totalRounds = @data.W.length
+      @scope.$root.totalRounds = @totalRounds = @data.W.length
+      @scope.$root.gameTitle = @name
       @time = @data.time or data.seconds
 
     play: (data, @onFinish, @diagnostic) ->
+      Console.group "Game #{@name}"
       @initData(data)
       @preStart()
 
+    unplay: ->
+      @clock.pause()
+      @scope.active = false
+      Console.groupEnd()
+
     finish: ->
       (@onFinish or ->)()
+      @unplay()
 
     timeout: ->
       Console.info "Timeout!"
@@ -70,11 +80,11 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     goRound: (@round) ->
       Console.info "Round #{ @round } of #{ @totalRounds }"
-      @scope.round = @round
+      @scope.$root.round = @round
 
     start: ->
       Console.info 'Start'
-      @clock = $('game-clock').tzineClock @time, =>
+      @clock = $('#game-clock').tzineClock @time, =>
         @timeout()
       @goRound(0)
 

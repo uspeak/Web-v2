@@ -1,7 +1,9 @@
 define ["Console", "jQuery"], (Console, $) ->
   "use strict"
   Console.group "Entering game screens module."
-  directive = ->
+  Console.groupEnd()
+
+  ->
     restrict: "E"
     transclude: true
     # scope: true,
@@ -107,6 +109,3 @@ define ["Console", "jQuery"], (Console, $) ->
 
     template: """<div class="screens" ng-transclude></div>"""
     replace: true
-
-  Console.groupEnd()
-  directive

@@ -311,7 +311,7 @@
     <games>
       <div id="game-header">
         <div id="game-clock" data-help="Clock" data-help-position="br"></div>
-        <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{total_rounds}}</b></div>
+        <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{totalRounds}}</b></div>
         <h1>{{gameTitle}}</h1>
         <ul id="game-lifes" class="lifes-{{lifes}}" data-help="Vidas" data-help-position="bl">
           <li class="game-life-{{life}}" ng-repeat="life in [1,2,3]"><span>Life</span></li>
@@ -319,10 +319,12 @@
         <div id="game-points" data-help="Puntos" data-help-position="bl">Points:<b>{{gamePoints}}</b></div>
       </div>
       <div id="game-pretexts">
-        <span class="game-pretext-ready">Ready</span>
-        <span class="game-pretext-set">Set</span>
-        <span class="game-pretext-go">Go!</span>
+        <span class="game-maintext" id="game-pretext-ready">Ready</span>
+        <span class="game-maintext" id="game-pretext-set">Set</span>
+        <span class="game-maintext" id="game-pretext-go">Go!</span>
       </div>
+
+      <span class="game-maintext" ng-class="{visible:gamePaused}">PAUSA</span>
 
       <game game-id="1" game-controller="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Match the Spanish word and it's English translation</span>
@@ -392,7 +394,7 @@
       <div id="game-settings">
         <a class="exit" ng-click="exit()"><i class="icon-chevron-left"></i></a>
         <a class="help" ng-click="showHelp()">?</a>
-        <a class="pause" ng-click="pauseGame()"><i class="icon-pause"></i></a> <!-- paused?resumeGame():pauseGame() -->
+        <a class="pause" ng-click="togglePlay()"><i ng-class="{'icon-pause':!gamePaused,'icon-play':gamePaused}"></i></a> 
         <a class="sound" ng-click="toggleAudio()"><i ng-class="{'icon-volume-off':$root.audio,'icon-volume-up':!$root.audio}"></i></a>
       </div>
     </games>

@@ -24,7 +24,7 @@
 
           _Class.prototype.register = function(gameController, attrs) {
             gameController.id = parseInt(attrs.gameId);
-            gameController.title = attrs.gameTitle;
+            gameController.name = attrs.gameTitle;
             gameController.description = attrs.gameDescription;
             gameController.controller = attrs.gameController;
             Console.info("Registered game " + gameController.title, gameController);

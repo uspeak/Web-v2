@@ -22,7 +22,7 @@ define ["Console", "Underscore", "build/services/DiagnosticWordsService", "build
           register: (gameController, attrs) ->
 
             gameController.id = parseInt(attrs.gameId)
-            gameController.title = attrs.gameTitle
+            gameController.name = attrs.gameTitle
             gameController.description = attrs.gameDescription
             gameController.controller = attrs.gameController
 

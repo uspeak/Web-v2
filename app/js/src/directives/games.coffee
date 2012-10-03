@@ -13,40 +13,37 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
     controller: ($scope, $element, games, GameWordsService, ChallengeWordsService) ->
       game_active = undefined
       $game = $("#game")
-      
+
       play = (gameData, onFinish, diagnostic) ->
         gameData = gameData[0] if _.isArray(gameData)
-        angular.forEach games.games, (game, name) ->
-          game.scope.active = false
+        # angular.forEach games.games, (game, name) ->
+        #   game.scope.active = false
 
         gameId = gameData.gid
         game = games.id(gameId)
+        $scope.$parent.gamePaused = false
         $scope.$root.hideScreen ->
-          Console.group "Game #{gameData.title}"
           $game.addClass "play"
-          $scope.$parent.title = game.attrs.gameTitle
           game_active = game
           game.play gameData, onFinish, diagnostic
 
         game
 
       unplay = ->
-        Console.groupEnd()
         $game.removeClass "play"
-        angular.forEach games.games, (game, name) ->
-          if game.scope.active
-            game.scope.active = false
-            game.unplay()
+        game_active.unplay()
+        # angular.forEach games.games, (game, name) ->
+        #   if game.scope.active
+        #     game.scope.active = false
+        #     game.unplay()
 
         game_active = `undefined`
 
-      $scope.resumeGame = (gameId) ->
-        $scope.paused = false
-        game_active.resume()
-
-      $scope.pauseGame = ->
-        $scope.paused = true
-        game_active.pause()
+      $scope.$parent.togglePlay = ->
+        if @$parent.gamePaused = !@$parent.gamePaused
+          game_active.pause()
+        else
+          game_active.resume()
 
       $scope.$parent.exit = ->
         if game_active.isDiagnostic

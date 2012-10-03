@@ -55,21 +55,15 @@
                 } else {
                   animation = (show ? "FlipDialog" : "FlipDialogBack");
                 }
-                if (show) {
-                  dialog_element.addClass("show");
-                }
+                dialog.scope.show = show;
                 return dialog_element.keyframe(animation, (index > 1 ? 600 : 1000), function() {
                   if (!show) {
-                    dialog_element.removeClass("show");
+                    dialog.scope.show = false;
                   }
                   return recursiveDialog(index + next, show, onfinish);
                 });
               } else {
-                if (show) {
-                  $(dialog.element).addClass("show");
-                } else {
-                  $(dialog.element).removeClass("show");
-                }
+                dialog.scope.show = show;
                 return recursiveDialog(index + next, show, onfinish);
               }
             } else {

@@ -14,7 +14,7 @@
         link: function(scope, element, attrs, screenCtrl) {
           return screenCtrl.addDialog(scope, element, attrs);
         },
-        template: "<div class=\"dialog\" ng-transclude></div>",
+        template: "<div class=\"dialog\" ng-class=\"{show:show}\" ng-transclude></div>",
         replace: true
       };
     };

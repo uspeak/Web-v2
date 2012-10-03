@@ -49,19 +49,17 @@ define ["Console", "jQuery", "Underscore"], (Console, $, _) ->
               animation = (if show then "bounceInDown" else "bounceOutUp")
             else
               animation = (if show then "FlipDialog" else "FlipDialogBack")
-            dialog_element.addClass "show" if show
+            dialog.scope.show = show
             
             # if (show && index==1) dialog_element.css({trand:-2000})
             dialog_element.keyframe animation, (if (index > 1) then 600 else 1000), ->
-              dialog_element.removeClass "show"  unless show
+              if !show then dialog.scope.show = false
+              # dialog_element.removeClass "show"  unless show
               
               recursiveDialog index + next, show, onfinish
 
           else
-            if show
-              $(dialog.element).addClass "show"
-            else
-              $(dialog.element).removeClass "show"
+            dialog.scope.show = show
             recursiveDialog index + next, show, onfinish
         
         # dialog.scope.$apply();

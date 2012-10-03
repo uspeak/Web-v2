@@ -42,11 +42,13 @@
 
       GameController.prototype.pause = function() {
         Console.info('Pause');
+        this.scope.active = false;
         return this.clock.pause();
       };
 
       GameController.prototype.resume = function() {
         Console.info('Resume');
+        this.scope.active = true;
         return this.clock.resume();
       };
 
@@ -73,19 +75,28 @@
       GameController.prototype.initData = function(data) {
         this.data = data;
         Console.info('Init data', this.data);
-        this.scope.$root.total_rounds = this.totalRounds = this.data.W.length;
+        this.scope.$root.totalRounds = this.totalRounds = this.data.W.length;
+        this.scope.$root.gameTitle = this.name;
         return this.time = this.data.time || data.seconds;
       };
 
       GameController.prototype.play = function(data, onFinish, diagnostic) {
         this.onFinish = onFinish;
         this.diagnostic = diagnostic;
+        Console.group("Game " + this.name);
         this.initData(data);
         return this.preStart();
       };
 
+      GameController.prototype.unplay = function() {
+        this.clock.pause();
+        this.scope.active = false;
+        return Console.groupEnd();
+      };
+
       GameController.prototype.finish = function() {
-        return (this.onFinish || function() {})();
+        (this.onFinish || function() {})();
+        return this.unplay();
       };
 
       GameController.prototype.timeout = function() {
@@ -96,13 +107,13 @@
       GameController.prototype.goRound = function(round) {
         this.round = round;
         Console.info("Round " + this.round + " of " + this.totalRounds);
-        return this.scope.round = this.round;
+        return this.scope.$root.round = this.round;
       };
 
       GameController.prototype.start = function() {
         var _this = this;
         Console.info('Start');
-        this.clock = $('game-clock').tzineClock(this.time, function() {
+        this.clock = $('#game-clock').tzineClock(this.time, function() {
           return _this.timeout();
         });
         return this.goRound(0);

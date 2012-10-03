@@ -10,5 +10,5 @@ define ["Console"], (Console) ->
     link: (scope, element, attrs, screenCtrl) ->
       screenCtrl.addDialog scope, element, attrs
 
-    template: """<div class="dialog" ng-transclude></div>"""
+    template: """<div class="dialog" ng-class="{show:show}" ng-transclude></div>"""
     replace: true

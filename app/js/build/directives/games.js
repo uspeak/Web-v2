@@ -21,38 +21,27 @@
             if (_.isArray(gameData)) {
               gameData = gameData[0];
             }
-            angular.forEach(games.games, function(game, name) {
-              return game.scope.active = false;
-            });
             gameId = gameData.gid;
             game = games.id(gameId);
+            $scope.$parent.gamePaused = false;
             $scope.$root.hideScreen(function() {
-              Console.group("Game " + gameData.title);
               $game.addClass("play");
-              $scope.$parent.title = game.attrs.gameTitle;
               game_active = game;
               return game.play(gameData, onFinish, diagnostic);
             });
             return game;
           };
           unplay = function() {
-            Console.groupEnd();
             $game.removeClass("play");
-            angular.forEach(games.games, function(game, name) {
-              if (game.scope.active) {
-                game.scope.active = false;
-                return game.unplay();
-              }
-            });
+            game_active.unplay();
             return game_active = undefined;
           };
-          $scope.resumeGame = function(gameId) {
-            $scope.paused = false;
-            return game_active.resume();
-          };
-          $scope.pauseGame = function() {
-            $scope.paused = true;
-            return game_active.pause();
+          $scope.$parent.togglePlay = function() {
+            if (this.$parent.gamePaused = !this.$parent.gamePaused) {
+              return game_active.pause();
+            } else {
+              return game_active.resume();
+            }
           };
           $scope.$parent.exit = function() {
             if (game_active.isDiagnostic) {

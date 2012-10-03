@@ -3,10 +3,9 @@
 
   define(["Console", "jQuery"], function(Console, $) {
     "use strict";
-
-    var directive;
     Console.group("Entering game screens module.");
-    directive = function() {
+    Console.groupEnd();
+    return function() {
       return {
         restrict: "E",
         transclude: true,
@@ -135,8 +134,6 @@
         replace: true
       };
     };
-    Console.groupEnd();
-    return directive;
   });
 
 }).call(this);
