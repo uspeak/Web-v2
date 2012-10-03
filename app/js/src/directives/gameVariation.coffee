@@ -5,6 +5,6 @@ define ["Console", "Angular"], (Console, angular) ->
   ($compile) ->
     restrict: "A"
     link: (scope, element, attr) ->
-      scope.$watch "variation", (value) ->
-        element.css "display", (if (attr.gameVariation is scope.variation) then "" else "none")
+      scope.$watch "gameVariation", (value) ->
+        element.css "display", (if (parseInt(attr.gameVariation) is scope.gameVariation) then "" else "none")
     replace: true

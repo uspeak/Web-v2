@@ -89,10 +89,17 @@
             word: wt.w,
             id: wt.id
           });
-          cards.push({
-            word: wt.m,
-            id: wt.id
-          });
+          if (this.variation === 2) {
+            cards.push({
+              img: wt.m,
+              id: wt.id
+            });
+          } else {
+            cards.push({
+              word: wt.m,
+              id: wt.id
+            });
+          }
           matches[wt.id] = false;
         }
         this.scope.cards = _.shuffle(cards);

@@ -56,9 +56,12 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     initData: (@data) ->
       Console.info 'Init data', @data
+      @variation = parseInt(@data.vid)
+      @time = @data.time or @data.seconds
+
       @scope.$root.totalRounds = @totalRounds = @data.W.length
       @scope.$root.gameTitle = @name
-      @time = @data.time or @data.seconds
+      @scope.$parent.gameVariation = @variation
 
     play: (data, @onFinish, @diagnostic) ->
       Console.group "Game #{@name}"

@@ -12,11 +12,13 @@
 #game-flipcards-cards li {
 	display: inline-block;
 	position: relative;
+	vertical-align: top;
 }
 #game-flipcards-cards li .front,
 #game-flipcards-cards li .back
  {
 	display: inline-block;
+	overflow: hidden;
 	border-radius: 9px;
 	border:4px solid white;
 	background:white;
@@ -49,7 +51,10 @@
 	margin-top:20px;
 	width:600px;
 }
-
+#game-flipcards-cards img {
+	vertical-align: top;
+	line-height: 0;
+}
 #game-flipcards-cards.items-12 li,
 #game-flipcards-cards.items-18 li {
 	width:110px;
@@ -58,7 +63,7 @@
 	line-height: 98px;
 	margin:6px;
 }
-#game-flipcards-cards.items-24 li {
+#game-flipcards-cards.items-24 .back {
 	width:78px;
 	height:78px;
 	font-size:14px;

@@ -9,8 +9,8 @@
       return {
         restrict: "A",
         link: function(scope, element, attr) {
-          return scope.$watch("variation", function(value) {
-            return element.css("display", (attr.gameVariation === scope.variation ? "" : "none"));
+          return scope.$watch("gameVariation", function(value) {
+            return element.css("display", (parseInt(attr.gameVariation) === scope.gameVariation ? "" : "none"));
           });
         },
         replace: true

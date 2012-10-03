@@ -309,7 +309,7 @@
     </popups>
     <games>
       <div id="game-header">{{gameSeconds}}
-        <div id="game-clock" data-help="Clock" ng-class="{quick:gameRemainSeconds<10,veryquick:gameRemainSeconds<5}" data-help-position="br"></div>
+        <div id="game-clock" data-help="Clock" ng-class="{quick:gameRemainSeconds<=20,veryquick:gameRemainSeconds<10}" data-help-position="br"></div>
         <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{totalRounds}}</b></div>
         <h1>{{gameTitle}}</h1>
         <ul id="game-lifes" class="lifes-{{lifes}}" data-help="Vidas" data-help-position="bl">
@@ -327,9 +327,14 @@
       <span class="game-maintext" ng-class="{visible:gameRemainSeconds<=0}">Sin tiempo!</span>
 
       <game game-id="1" game-controller="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
-        <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Match the Spanish word and it's English translation</span>
+        <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br" game-variation="1">Match the Spanish word and it's English translation</span>
+        <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br" game-variation="2">Match the word with the image</span>
         <ul id="game-flipcards-cards" class="items-{{cards.length}}">
-          <li ng-repeat="card in cards" ng-click="selectCard()" ng-class="{selected:card.selected, correct:card.selected && card.correct, incorrect:card.selected && card.correct != undefined && !card.correct}"><span class="front"></span><span class="back">{{card.word||card.translation}}</span></li> 
+          <li ng-repeat="card in cards" ng-click="selectCard()" ng-class="{selected:card.selected, correct:card.selected && card.correct, incorrect:card.selected && card.correct != undefined && !card.correct}">
+            <span class="front"></span>
+            <span class="back" ng-show="card.word">{{card.word}}</span>
+            <img class="back" ng-src="{{card.img}}" ng-show="card.img" />
+          </li> 
         </ul>
       </game>
 

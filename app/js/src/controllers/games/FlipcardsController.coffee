@@ -52,7 +52,10 @@ define ["Console", "SoundManager", "jQuery","Underscore","build/controllers/game
       cards = []
       for wt in data
         cards.push word:wt.w, id:wt.id
-        cards.push word:wt.m, id:wt.id
+        if @variation == 2
+          cards.push img:wt.m, id:wt.id
+        else
+          cards.push word:wt.m, id:wt.id
         matches[wt.id] = false
       @scope.cards = _.shuffle cards
       @scope.$apply()

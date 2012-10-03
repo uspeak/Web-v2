@@ -75,9 +75,11 @@
       GameController.prototype.initData = function(data) {
         this.data = data;
         Console.info('Init data', this.data);
+        this.variation = parseInt(this.data.vid);
+        this.time = this.data.time || this.data.seconds;
         this.scope.$root.totalRounds = this.totalRounds = this.data.W.length;
         this.scope.$root.gameTitle = this.name;
-        return this.time = this.data.time || this.data.seconds;
+        return this.scope.$parent.gameVariation = this.variation;
       };
 
       GameController.prototype.play = function(data, onFinish, diagnostic) {
