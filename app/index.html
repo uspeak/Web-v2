@@ -156,7 +156,7 @@
             <h2 id="user-games-intro">Elige un juego a continuación!</h2>
           </div>
           <div ng-repeat="game in gameList" ng-show="$index==-gameIndex">
-            <img src="img/games/{{gameController(game.id)}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.id)}}</p>
+            <img width="200" src="img/games/{{gameController(game.id)}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.id)}}</p>
             <span class="user-games-info"><b>{{game.wcount}}</b> rondas</span>
             <span class="user-games-info"><b>{{game.seconds}}</b> segundos</span>
             <a href="" class="button" ng-click="playGame(game.id)">Play now!</a>
