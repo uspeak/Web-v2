@@ -44,21 +44,51 @@
 	font-family: 'Lobster', cursive;
 	font-size:54px
 }
+.user-games-mainlogo {
+	width: 200px;
+	display: inline-block;
+
+}
+.user-games-mainlogo img {
+	max-width: 200px;
+	max-height: 140px;
+}
+.user-games-description {
+	float: left;
+	clear:both;
+	display: block;
+	text-align: center;
+	width: 100%;
+}
 .user-games-info {
-	font-size: 13px;
+	position: relative;
+	margin: 6px;
+	font-size: 12px;
 	background: #888;
 	color: #FAF1DE;
 	border-radius: 50%;
 	width: 78px;
 	height: 78px;
 	display: inline-block;
-	overflow: hidden;
+	z-index: 1;
 	font-family: 'Paytone One', sans-serif;
+}
+.user-games-info::before {
+	content: '';
+	top:-4px;
+	left: -4px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 2px;
+	background:transparent;
+	border-radius: 50%;
+	border:2px solid #888;
 }
 .user-games-info b{
 	display: block;
 	margin-top: .35em;
-	font-size: 2.3em;
+	font-size: 2.6em;
 	line-height: 1.05;
 }
 #user-games-main {

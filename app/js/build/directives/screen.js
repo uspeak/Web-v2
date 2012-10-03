@@ -41,13 +41,12 @@
             });
           };
           recursiveDialog = function(index, show, onfinish) {
-            var animation, dialog, dialog_element, elem, next;
+            var animation, dialog, elem, next;
             next = (show ? 1 : -1);
             dialog = find_dialog(index);
             if (dialog) {
               elem = $(dialog.element);
               Console.info((show ? "Showing" : "Hiding") + " dialog ", index, dialog, elem, $scope);
-              dialog_element = $(dialog.element);
               if ($scope.$root.effects) {
                 animation = void 0;
                 if (index === 1) {
@@ -55,9 +54,13 @@
                 } else {
                   animation = (show ? "FlipDialog" : "FlipDialogBack");
                 }
-                dialog.scope.show = show;
-                return dialog_element.keyframe(animation, (index > 1 ? 600 : 1000), function() {
+                if (show) {
+                  dialog.scope.show = true;
+                  elem.addClass('show');
+                }
+                return elem.keyframe(animation, (index > 1 ? 600 : 1000), function() {
                   if (!show) {
+                    elem.removeClass('show');
                     dialog.scope.show = false;
                   }
                   return recursiveDialog(index + next, show, onfinish);

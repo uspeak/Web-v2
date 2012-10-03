@@ -105,6 +105,7 @@
         var timeout;
         Console.info("Timeout!");
         this.scope.active = false;
+        this.scope.$apply();
         return timeout = setTimeout(this.finish, 1000);
       };
 

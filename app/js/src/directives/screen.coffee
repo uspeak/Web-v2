@@ -39,29 +39,28 @@ define ["Console", "jQuery", "Underscore"], (Console, $, _) ->
         if dialog
           elem = $(dialog.element)
           Console.info (if show then "Showing" else "Hiding")+" dialog ", index, dialog, elem, $scope
-          
-          # dialog.scope.show = show;
-          # dialog.scope.hide = !show;
-          dialog_element = $(dialog.element)
+
           if $scope.$root.effects
             animation = undefined
             if index is 1
               animation = (if show then "bounceInDown" else "bounceOutUp")
             else
               animation = (if show then "FlipDialog" else "FlipDialogBack")
-            dialog.scope.show = show
-            
+            if show
+              dialog.scope.show = true
+              elem.addClass 'show' #WTF!!!
             # if (show && index==1) dialog_element.css({trand:-2000})
-            dialog_element.keyframe animation, (if (index > 1) then 600 else 1000), ->
-              if !show then dialog.scope.show = false
-              # dialog_element.removeClass "show"  unless show
-              
+            elem.keyframe animation, (if (index > 1) then 600 else 1000), ->
+              unless show
+                elem.removeClass 'show'
+                dialog.scope.show = false
+              # else  dialog_element.css({y:0})
               recursiveDialog index + next, show, onfinish
 
           else
             dialog.scope.show = show
             recursiveDialog index + next, show, onfinish
-        
+
         # dialog.scope.$apply();
         else
           onfinish index - next

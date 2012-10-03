@@ -68,7 +68,7 @@
   <script src="js/libs/modernizr-2.5.3.min.js"></script>
   <script>
     DEBUG = true && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = false || !DEBUG;
+    EFFECTS = true || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
     OFFLINE = false || DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
@@ -156,10 +156,13 @@
             <h2 id="user-games-intro">Elige un juego a continuación!</h2>
           </div>
           <div ng-repeat="game in gameList" ng-show="$index==-gameIndex">
-            <img width="200" src="img/games/{{gameController(game.id)}}/logo-big.png" class="user-games-mainlogo"/><p>{{gameDescription(game.id)}}</p>
+            <div class="user-games-mainlogo">
+              <img src="img/games/{{gameController(game.id)}}/logo-big.png"/>
+            </div>
             <span class="user-games-info"><b>{{game.wcount}}</b> rondas</span>
             <span class="user-games-info"><b>{{game.seconds}}</b> segundos</span>
             <a href="" class="button" ng-click="playGame(game.id)">Play now!</a>
+            <p class="user-games-description">{{gameDescription(game.id)}}</p>
           </div>
         </dialog>
         <dialog class="medium">
@@ -378,7 +381,7 @@
       </game>
 
       <game game-id="6" game-controller="association" game-title="Association" game-description="Descripción association">
-        <span class="game-main-word" ng-class="{small:variation == '9'}">{{word}}</span>
+        <span class="game-main-word" ng-class="{small:gameVariation == 9}">{{word}}</span>
         <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
         <ul id="game-association-notes" class="game-selector-options">
           <li ng-repeat="option in options" ng-click="selectOption()" ng-class="{correct:option.correct && clicked,incorrect:!option.correct && clicked}"><span></span>{{option.word}}</li> 

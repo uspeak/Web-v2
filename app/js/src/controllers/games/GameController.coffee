@@ -80,6 +80,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
     timeout: ->
       Console.info "Timeout!"
       @scope.active = false
+      @scope.$apply()
       timeout = setTimeout @finish, 1000
 
     goRound: (@round) ->
