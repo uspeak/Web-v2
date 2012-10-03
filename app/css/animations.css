@@ -742,3 +742,28 @@
 #game.effects #game-pretexts span {
   -webkit-animation: readySet 1s;
 }
+
+#game.effects #game-clock.quick .bg{
+  -webkit-transition: background-color .5s;
+
+}
+#game.effects #game-clock.quick,
+#game.effects #game-clock.veryquick
+ {
+
+  -webkit-animation-duration: .8s;
+     -moz-animation-duration: .8s;
+      -ms-animation-duration: .8s;
+       -o-animation-duration: .8s;
+          animation-duration: .8s;
+  -webkit-animation-fill-mode: both;
+     -moz-animation-fill-mode: both;
+      -ms-animation-fill-mode: both;
+       -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -ms-animation-name: pulse;
+  -o-animation-name: pulse;
+  animation-name: pulse;
+}

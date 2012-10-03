@@ -84,8 +84,12 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     start: ->
       Console.info 'Start'
+      @scope.$root.gameRemainSeconds = @time
       @clock = $('#game-clock').tzineClock @time, =>
         @timeout()
+      , (seconds,total) => 
+        @scope.$root.gameRemainSeconds = total-seconds
+        @scope.$root.$apply()
       @goRound(0)
 
     mistake: ->

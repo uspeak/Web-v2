@@ -67,9 +67,8 @@
   <script src="js/utils.js"></script>
   <script src="js/libs/modernizr-2.5.3.min.js"></script>
   <script>
-    DEBUG = true;
-    DEBUG = DEBUG && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = false || !DEBUG;
+    DEBUG = true && !(document.domain.indexOf('uspeakapp.com')>-1);
+    EFFECTS = true || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
     OFFLINE = false || DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
@@ -309,8 +308,8 @@
       </popup>
     </popups>
     <games>
-      <div id="game-header">
-        <div id="game-clock" data-help="Clock" data-help-position="br"></div>
+      <div id="game-header">{{gameSeconds}}
+        <div id="game-clock" data-help="Clock" ng-class="{quick:gameRemainSeconds<10,veryquick:gameRemainSeconds<5}" data-help-position="br"></div>
         <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{totalRounds}}</b></div>
         <h1>{{gameTitle}}</h1>
         <ul id="game-lifes" class="lifes-{{lifes}}" data-help="Vidas" data-help-position="bl">

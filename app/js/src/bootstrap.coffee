@@ -11,9 +11,7 @@ require.config
 
   priority: ["Console", "jQuery", "Underscore", "Angular", "WebFont", "SoundManager"]
   waitSeconds: 40
-
-
-# , urlArgs: 'v='+DEBUG?Math.random():'2.0'
+  urlArgs: 'v='+(Math.random() if DEBUG else '2.0')
 
 # Standard Libs
 require ["require", "Console", "jQuery", "Underscore", "Angular"], (require, Console, $, _, angular) ->

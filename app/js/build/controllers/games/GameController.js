@@ -113,8 +113,12 @@
       GameController.prototype.start = function() {
         var _this = this;
         Console.info('Start');
+        this.scope.$root.gameRemainSeconds = this.time;
         this.clock = $('#game-clock').tzineClock(this.time, function() {
           return _this.timeout();
+        }, function(seconds, total) {
+          _this.scope.$root.gameRemainSeconds = total - seconds;
+          return _this.scope.$root.$apply();
         });
         return this.goRound(0);
       };

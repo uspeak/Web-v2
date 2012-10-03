@@ -1,8 +1,9 @@
 #game-clock {
   /* The .clock div. Created dynamically by jQuery */
   /*	background-color:#252525;*/
-  background:url(../../img/games/clock_empty.png) no-repeat right top;
-  height:34px;
+/*  background:url(../../img/games/clock_empty.png) no-repeat right top;
+*/  height:34px;
+border-radius: 17px;
   width:34px;
   position:relative;
   overflow:hidden;
@@ -26,7 +27,7 @@
   width:17px;
   height:34px;
 /*  background-color:#252525;*/
-  background:url(../../img/games/clock_empty.png) no-repeat left top;
+border-radius: 17px 0 0 17px;
   position:absolute;
   top:0;
 }
@@ -45,16 +46,35 @@
 }
 /* The left part of the background: */
 
-#game-clock .bg.left{ left:0; }
-
 /* Individual styles for each color: */
-#game-clock .bg.left{ background:url(../../img/games/clock_full.png) no-repeat left top; }
+#game-clock .bg.left{/* background:url(../../img/games/clock_full.png) no-repeat left top;*/
+border-radius: 17px 0 0 17px;
+left:0;
+}
 
 /* The right part of the background: */
-#game-clock .bg.right{ left:17px; }
+#game-clock .bg.right{
+border-radius: 0 17px 17px 0;
+/*background:url(../../img/games/clock_full.png) no-repeat right top;
+*/  left:17px; }
 
-#game-clock .bg.right{ background:url(../../img/games/clock_full.png) no-repeat right top;  }
+#game-clock, #game-clock .front{
+background-color: #D9E8E7;
+}
 
+#game-clock .bg{
+background-color: #69B4CA;
+}
+#game-clock.quick .bg{
+background-color: #F6C268;
+}
+
+#game-clock.quick .bg{
+background-color: #F6C268;
+}
+#game-clock.quick.veryquick .bg {
+  background-color: #F3A967;
+}
 #game-clock .front.left{
   left:0;
   z-index:10;

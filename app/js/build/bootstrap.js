@@ -16,7 +16,8 @@
       SoundManager: "../libs/soundmanager2/soundmanager2"
     },
     priority: ["Console", "jQuery", "Underscore", "Angular", "WebFont", "SoundManager"],
-    waitSeconds: 40
+    waitSeconds: 40,
+    urlArgs: 'v=' + (Math.random()(DEBUG ? void 0 : '2.0'))
   });
 
   require(["require", "Console", "jQuery", "Underscore", "Angular"], function(require, Console, $, _, angular) {

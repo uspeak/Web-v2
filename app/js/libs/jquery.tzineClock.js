@@ -18,7 +18,7 @@
 	var gVars = {};
 
 	// Extending the jQuery core:
-	$.fn.tzineClock = function(total,finish){
+	$.fn.tzineClock = function(total,finish, step){
 	
 		// "this" contains the elements that were selected when calling the plugin: $('elements').tzineClock();
 		// If the selector returned more than one element, use the first one:
@@ -43,6 +43,7 @@
 		// 	/* Additional options will be added in future versions of the plugin. */
 		// };
 		finish = finish || function() {};
+		step = step || function () {}
 		total = total ||2;
 		/* Merging the provided options with the default ones (will be used in future versions of the plugin): */
 		// $.each(defaults,function(k,v){
@@ -51,12 +52,12 @@
 
 		// Calling the setUp function and passing the container,
 		// will be available to the setUp function as "this":
-		timer = setUp.call(container,total,finish);
+		timer = setUp.call(container,total,finish,step);
 		
 		return timer;
 	}
 	
-	function setUp(total,finish)
+	function setUp(total,finish,step)
 	{
 		var tmp;
 		
@@ -91,6 +92,7 @@
 		var s = 1;
 		var timer = new TimerInterval(function(){
 			// console.log('seconds',s);
+			step(s,total);
 			if (s-1==total) {
 				finish();
 				timer.pause();
