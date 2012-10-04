@@ -52,7 +52,7 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
           $scope.goScreen "user-games"
         unplay()
 
-      $scope.$parent.playDiagnosticGame = (gameId, gameData) ->
+      $scope.$parent.playDiagnosticGame = (gameData) ->
         game = play(gameData, ->
           Console.info "Finished game"
           $scope.diagnostic.gameIndex += 1

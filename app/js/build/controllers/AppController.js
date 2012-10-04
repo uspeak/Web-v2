@@ -138,16 +138,18 @@
         gameTotal: function() {
           return diagnosticWords.game.length;
         },
-        data: function() {
-          if (this.finished()) {
+        gameData: function() {
+          if (this.finished() || !diagnosticWords.game.length) {
             return {};
           }
           return diagnosticWords.game[this.gameIndex];
         },
         game: function() {
           var id;
-          id = this.data().gid;
-          return games.id(id);
+          id = this.gameData().gid;
+          if (id) {
+            return games.id(id);
+          }
         }
       };
       $scope.support = {

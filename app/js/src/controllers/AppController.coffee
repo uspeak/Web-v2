@@ -105,13 +105,13 @@ define ["Console", "jQuery", "Underscore"], (Console, $, _) ->
       gameTotal: ->
         diagnosticWords.game.length
 
-      data: ->
-        return {}  if @finished()
+      gameData: ->
+        return {}  if @finished() or not diagnosticWords.game.length
         diagnosticWords.game[@gameIndex]
 
       game: ->
-        id = @data().gid
-        games.id id
+        id = @gameData().gid
+        games.id id if id
 
     $scope.support = effects: Modernizr.cssanimations and Modernizr.csstransitions
     $scope.$root.effects = EFFECTS and $scope.support.effects

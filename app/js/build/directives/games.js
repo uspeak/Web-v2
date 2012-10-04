@@ -51,7 +51,7 @@
             }
             return unplay();
           };
-          $scope.$parent.playDiagnosticGame = function(gameId, gameData) {
+          $scope.$parent.playDiagnosticGame = function(gameData) {
             var game;
             return game = play(gameData, function() {
               Console.info("Finished game");

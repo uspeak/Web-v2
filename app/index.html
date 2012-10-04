@@ -236,11 +236,9 @@
             </div>
         </dialog>
         <dialog class="small">
-          <span class="game-logo-{{diagnostic.game().type}}">{{diagnostic.gameTitle()}}{{diagnostic.game()}}</span>
-          <p ng-show="diagnostic.game().type=='whichone'">Verás que fácil ¡es pan comido!<br>¿Cuál es la opción correcta?</p>
-          <p ng-show="diagnostic.game().type=='association'">Descarta los distractores.<br>Elige la opción correcta.</p>
-          <p ng-show="diagnostic.game().type=='fatfingers'">Toca las letras en el orden correcto y escribe la respuesta.</p>
-          <a href="" class="button" ng-click="playDiagnosticGame(diagnostic.game().type,diagnostic.data())">let's go!</a>
+          <span class="game-logo-{{diagnostic.game().controller}}">{{diagnostic.game().name}}</span>
+          <p>{{diagnostic.game().description}</p>
+          <a href="" class="button" ng-click="playDiagnosticGame(diagnostic.gameData())">let's go!</a>
         </dialog>
       </screen>
       <screen title="Games" screen-id="diagnostic-register">  <!-- screen-init -->
