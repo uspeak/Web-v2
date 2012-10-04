@@ -7,7 +7,7 @@ require.config
     Underscore: "require/underscore"
     WebFont: "require/webfont"
     Angular: "require/angular"
-    SoundManager: "require/soundmanager2"
+    SoundManager: "require/soundmanager"
 
   priority: ["Console", "jQuery", "Underscore", "Angular", "WebFont", "SoundManager"]
   waitSeconds: 40

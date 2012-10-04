@@ -42,7 +42,6 @@
       SelectGenericController.prototype.preloadAudio = function(data) {
         Console.info("Precarga de Audio iniciada");
         return _.each(data.W, function(round) {
-          Console.info("AUDIO", round.au);
           if (round.au) {
             return soundManager.createSound({
               url: round.au,

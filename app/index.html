@@ -68,7 +68,7 @@
   <script src="js/lib/modernizr-2.5.3.min.js"></script>
   <script>
     DEBUG = true && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = true || !DEBUG;
+    EFFECTS = false || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
     OFFLINE = false || DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
@@ -113,7 +113,7 @@
         <div class="cloud-2 js-plaxify" data-xrange="2" data-yrange="2" data-invert="true"></div>
       </div>
       <h1 id="top-bar"><a class="help" data-help="Ayuda" data-help-position="bl" ng-click="showHelp()">?</a><span>{{title}}</span><a class="settings" data-help="Ajustes" data-help-position="br" ng-click="toggleSettings()"><i class="icon-cog"></i></a></h1>
-      <screen title="Home" screen-id="home" screen-init>
+      <screen title="Home" screen-id="home">
         <dialog class="big">
           <h2 data-help="Título">Welcome</h2>
           <p class="highlight">Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas.<br> Por eso creamos uSpeak.</p>
@@ -141,7 +141,7 @@
           </form>
         </dialog>
       </screen>
-      <screen title="Welcome back" screen-id="user-home">
+      <screen title="Welcome back" screen-id="user-home" screen-init>
         <dialog class="big">
           <h2>Bienvenido!</h2>
           <p>Hoy hace un día precioso, disfrútalo.</p>
@@ -318,15 +318,13 @@
         </ul>
         <div id="game-points" data-help="Puntos" data-help-position="bl">Points:<b>{{gamePoints}}</b></div>
       </div>
-      <div id="game-pretexts">
-        <span class="game-maintext" id="game-pretext-ready">Ready</span>
-        <span class="game-maintext" id="game-pretext-set">Set</span>
-        <span class="game-maintext" id="game-pretext-go">Go!</span>
-      </div>
-
-      <span class="game-maintext" ng-class="{visible:gamePaused}">Pausa</span>
-      <span class="game-maintext" ng-class="{visible:gameRemainSeconds<=0}">Sin tiempo!</span>
-
+      <ng-switch on="gameStatus">
+        <span class="game-status" id="game-status-ready" ng-switch-when="ready">Ready</span>
+        <span class="game-status" id="game-status-set" ng-switch-when="set">Set</span>
+        <span class="game-status" id="game-status-go" ng-switch-when="go">Go!</span>
+        <span class="game-status" ng-switch-when="paused">Pausa</span>
+        <span class="game-status" ng-switch-when="timeout">Sin tiempo!</span>
+      </ng-switch>
       <game game-id="1" game-controller="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br" game-variation="1">Match the Spanish word and it's English translation</span>
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br" game-variation="2">Match the word with the image</span>
@@ -400,7 +398,7 @@
       <div id="game-settings">
         <a class="exit" ng-click="exit()"><i class="icon-chevron-left"></i></a>
         <a class="help" ng-click="showHelp()">?</a>
-        <a class="pause" ng-click="togglePlay()"><i ng-class="{'icon-pause':!gamePaused,'icon-play':gamePaused}"></i></a> 
+        <a class="pause" ng-click="togglePlay()"><i ng-class="{'icon-pause':gameStatus!='paused','icon-play':gameStatus=='paused'}"></i></a> 
         <a class="sound" ng-click="toggleAudio()"><i ng-class="{'icon-volume-off':$root.audio,'icon-volume-up':!$root.audio}"></i></a>
       </div>
     </games>

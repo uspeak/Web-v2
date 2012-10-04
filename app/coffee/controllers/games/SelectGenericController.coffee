@@ -19,7 +19,6 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
     preloadAudio: (data) ->
       Console.info "Precarga de Audio iniciada"
       _.each data.W, (round) ->
-        Console.info "AUDIO", round.au
         if round.au
           soundManager.createSound
             url: round.au

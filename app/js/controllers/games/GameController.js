@@ -42,32 +42,35 @@
 
       GameController.prototype.pause = function() {
         Console.info('Pause');
-        this.scope.active = false;
+        this.setStatus('paused');
         return this.clock.pause();
       };
 
       GameController.prototype.resume = function() {
         Console.info('Resume');
-        this.scope.active = true;
+        this.setStatus(false);
         return this.clock.resume();
       };
 
+      GameController.prototype.setStatus = function(status) {
+        Console.info("Settings status " + status);
+        this.scope.$root.gameStatus = status;
+        this.scope.active = !status;
+        return this.scope.$root.$apply();
+      };
+
       GameController.prototype.preStart = function() {
-        var interval, state, states, states_progress,
+        var interval, status,
           _this = this;
-        states = $('#game-pretexts').children();
-        states_progress = 0;
-        state = states.first();
-        state.addClass('visible');
+        status = ['ready', 'set', 'go'].reverse();
+        this.setStatus(status.pop());
         return interval = setInterval(function() {
-          state.removeClass('visible');
-          state = state.next();
-          if (!state.length) {
-            _this.scope.active = true;
+          if (!status.length) {
+            _this.setStatus(false);
             _this.start();
             return clearInterval(interval);
           } else {
-            return state.addClass('visible');
+            return _this.setStatus(status.pop());
           }
         }, 1000);
       };
@@ -104,8 +107,7 @@
       GameController.prototype.timeout = function() {
         var timeout;
         Console.info("Timeout!");
-        this.scope.active = false;
-        this.scope.$apply();
+        this.setStatus('timeout');
         return timeout = setTimeout(this.finish, 1000);
       };
 

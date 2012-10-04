@@ -202,7 +202,7 @@
 	float:right;
 }
 
-.game-maintext {
+.game-status {
 	position: absolute;
 	top: 0;
 	color:white;
@@ -215,20 +215,16 @@
 	text-align: center;
 	text-transform: lowercase;
 	text-shadow:0 2px 6px rgba(0,0,0,.6);
-	display: none;
 }
-.game-maintext.visible {
-	display: block;
-}
-#game-pretext-ready {
+#game-status-ready {
 	z-index: 1000;
 	color: red;
 }
-#game-pretext-set {
+#game-status-set {
 	z-index: 1000;
 	color: orange;
 }
-#game-pretext-go {
+#game-status-go {
 	z-index: 1000;
 	text-transform: uppercase;
 	color: green;

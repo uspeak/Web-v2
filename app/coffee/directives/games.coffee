@@ -40,7 +40,7 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
         game_active = `undefined`
 
       $scope.$parent.togglePlay = ->
-        if @$parent.gamePaused = !@$parent.gamePaused
+        if game_active.scope.active
           game_active.pause()
         else
           game_active.resume()

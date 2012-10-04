@@ -30,28 +30,30 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
     
     pause: ->
       Console.info 'Pause'
-      @scope.active = false
+      @setStatus 'paused'
       @clock.pause()
     
     resume: ->
       Console.info 'Resume'
-      @scope.active = true
+      @setStatus false
       @clock.resume()
 
+    setStatus: (status) ->
+      Console.info "Settings status #{status}"
+      @scope.$root.gameStatus = status
+      @scope.active = not status
+      @scope.$root.$apply()
+
     preStart: ->
-      states = $('#game-pretexts').children()
-      states_progress = 0
-      state = states.first()
-      state.addClass 'visible'
+      status = ['ready','set','go'].reverse()
+      @setStatus(status.pop())
       interval = setInterval =>
-        state.removeClass 'visible'
-        state = state.next()
-        if !state.length
-          @scope.active = true
+        if !status.length
+          @setStatus false
           @start()
           clearInterval(interval)
         else
-          state.addClass 'visible'
+          @setStatus(status.pop())
       , 1000
 
     initData: (@data) ->
@@ -79,8 +81,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     timeout: ->
       Console.info "Timeout!"
-      @scope.active = false
-      @scope.$apply()
+      @setStatus 'timeout'
       timeout = setTimeout @finish, 1000
 
     goRound: (@round) ->

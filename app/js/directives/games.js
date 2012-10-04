@@ -37,7 +37,7 @@
             return game_active = undefined;
           };
           $scope.$parent.togglePlay = function() {
-            if (this.$parent.gamePaused = !this.$parent.gamePaused) {
+            if (game_active.scope.active) {
               return game_active.pause();
             } else {
               return game_active.resume();
