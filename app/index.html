@@ -65,7 +65,7 @@
 
   <script src="js/loader.js"></script>
   <script src="js/utils.js"></script>
-  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+  <script src="js/lib/modernizr-2.5.3.min.js"></script>
   <script>
     DEBUG = true && !(document.domain.indexOf('uspeakapp.com')>-1);
     EFFECTS = true || !DEBUG;
@@ -133,7 +133,7 @@
           <p>Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas. Por eso creamos uSpeak.</p>
           <p>¡Esperamos que lo disfrutes!</p>
         </dialog>
-        <dialog class="small">
+        <dialog class="small" id="user-login-form">
           <form ng-submit="login()">
             <input type="text" name="email" placeholder="email" ng-model="login_name" />
             <input type="password" name="password" placeholder="contraseña" ng-model="login_pass" />
@@ -237,7 +237,7 @@
         </dialog>
         <dialog class="small">
           <span class="game-logo-{{diagnostic.game().controller}}">{{diagnostic.game().name}}</span>
-          <p>{{diagnostic.game().description}</p>
+          <p>{{diagnostic.game().description}}</p>
           <a href="" class="button" ng-click="playDiagnosticGame(diagnostic.gameData())">let's go!</a>
         </dialog>
       </screen>
