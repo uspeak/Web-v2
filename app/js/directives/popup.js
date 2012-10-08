@@ -6,10 +6,10 @@
     Console.group("Entering game directive module.");
     Console.groupEnd();
     return function() {
-      var template;
-      template = "<div class=\"popup\" ng-class=\"{active:active}\"></div>";
       return {
+        template: "<div class=\"popup\" ng-class=\"{active:active}\"><a ng-click=\"hidePopup()\" class=\"popup-close\"><i class=\"icon-remove\"></i></a><div ng-transclude></div></div>",
         require: "^popups",
+        transclude: true,
         restrict: "E",
         scope: true,
         link: function(scope, element, attrs, popupsCtrl) {

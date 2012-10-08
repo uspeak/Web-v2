@@ -37,13 +37,14 @@
   });
 
   require(["jQuery"], function($) {
-    var $id, bb, bubbles, bubbles_progress, game;
+    var $id, bb, bubbles, bubbles_progress, game, percentage;
     game = $("#game");
     $(document).ready(function() {
       return loader.setLoaded("DOM");
     });
     if (!DEBUG) {
       bubbles = $("#game-loader-progress").children();
+      percentage = $('#game-loader-percentage');
       bubbles_progress = 0;
       bb = bubbles.first();
       $id = setInterval(function() {
@@ -53,6 +54,7 @@
         }
         loader.loaded();
         bb.addClass("ld");
+        percentage.text(bb.text());
         bb = bb.next();
         if (bb.length === 0) {
           clearInterval($id);

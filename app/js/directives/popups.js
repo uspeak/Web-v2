@@ -13,15 +13,42 @@
         template: "<div class=\"popups\" ng-class=\"{active:active}\" ng-transclude></div>",
         replace: true,
         controller: function($scope, $element) {
-          var popups;
+          var hidePopup, opened_popups, popups;
           popups = {};
-          $scope.$parent.showPopup = function(name) {
+          opened_popups = [];
+          $scope.$root.showPopup = function(name) {
+            var el;
+            opened_popups.push(name);
             $scope.active = true;
-            return popups[name].scope.active = true;
+            popups[name].scope.active = true;
+            el = $(popups[name].element);
+            el.show();
+            if ($scope.$root.effects) {
+              return el.keyframe("flipInPopup", 600);
+            }
           };
-          $scope.$parent.hidePopup = function() {
-            $scope.active = false;
-            return popups[name].scope.active = false;
+          hidePopup = function() {
+            var el, f, last;
+            Console.info("Hided Popup", opened_popups);
+            if (!opened_popups.length) {
+              $scope.active = false;
+              $scope.$apply();
+              return;
+            }
+            last = opened_popups.pop();
+            el = $(popups[last].element);
+            f = function() {
+              el.hide();
+              return hidePopup();
+            };
+            if ($scope.$root.effects) {
+              return el.keyframe("flipOutPopup", 600, f);
+            } else {
+              return f();
+            }
+          };
+          $scope.$root.hidePopup = function() {
+            return hidePopup();
           };
           return this.addPopup = function(scope, element, attrs) {
             var controller, name;

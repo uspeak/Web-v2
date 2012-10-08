@@ -16,6 +16,8 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
     @maxMistakes: 3
 
     @lifes: 3
+    
+    points: 0
     mistakes: {}
     info: {}
 

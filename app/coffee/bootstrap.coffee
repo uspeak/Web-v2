@@ -36,6 +36,7 @@ require ["jQuery"], ($) ->
 
   unless DEBUG
     bubbles = $("#game-loader-progress").children()
+    percentage = $('#game-loader-percentage')
     bubbles_progress = 0
     bb = bubbles.first()
     $id = setInterval(->
@@ -43,6 +44,7 @@ require ["jQuery"], ($) ->
       return  if bubbles_progress > loader.loaded()
       loader.loaded()
       bb.addClass "ld"
+      percentage.text(bb.text())
       bb = bb.next()
       if bb.length is 0
         clearInterval $id

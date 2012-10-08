@@ -6,7 +6,7 @@
     Console.group("Entering Directives module.");
     Console.groupEnd();
     return function() {
-      angular.module("uspeak.directives", []).directive("screens", screens).directive("screen", screen).directive("dialog", dialog).directive("games", games).directive("gameVariation", gameVariation).directive("game", game).directive("popups", popups).directive("popup", popups);
+      angular.module("uspeak.directives", []).directive("screens", screens).directive("screen", screen).directive("dialog", dialog).directive("games", games).directive("gameVariation", gameVariation).directive("game", game).directive("popups", popups).directive("popup", popup);
       return Console.debug("Custom directives initialized.");
     };
   });

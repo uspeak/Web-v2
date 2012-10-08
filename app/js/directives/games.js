@@ -56,11 +56,7 @@
             return game = play(gameData, function() {
               Console.info("Finished game");
               $scope.diagnostic.gameIndex += 1;
-              if ($scope.diagnostic.finished()) {
-                $scope.goScreen("diagnostic-register");
-              } else {
-                $scope.goScreen("diagnostic-games-intro");
-              }
+              $scope.goScreen(($scope.diagnostic.finished() ? "diagnostic-register" : "diagnostic-games-intro"));
               return unplay();
             }, true);
           };

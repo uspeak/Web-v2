@@ -117,7 +117,7 @@
     AppController;
 
     controller = function($scope, DiagnosticWordsService, GamesService, user, games) {
-      var diagnosticWords, game, gamehelpscreen, login_form, selector;
+      var diagnosticWords, game, gamehelpscreen, selector;
       gamehelpscreen = $("#game-help-screen");
       game = $("#game");
       selector = void 0;
@@ -262,19 +262,6 @@
             }).addClass("visible");
             field.addClass("error");
             return console.log(error, field);
-          }
-        });
-      };
-      login_form = $('#user-login-form');
-      $scope.login = function() {
-        var _this = this;
-        return user.login(this.login_name, this.login_pass, {
-          success: function(data) {
-            return $scope.goScreen("user-home");
-          },
-          error: function(err) {
-            Console.info("Failed login");
-            return login_form.cssanimation("incorrect", 400);
           }
         });
       };

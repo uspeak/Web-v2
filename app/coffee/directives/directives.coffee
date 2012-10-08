@@ -11,5 +11,5 @@ define ["Console", "directives/screens", "directives/screen", "directives/dialog
     	.directive("gameVariation", gameVariation)
     	.directive("game", game)
     	.directive("popups", popups)
-    	.directive "popup", popups
+    	.directive "popup", popup
     Console.debug "Custom directives initialized."

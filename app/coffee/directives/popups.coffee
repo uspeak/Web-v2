@@ -10,13 +10,33 @@ define ["Console", "jQuery"], (Console, $) ->
     replace: true
     controller: ($scope, $element) ->
       popups = {}
-      $scope.$parent.showPopup = (name) ->
+      opened_popups = []
+      $scope.$root.showPopup = (name) ->
+        opened_popups.push(name)
         $scope.active = true
         popups[name].scope.active = true
-
-      $scope.$parent.hidePopup = ->
-        $scope.active = false
-        popups[name].scope.active = false
+        el = $(popups[name].element)
+        el.show()
+        if $scope.$root.effects
+          el.keyframe "flipInPopup", 600
+          
+      hidePopup = ->
+        Console.info "Hided Popup",opened_popups
+        if not opened_popups.length
+          $scope.active = false
+          $scope.$apply()
+          return
+        last = opened_popups.pop()
+        el = $(popups[last].element)
+        f = ->
+          el.hide()
+          hidePopup()
+        if $scope.$root.effects
+          el.keyframe "flipOutPopup", 600, f
+        else
+          f()
+      $scope.$root.hidePopup = ->
+        hidePopup()
 
       @addPopup = (scope, element, attrs) ->
         name = attrs.popupId

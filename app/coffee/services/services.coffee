@@ -26,7 +26,7 @@ define ["Console", "Underscore", "services/DiagnosticWordsService", "services/Us
             gameController.description = attrs.gameDescription
             gameController.controller = attrs.gameController
 
-            Console.info "Registered game #{gameController.title}", gameController
+            Console.info "Registered game #{gameController.name}", gameController
             @games.push gameController
 
           get: (key, value) ->

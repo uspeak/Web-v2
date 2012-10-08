@@ -10,33 +10,41 @@
         restrict: "E",
         transclude: true,
         controller: function($scope, $element) {
-          var hided, historyScreens, moveBackground, moveMovable, screens, view;
+          var hided, historyScreens, moveBackground, screens, styles_in, styles_out, view;
+          styles_out = {
+            y: -50,
+            opacity: 0
+          };
+          styles_in = {
+            y: 0,
+            opacity: 1
+          };
+          $('#top-bar').css(styles_out);
           screens = $scope.screens = {};
           historyScreens = [];
           hided = false;
-          moveBackground = function(prev, next, to) {
-            var direction, easing, time, trees_back, trees_front, x;
-            direction = (to === "left" ? "+" : "-");
+          moveBackground = function(prev, next, left) {
+            var direction, easing, showcss, time, trees_back, trees_front, x;
+            direction = (left ? "+" : "-");
             trees_back = $("#game-background .trees-back");
             trees_front = $("#game-background .trees-front");
-            Console.info("************", screens, trees_back, trees_front, direction);
             trees_back.css("x", direction + "=200px");
             trees_front.css("x", direction + "=500px");
             if ($scope.$root.effects) {
-              x = (to === "left" ? 1000 : -1000);
-              time = 1800;
+              x = (left ? 1000 : -1000);
+              time = 3000;
               easing = "cubic-bezier(0.530, 0.180, 0.425, 0.860)";
               screens[prev].element.removeClass("effects").children(":not(.dialog,.static)").css({
                 transformOrigin: "bottom center"
               }).transit({
                 x: x,
                 opacity: .5,
-                scale: .8
+                scale: .6
               }, time, easing);
               return screens[next].element.addClass("effects").children(":not(.dialog,.static)").css({
                 x: -x,
                 opacity: .5,
-                scale: .8,
+                scale: .6,
                 transformOrigin: "bottom center"
               }).transit({
                 x: 0,
@@ -44,21 +52,14 @@
                 scale: 1
               }, time, easing);
             } else {
-              screens[next].element.removeClass("effects").children(":not(.dialog,.static)").css({
+              showcss = {
                 x: 0,
                 y: 0,
                 opacity: 1
-              });
-              return screens[prev].element.removeClass("effects").children(":not(.dialog,.static)").css({
-                x: 0,
-                y: 0,
-                opacity: 1
-              });
+              };
+              screens[next].element.removeClass("effects").children(":not(.dialog,.static)").css(showcss);
+              return screens[prev].element.removeClass("effects").children(":not(.dialog,.static)").css(showcss);
             }
-          };
-          moveMovable = function(to) {
-            var direction;
-            return direction = to === "left";
           };
           view = function(name, show, onfinish) {
             var screen;
@@ -70,11 +71,23 @@
             screen = screens[name];
             hided = !show;
             if (show) {
-              screen.scope.show(onfinish);
+              if ($scope.$root.effects) {
+                $('#top-bar').css(styles_out).transit(styles_in, 600, function() {
+                  return screen.scope.show(onfinish);
+                });
+              } else {
+                screen.scope.show(onfinish);
+              }
               historyScreens.push(name);
               $scope.title = screen.attrs.title || "None";
             } else {
-              screen.scope.hide(onfinish);
+              if ($scope.$root.effects) {
+                screen.scope.hide(function() {
+                  return $('#top-bar').css(styles_in).transit(styles_out, 600, onfinish);
+                });
+              } else {
+                screen.scope.hide(onfinish);
+              }
             }
             $scope.$apply();
             return screen;
@@ -110,7 +123,7 @@
               var screen;
               return screen = view(prevScreen, true);
             });
-            return moveBackground(lastScreen, prevScreen, "left");
+            return moveBackground(lastScreen, prevScreen, true);
           };
           return this.addScreen = function(scope, element, attrs) {
             var name;
@@ -122,11 +135,11 @@
               attrs: attrs
             };
             if (attrs.hasOwnProperty("screenInit")) {
-              $("#top-bar").one("animationend webkitAnimationEnd oanimationend MSAnimationEnd", function(e) {
+              $("#game-background .sun").one("animationend webkitAnimationEnd oanimationend MSAnimationEnd", function(e) {
                 return $scope.goScreen(name);
               });
               if (!$scope.$root.effects) {
-                return $("#top-bar").trigger("animationend");
+                return $("#game-background .sun").trigger("animationend");
               }
             }
           };

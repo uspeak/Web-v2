@@ -16,9 +16,6 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
 
       play = (gameData, onFinish, diagnostic) ->
         gameData = gameData[0] if _.isArray(gameData)
-        # angular.forEach games.games, (game, name) ->
-        #   game.scope.active = false
-
         gameId = gameData.gid
         game = games.id(gameId)
         $scope.$parent.gamePaused = false
@@ -32,11 +29,6 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
       unplay = ->
         $game.removeClass "play"
         game_active.unplay()
-        # angular.forEach games.games, (game, name) ->
-        #   if game.scope.active
-        #     game.scope.active = false
-        #     game.unplay()
-
         game_active = `undefined`
 
       $scope.$parent.togglePlay = ->
@@ -53,15 +45,12 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
         unplay()
 
       $scope.$parent.playDiagnosticGame = (gameData) ->
-        game = play(gameData, ->
+        game = play gameData, ->
           Console.info "Finished game"
           $scope.diagnostic.gameIndex += 1
-          if $scope.diagnostic.finished()
-            $scope.goScreen "diagnostic-register"
-          else
-            $scope.goScreen "diagnostic-games-intro"
+          $scope.goScreen (if $scope.diagnostic.finished() then "diagnostic-register" else "diagnostic-games-intro")
           unplay()
-        , true)
+        , true
 
       $scope.$parent.playGame = (gameId) ->
         $game.addClass "loading"
@@ -70,11 +59,10 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
         onFinish = (data) ->
           $game.removeClass "loading"
           Console.info "Game loaded", data
-          game = play(data, ->
+          game = play data, ->
             Console.info "Finished game"
             $scope.goScreen "user-games"
             unplay()
-          )
         if gameId != 8
           GameWordsService.get
             lang_dir: LANG_DIR

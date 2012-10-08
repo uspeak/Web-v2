@@ -49,6 +49,12 @@
 .dialog.show {
   display: table;
 }
-.dialog h2 {
-  margin:.4em 0 .6em;
+.dialog strong {
+  display: inline-block;
+  color:#19a8ca;
+}
+.dialog h2, .popup h2 {
+  margin:.2em 0 .4em;
+  color:#19a8ca;
+  font-size: 1.5em;
 }

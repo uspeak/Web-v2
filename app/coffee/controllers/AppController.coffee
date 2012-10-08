@@ -221,17 +221,6 @@ define ["Console", "jQuery", "Underscore"], (Console, $, _) ->
           console.log error, field
 
 
-    login_form = $('#user-login-form')
-    $scope.login = ->
-      user.login @login_name, @login_pass,
-        success: (data) ->
-          $scope.goScreen "user-home"
-
-        error: (err) =>
-          Console.info "Failed login" 
-          login_form.cssanimation "incorrect", 400
-
-
     $scope.toggleAudio = ->
       $scope.$root.audio = not $scope.$root.audio
 

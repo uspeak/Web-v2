@@ -27,7 +27,7 @@
             gameController.name = attrs.gameTitle;
             gameController.description = attrs.gameDescription;
             gameController.controller = attrs.gameController;
-            Console.info("Registered game " + gameController.title, gameController);
+            Console.info("Registered game " + gameController.name, gameController);
             return this.games.push(gameController);
           };
 

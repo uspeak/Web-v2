@@ -68,7 +68,7 @@
   <script src="js/lib/modernizr-2.5.3.min.js"></script>
   <script>
     DEBUG = true && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = false || !DEBUG;
+    EFFECTS = true || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
     OFFLINE = false || DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
@@ -88,6 +88,7 @@
      <span class="b1">2%</span><span class="b2">5%</span><span class="b3">8%</span><span class="b4">11%</span><span class="b5">13%</span><span class="b6">16%</span><span class="b7">19%</span><span class="b8">22%</span><span class="b9">25%</span><span class="b10">27%</span><span class="b11">30%</span><span class="b12">33%</span><span class="b13">36%</span><span class="b14">38%</span><span class="b15">41%</span><span class="b16">44%</span><span class="b17">47%</span><span class="b18">50%</span><span class="b19">52%</span><span class="b20">55%</span><span class="b21">58%</span><span class="b22">61%</span><span class="b23">63%</span><span class="b24">66%</span><span class="b25">69%</span><span class="b26">72%</span><span class="b27">75%</span><span class="b28">77%</span><span class="b29">80%</span><span class="b30">83%</span><span class="b31">86%</span><span class="b32">88%</span><span class="b33">91%</span><span class="b34">94%</span><span class="b35">97%</span><span class="b36">100%</span>
     </div>
     <span id="uSpeak-white-logo">uSpeak languages</span>
+    <h6 id="game-loader-percentage">0%</h6>
    </div>
    <div id="game-canvas" class="ng-cloak">
     <div id="game-help-screen"></div>
@@ -113,7 +114,7 @@
         <div class="cloud-2 js-plaxify" data-xrange="2" data-yrange="2" data-invert="true"></div>
       </div>
       <h1 id="top-bar"><a class="help" data-help="Ayuda" data-help-position="bl" ng-click="showHelp()">?</a><span>{{title}}</span><a class="settings" data-help="Ajustes" data-help-position="br" ng-click="toggleSettings()"><i class="icon-cog"></i></a></h1>
-      <screen title="Home" screen-id="home">
+      <screen title="Home" screen-id="home" screen-init>
         <dialog class="big">
           <h2 data-help="Título">Welcome</h2>
           <p class="highlight">Hace tiempo decidimos que queríamos ponerle diversión, realismo y sentido común al aprendizaje de lenguas.<br> Por eso creamos uSpeak.</p>
@@ -122,8 +123,8 @@
           <p>A thousand-mile journey begins with the first step.</p>
  -->        </dialog>
         <dialog class="small">
-          <p>¿Ya estás aprendiendo con uSpeak?</p>
-            <a href="" class="button button-yes" ng-click="goScreen('user-login')" data-help="Si" data-help-position="lb">Yes</a>
+          <p>¿Ya estás aprendiendo con <strong>uSpeak</strong>?</p>
+            <a href="" class="button button-yes" ng-click="showPopup('login')" data-help="Si" data-help-position="lb">Yes</a>
             <a href="" class="button button-no" ng-click="goScreen('diagnostic-games')" data-help="No" data-help-position="rt">No</a>
         </dialog>
       </screen>
@@ -141,7 +142,7 @@
           </form>
         </dialog>
       </screen>
-      <screen title="Welcome back" screen-id="user-home" screen-init>
+      <screen title="Welcome back" screen-id="user-home">
         <dialog class="big">
           <h2>Bienvenido!</h2>
           <p>Hoy hace un día precioso, disfrútalo.</p>
@@ -299,12 +300,12 @@
       </screen>
     </screens>
     <popups>
-      <popup>
-      <h2>Login</h2>
-        <form>
+      <popup popup-id="login" ng-controller="Popup-login">
+        <h2>Login</h2>
+        <form ng-submit="login()">
           <input type="text" name="email" placeholder="email" ng-model="login_name" />
           <input type="password" name="password" placeholder="contraseña" ng-model="login_pass" />
-          <a href="" ng-click="login()" class="button" ng-class="{disabled:!login_name || !login_pass}">entrar</a>
+          <button class="button" ng-class="{disabled:!login_name || !login_pass}">entrar</button>
         </form>
       </popup>
     </popups>

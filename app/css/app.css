@@ -269,7 +269,7 @@ input[type="password"] {
   background: linear-gradient(top, #888, #a19f9f);
 
   border: 2px solid #FFFBE9;
-  border-radius: 8px;
+  border-radius: 4px;
   font-family: 'Lato', sans-serif!important;
 }
 input.error {

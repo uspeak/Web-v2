@@ -24,6 +24,8 @@
 
       GameController.lifes = 3;
 
+      GameController.prototype.points = 0;
+
       GameController.prototype.mistakes = {};
 
       GameController.prototype.info = {};
