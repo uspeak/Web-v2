@@ -6,9 +6,7 @@ define ["Console", "jQuery", "Underscore"], (Console, $, _) ->
     require: "^screens"
     restrict: "E"
     transclude: true
-    scope:
-      title: "@"
-      screenId: "@"
+    scope: true
 
     controller: ($scope, $element, $attrs) ->
       dialogs = $scope.dialogs = []

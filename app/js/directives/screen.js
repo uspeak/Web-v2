@@ -10,10 +10,7 @@
         require: "^screens",
         restrict: "E",
         transclude: true,
-        scope: {
-          title: "@",
-          screenId: "@"
-        },
+        scope: true,
         controller: function($scope, $element, $attrs) {
           var dialogIndex, dialogs, find_dialog, recursiveDialog, resetDialogs,
             _this = this;

@@ -67,10 +67,10 @@
   <script src="js/utils.js"></script>
   <script src="js/lib/modernizr-2.5.3.min.js"></script>
   <script>
-    DEBUG = true && !(document.domain.indexOf('uspeakapp.com')>-1);
-    EFFECTS = true || !DEBUG;
+    DEBUG = false && !(document.domain.indexOf('uspeakapp.com')>-1);
+    EFFECTS = false || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
-    OFFLINE = false || DEBUG;
+    OFFLINE = true && DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
   </script>
 </head>
@@ -142,7 +142,7 @@
           </form>
         </dialog>
       </screen>
-      <screen title="Welcome back" screen-id="user-home">
+      <screen title="Welcome back" screen-id="user-home" ng-controller="Screen-UserHome">
         <dialog class="big">
           <h2>Bienvenido!</h2>
           <p>Hoy hace un día precioso, disfrútalo.</p>
@@ -151,12 +151,12 @@
           <a href="" class="sign-right" data-help="Juegos" data-help-position="lb" ng-click="goGames()">Games</a>
         </div>
       </screen>
-      <screen title="Games" screen-id="user-games">
+      <screen title="Games" screen-id="user-games" ng-controller="Screen-UserGames">
         <dialog class="medium" id="user-games-main"> <!--  dialog-index="1" -->
           <div ng-show="auserGameChoosed">
             <h2 id="user-games-intro">Elige un juego a continuación!</h2>
           </div>
-          <div ng-repeat="game in gameList" ng-show="$index==-gameIndex">
+          <div ng-repeat="game in gameList" ng-show="$index==gameIndex">
             <div class="user-games-mainlogo">
               <img src="img/games/{{gameController(game.id)}}/logo-big.png"/>
             </div>
@@ -168,10 +168,10 @@
         </dialog>
         <dialog class="medium">
           <div class="selector">
-            <a class="go-prev" ng-click="$parent.gameIndex = $parent.gameIndex+1">Prev</a>
-            <a class="go-next" ng-click="$parent.gameIndex = $parent.gameIndex-1">Next</a>
+            <a class="go-prev" ng-click="prevGame()">Prev</a>
+            <a class="go-next" ng-click="nextGame()">Next</a>
             <div id="user-games-selector" class="selector-choices">
-              <img ng-repeat="game in gameList" ng-src="img/games/{{gameController(game.id)}}/logo_text.png" class="position-{{gameIndex+1+$index}}" ng-click="$parent.$parent.gameIndex=-$index"/>
+              <img ng-repeat="game in gameList" ng-src="img/games/{{gameController(game.id)}}/logo_text.png" class="position-{{-gameIndex+1+$index}}" ng-click="$parent.$parent.gameIndex=-$index"/>
             </div>
           </div>
         </dialog>
@@ -196,7 +196,7 @@
           <a href="" class="sign-right" data-help="Juegos" data-help-position="lb" ng-click="goScreen('diagnostic-games')">Games</a>
         </div>
       </screen>
-      <screen title="Games" screen-id="diagnostic-games">
+      <screen title="Games" screen-id="diagnostic-games" ng-controller="Screen-DiagnosticGames">
         <dialog class="big">
           <h2>Aquí es donde comienza la magia</h2>
           <p>Vamos a jugar a algunos juegos para definir tu punto de partida, pero primero necesitamos saber tu nivel.</p>
@@ -204,9 +204,9 @@
         </dialog>
         <dialog class="small">
           <div class="selector">
-            <a class="go-prev" ng-click="diagnostic.level= (3+diagnostic.level-1)%3;">Prev</a>
-            <a class="go-next" ng-click="diagnostic.level= (3+diagnostic.level+1)%3;">Next</a>
-            <div id="game-level-selector" data-help="Elije la opción que mejor se adapte a tu nivel" data-help-position="tr" class="selector-choices level-{{diagnostic.level}}" >
+            <a class="go-prev" ng-click="prevLevel()">Prev</a>
+            <a class="go-next" ng-click="nextLevel()">Next</a>
+            <div id="game-level-selector" data-help="Elije la opción que mejor se adapte a tu nivel" data-help-position="tr" class="selector-choices level-{{level}}" >
               <div class="game-level-0">
                 <h4>Nothing</h4>
                 <blockquote>Soy un principiante total</blockquote>
@@ -237,12 +237,13 @@
             </div>
         </dialog>
         <dialog class="small">
-          <span class="game-logo-{{diagnostic.game().controller}}">{{diagnostic.game().name}}</span>
+          <span class="game-logo-{{diagnostic.game().controller}}">
+            {{diagnostic.game().name}}</span>
           <p>{{diagnostic.game().description}}</p>
           <a href="" class="button" ng-click="playDiagnosticGame(diagnostic.gameData())">let's go!</a>
         </dialog>
       </screen>
-      <screen title="Games" screen-id="diagnostic-register">  <!-- screen-init -->
+      <screen title="Games" screen-id="diagnostic-register" ng-controller="Screen-DiagnosticRegister">  <!-- screen-init -->
         <dialog class="big">
           <h2>¡Felicidades!</h2>
           <p>
@@ -300,12 +301,12 @@
       </screen>
     </screens>
     <popups>
-      <popup popup-id="login" ng-controller="Popup-login">
+      <popup popup-id="login" ng-controller="Popup-Login">
         <h2>Login</h2>
         <form ng-submit="login()">
           <input type="text" name="email" placeholder="email" ng-model="login_name" />
           <input type="password" name="password" placeholder="contraseña" ng-model="login_pass" />
-          <button class="button" ng-class="{disabled:!login_name || !login_pass}">entrar</button>
+          <button class="button" ng-class="{disabled:!login_name || !login_pass || loading_api}">entrar</button>
         </form>
       </popup>
     </popups>
@@ -326,7 +327,7 @@
         <span class="game-status" ng-switch-when="paused">Pausa</span>
         <span class="game-status" ng-switch-when="timeout">Sin tiempo!</span>
       </ng-switch>
-      <game game-id="1" game-controller="flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
+      <game game-id="1" game-controller="Flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br" game-variation="1">Match the Spanish word and it's English translation</span>
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br" game-variation="2">Match the word with the image</span>
         <ul id="game-flipcards-cards" class="items-{{cards.length}}">
@@ -338,7 +339,7 @@
         </ul>
       </game>
 
-      <game game-id="2" game-controller="fatfingers" game-title="Fat Fingers" game-description="Descripción fatfingers">
+      <game game-id="2" game-controller="Fatfingers" game-title="Fat Fingers" game-description="Descripción fatfingers">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="Haz click en las letras en el orden correcto" data-help-position="br">Tap the letters in the correct order</span>
         <ul id="game-fatfingers-placeholder">
@@ -349,7 +350,7 @@
         </ul>
       </game>
 
-      <game game-id="3" game-controller="whichone" game-title="Which one" game-description="Super simple, which one is correct?">
+      <game game-id="3" game-controller="Whichone" game-title="Which one" game-description="Super simple, which one is correct?">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
         <ul id="game-whichone-notes" class="game-selector-options">
@@ -357,7 +358,7 @@
         </ul>
       </game>
 
-      <game game-id="4" game-controller="yayornay" game-title="Yay or Nay" game-description="Descripción yayornay">
+      <game game-id="4" game-controller="Yayornay" game-title="Yay or Nay" game-description="Descripción yayornay">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" game-variation="12">Estás jugando con la variación 12</span>
         <span class="game-main-help" game-variation="11">"texto de la variación 11"?</span>
@@ -367,7 +368,7 @@
         </ul>
       </game>
 
-      <game game-id="5" game-controller="braintickle" game-title="Brain Tickle" game-description="Descripción braintickle">
+      <game game-id="5" game-controller="Braintickle" game-title="Brain Tickle" game-description="Descripción braintickle">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" ng-show="first">Esta palabra existía hace 500 años?</span>
         <span class="game-main-help" ng-hide="first">Esta palabra está en el mismo género que la anterior "Existía hace 500 años"?</span>
@@ -377,7 +378,7 @@
         </ul>
       </game>
 
-      <game game-id="6" game-controller="association" game-title="Association" game-description="Descripción association">
+      <game game-id="6" game-controller="Association" game-title="Association" game-description="Descripción association">
         <span class="game-main-word" ng-class="{small:gameVariation == 9}">{{word}}</span>
         <span class="game-main-help" data-help="¿Cuál es la opción correcta?" data-help-position="br">Which option is correct?</span>
         <ul id="game-association-notes" class="game-selector-options">
@@ -385,7 +386,7 @@
         </ul>
       </game>
 
-      <game game-id="8" game-controller="challenge" game-title="Challenge" game-description="Descripción challenge">
+      <game game-id="8" game-controller="Challenge" game-title="Challenge" game-description="Descripción challenge">
         <span class="game-main-word">{{word}}</span>
         <span class="game-main-help" data-help="Haz click en las letras en el orden correcto" data-help-position="br">Tap the letters in the correct order</span>
         <ul id="game-challenge-placeholder">

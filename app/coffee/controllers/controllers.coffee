@@ -1,27 +1,50 @@
-define ["Console", "controllers/AppController", "controllers/games/WhichoneController", "controllers/games/AssociationController", "controllers/games/FatfingersController", "controllers/games/ChallengeController", "controllers/games/FlipcardsController", "controllers/games/YayornayController", "controllers/games/BraintickleController", "controllers/popups/LoginController"], (Console, app, whichone, association, fatfingers, challenge, flipcards, yayornay, braintickle, plogin) ->
+define [
+  "Console",
+  "controllers/App",
+  "controllers/games/Whichone",
+  "controllers/games/Association",
+  "controllers/games/Fatfingers",
+  "controllers/games/Challenge",
+  "controllers/games/Flipcards",
+  "controllers/games/Yayornay",
+  "controllers/games/Braintickle",
+  "controllers/popups/Login",
+  "controllers/screens/DiagnosticGames",
+  "controllers/screens/DiagnosticRegister",
+  "controllers/screens/UserHome"
+  "controllers/screens/UserGames"
+  ], (Console, app, whichone, association, fatfingers, challenge, flipcards, yayornay, braintickle, plogin, sdiagnosticgames, sdiagnosticregister, suserhome, susergames) ->
   "use strict"
   Console.group "Entering controllers module."
-  Console.info "AppController", app
-  Console.info "WhichoneController", whichone
-  Console.info "AssociationController", association
-  Console.info "FatfingersController", fatfingers
-  Console.info "ChallengeController", challenge
-  Console.info "FlipcardsController", flipcards
-  Console.info "YayorNayController", yayornay
-  Console.info "BraintickleController", braintickle
-  Console.info "PopupLoginController", plogin
+  Console.info "App", app
+  Console.info "Whichone", whichone
+  Console.info "Association", association
+  Console.info "Fatfingers", fatfingers
+  Console.info "Challenge", challenge
+  Console.info "Flipcards", flipcards
+  Console.info "YayorNay", yayornay
+  Console.info "Braintickle", braintickle
+  Console.info "PopupLogin", plogin
+  Console.info "DiagnosticGames", sdiagnosticgames
+  Console.info "DiagnosticRegister", sdiagnosticregister
+  Console.info "UserHome", suserhome
+  Console.info "UserGames", susergames
   Console.groupEnd()
   
   ->
     Console.debug "Custom controllers initialized."
     angular.module("uspeak.controllers", [])
       .controller("App", app)
-      .controller("Game-whichone", whichone)
-      .controller("Game-association", association)
-      .controller("Game-fatfingers", fatfingers)
-      .controller("Game-challenge", challenge)
-      .controller("Game-flipcards", flipcards)
-      .controller("Game-yayornay", yayornay)
-      .controller("Game-braintickle", braintickle)
-      .controller("Popup-login", plogin)
+      .controller("Game-Whichone", whichone)
+      .controller("Game-Association", association)
+      .controller("Game-Fatfingers", fatfingers)
+      .controller("Game-Challenge", challenge)
+      .controller("Game-Flipcards", flipcards)
+      .controller("Game-Yayornay", yayornay)
+      .controller("Game-Braintickle", braintickle)
+      .controller("Popup-Login", plogin)
+      .controller("Screen-DiagnosticGames", sdiagnosticgames)
+      .controller("Screen-DiagnosticRegister", sdiagnosticregister)
+      .controller("Screen-UserHome", suserhome)
+      .controller("Screen-UserGames", susergames)
 
