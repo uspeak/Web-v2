@@ -13,11 +13,11 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
       @initScope()
 
-    maxMistakes: 3
+    @maxMistakes: 3
 
     points: 0
     mistakes: {}
-    info: {}
+    info: []
 
     initScope: ->
     
@@ -76,12 +76,14 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       @preStart()
 
     unplay: ->
+      Console.info "Exiting game"
       @clock.pause()
       @scope.active = false
       Console.groupEnd()
 
     finish: ->
       (@onFinish or ->)()
+      @sendData()
       @unplay()
 
     timeout: ->
@@ -134,7 +136,8 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
         @nextRound()
 
     sendData: ->
-      @GamesPlayed.send @, {}
+      Console.info "Seding data", @
+      @GamesPlayed.send @
     
     timeout = null
     

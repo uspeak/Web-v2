@@ -4,7 +4,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
   "use strict"
 
   class FatfingersController extends GameController
-    @maxErrors: 2
+    @maxMistakes: 2
     accentTable = 
       222:
         97: 225
@@ -62,9 +62,18 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
           selectLetter elem
         )
 
+    nextRound: ->
+      @addInfo()
+      super
+      
     initData: (data) ->
       super data
       @totalRounds = data.W.length
+
+    addInfo: ->
+      d = @data.W[@round]
+      @info[@round] = id: d.id, ref: (@roundMistakes()+1), mispeell: @typedWord
+      Console.info "Added info", @info[@round]
 
     goRound: (round) ->
       super round

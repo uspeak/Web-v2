@@ -20,13 +20,13 @@
         this.initScope();
       }
 
-      GameController.prototype.maxMistakes = 3;
+      GameController.maxMistakes = 3;
 
       GameController.prototype.points = 0;
 
       GameController.prototype.mistakes = {};
 
-      GameController.prototype.info = {};
+      GameController.prototype.info = [];
 
       GameController.prototype.initScope = function() {};
 
@@ -100,14 +100,15 @@
       };
 
       GameController.prototype.unplay = function() {
+        Console.info("Exiting game");
         this.clock.pause();
         this.scope.active = false;
         return Console.groupEnd();
       };
 
       GameController.prototype.finish = function() {
-        Console.info("****************", this);
         (this.onFinish || function() {})();
+        this.sendData();
         return this.unplay();
       };
 
@@ -188,7 +189,8 @@
       };
 
       GameController.prototype.sendData = function() {
-        return this.GamesPlayed.send(this, {});
+        Console.info("Seding data", this);
+        return this.GamesPlayed.send(this);
       };
 
       timeout = null;

@@ -24,6 +24,9 @@
             correct = this.option.correct;
           }
           kill = false;
+          if (!this.clicked) {
+            __.clickedWords.push(this.option.word);
+          }
           if (!correct && !this.clicked) {
             kill = __.makeMistake();
           }
@@ -32,12 +35,34 @@
               this.clicked = !__.clickedCorrect;
             }
           }
+          __.clickedCorrect = correct;
           if (correct) {
             __.addPoints(__.roundPoints());
-            __.nextRound();
+            return __.nextRound();
           }
-          return __.clickedCorrect = correct;
         };
+      };
+
+      SelectGenericController.prototype.nextRound = function() {
+        this.addInfo();
+        return SelectGenericController.__super__.nextRound.apply(this, arguments);
+      };
+
+      SelectGenericController.prototype.addInfo = function() {
+        var d, _base, _name, _ref;
+        d = this.data.W[this.round];
+        if ((_ref = (_base = this.info)[_name = this.round]) == null) {
+          _base[_name] = {
+            id: d.id,
+            choosen: []
+          };
+        }
+        this.info[this.round] = _.extend(this.info[this.round] || {}, {
+          ref: this.clickedCorrect ? 1 : 2,
+          mistakes: this.roundMistakes(),
+          choosen: this.clickedWords
+        });
+        return Console.info("Added info", this.info[this.round]);
       };
 
       SelectGenericController.prototype.preloadAudio = function(data) {
@@ -87,6 +112,7 @@
       SelectGenericController.prototype.goRound = function(round) {
         SelectGenericController.__super__.goRound.call(this, round);
         this.clickedCorrect = false;
+        this.clickedWords = [];
         return this.initDataRound(this.data.W[round]);
       };
 

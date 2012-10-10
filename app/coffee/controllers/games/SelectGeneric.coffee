@@ -9,14 +9,29 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
       @scope.selectOption = (correct) ->
         correct ?= @option.correct
         kill = false
+        if !@clicked
+          __.clickedWords.push(@option.word)
         if !correct and !@clicked
           kill = __.makeMistake()
         @clicked ?= not __.clickedCorrect if kill
+        __.clickedCorrect = correct
         if correct
           __.addPoints(__.roundPoints())
           __.nextRound()
-        __.clickedCorrect = correct
-        
+
+    nextRound: ->
+      @addInfo()
+      super
+
+    addInfo: ->
+      d = @data.W[@round]
+      @info[@round] ?= id: d.id, choosen: []
+      @info[@round] = _.extend @info[@round] or {},
+        ref: if @clickedCorrect then 1 else 2
+        mistakes: @roundMistakes()
+        choosen: @clickedWords
+      Console.info "Added info", @info[@round]
+
     preloadAudio: (data) ->
       Console.info "Precarga de Audio iniciada"
       _.each data.W, (round) ->
@@ -47,4 +62,5 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
     goRound: (round) ->
       super round
       @clickedCorrect = false
+      @clickedWords = []
       @initDataRound(@data.W[round])

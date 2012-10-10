@@ -18,8 +18,8 @@
         success: function() {}
       };
       $send = GamesPlayed.send;
-      GamesPlayed.send = function(game, opts) {
-        var send_data,
+      GamesPlayed.send = function(game, success) {
+        var opts, send_data,
           _this = this;
         send_data = {
           idg: 1,
@@ -27,12 +27,12 @@
           pts: game.points,
           instance: game.data.instance,
           langdir: LANG_DIR,
-          W: game.send_data || []
+          W: game.info || []
         };
         opts = _.extend({}, default_opts, opts);
         return $send(send_data, function(data) {
           if (isString(data.res)) {
-            return opts.success.call(_this, data);
+            return success != null ? success.call(_this, data) : void 0;
           }
         });
       };

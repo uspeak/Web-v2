@@ -37,6 +37,7 @@
             correct = __.selectedCard.id === this.card.id;
             Console.info((correct ? "Matched" : "Unmatched"), WOT(__.selectedCard), WOT(this.card));
             this.card.correct = __.selectedCard.correct = correct;
+            __.addInfo(correct, this.card.id);
             if (correct) {
               matches[this.card.id] = true;
               __.selectedCard = false;
@@ -57,6 +58,25 @@
           }
         };
       }
+
+      FlipcardsController.prototype.addInfo = function(correct, id) {
+        var d, r;
+        d = this.data.W[this.round];
+        d = _.find(this.info, function(W) {
+          return W.id === id;
+        });
+        r = {
+          id: id,
+          round: roundCards[this.round],
+          ref: correct ? 1 : 2
+        };
+        if (d) {
+          _.extend(d, r);
+        } else {
+          this.info.push(r);
+        }
+        return Console.info("Added info", this.info);
+      };
 
       FlipcardsController.prototype.preloadAudio = function(data) {
         Console.info("Precarga de Audio iniciada");

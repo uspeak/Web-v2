@@ -13,7 +13,7 @@
 
       __extends(FatfingersController, _super);
 
-      FatfingersController.maxErrors = 2;
+      FatfingersController.maxMistakes = 2;
 
       accentTable = {
         222: {
@@ -85,9 +85,25 @@
         });
       }
 
+      FatfingersController.prototype.nextRound = function() {
+        this.addInfo();
+        return FatfingersController.__super__.nextRound.apply(this, arguments);
+      };
+
       FatfingersController.prototype.initData = function(data) {
         FatfingersController.__super__.initData.call(this, data);
         return this.totalRounds = data.W.length;
+      };
+
+      FatfingersController.prototype.addInfo = function() {
+        var d;
+        d = this.data.W[this.round];
+        this.info[this.round] = {
+          id: d.id,
+          ref: this.roundMistakes() + 1,
+          mispeell: this.typedWord
+        };
+        return Console.info("Added info", this.info[this.round]);
       };
 
       FatfingersController.prototype.goRound = function(round) {

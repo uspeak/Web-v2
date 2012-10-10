@@ -20,6 +20,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
           correct = __.selectedCard.id is @card.id
           Console.info (if correct then "Matched" else "Unmatched"), WOT(__.selectedCard), WOT(@card)
           @card.correct = __.selectedCard.correct = correct
+          __.addInfo(correct, @card.id)
           if correct
             matches[@card.id] = true
             __.selectedCard = false
@@ -34,6 +35,20 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
           __.nextRound() if _.all(_.values(matches), _.identity)
         else
           __.selectedCard = @card
+
+    addInfo: (correct, id) ->
+      d = @data.W[@round]
+      d = _.find @info, (W)->
+        W.id == id
+      r = 
+        id: id
+        round: roundCards[@round]
+        ref: if correct then 1 else 2
+      if d
+        _.extend d, r
+      else
+        @info.push(r)
+      Console.info "Added info", @info
 
     preloadAudio: (data) ->
       Console.info "Precarga de Audio iniciada"
