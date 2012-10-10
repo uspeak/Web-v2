@@ -23,6 +23,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
           if correct
             matches[@card.id] = true
             __.selectedCard = false
+            __.addPoints(50)
           else
             setTimeout (=>
               @card.selected = false

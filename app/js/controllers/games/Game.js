@@ -39,7 +39,8 @@
       };
 
       GameController.prototype.addPoints = function(points) {
-        return this.points += points;
+        this.points += points;
+        return this.scope.$root.gamePoints = this.points;
       };
 
       GameController.prototype.pause = function() {
@@ -64,6 +65,11 @@
       GameController.prototype.preStart = function() {
         var interval, status,
           _this = this;
+        if (DEBUG) {
+          this.setStatus(false);
+          this.start();
+          return;
+        }
         status = ['ready', 'set', 'go'].reverse();
         this.setStatus(status.pop());
         return interval = setInterval(function() {
@@ -129,10 +135,11 @@
           _this.scope.$root.gameRemainSeconds = total - seconds;
           return _this.scope.$root.$apply();
         });
+        this.addPoints(0);
         return this.goRound(0);
       };
 
-      GameController.prototype.mistake = function() {
+      GameController.prototype.makeMistake = function() {
         var _base, _name, _ref;
         Console.info('Mistake');
         if ((_ref = (_base = this.mistakes)[_name = this.round]) == null) {
@@ -144,6 +151,10 @@
           return false;
         }
         return true;
+      };
+
+      GameController.prototype.roundMistakes = function() {
+        return this.mistakes[this.round] || 0;
       };
 
       GameController.prototype.kill = function() {
@@ -177,10 +188,6 @@
           f = this.finish;
         }
         return timeout = setTimeout(f, 1000);
-      };
-
-      GameController.prototype.calcPoints = function(errors) {
-        return 0;
       };
 
       return GameController;

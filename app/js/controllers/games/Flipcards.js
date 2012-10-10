@@ -40,6 +40,7 @@
             if (correct) {
               matches[this.card.id] = true;
               __.selectedCard = false;
+              __.addPoints(50);
             } else {
               setTimeout((function() {
                 _this.card.selected = false;

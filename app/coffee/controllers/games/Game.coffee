@@ -29,6 +29,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
     
     addPoints: (points) ->
       @points += points
+      @scope.$root.gamePoints = @points
     
     pause: ->
       Console.info 'Pause'
@@ -47,6 +48,10 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       @scope.$root.$apply()
 
     preStart: ->
+      if DEBUG
+        @setStatus false
+        @start()
+        return
       status = ['ready','set','go'].reverse()
       @setStatus(status.pop())
       interval = setInterval =>
@@ -98,9 +103,10 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       , (seconds,total) => 
         @scope.$root.gameRemainSeconds = total-seconds
         @scope.$root.$apply()
+      @addPoints(0)
       @goRound(0)
 
-    mistake: ->
+    makeMistake: ->
       Console.info 'Mistake'
       @mistakes[@round] ?= 0;
       @mistakes[@round]++
@@ -108,6 +114,8 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
         @kill()
         return false
       return true
+
+    roundMistakes: -> @mistakes[@round] or 0
 
     kill: ->
       Console.info 'Kill life'
@@ -130,8 +138,6 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       else
         f = @finish
       timeout = setTimeout f, 1000
-
-    calcPoints: (errors) -> 0
 
   GameController.$inject = ['$scope','$element','$attrs','GamesPlayed']
   GameController

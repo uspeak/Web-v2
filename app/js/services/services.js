@@ -26,7 +26,7 @@
             gameController.id = parseInt(attrs.gameId);
             gameController.name = attrs.gameTitle;
             gameController.description = attrs.gameDescription;
-            gameController.controller = attrs.gameController;
+            gameController.controller = attrs.gameController.toLowerCase();
             Console.info("Registered game " + gameController.name, gameController);
             return this.games.push(gameController);
           };

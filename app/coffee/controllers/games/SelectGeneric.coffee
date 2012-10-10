@@ -8,11 +8,12 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
       __ = @
       @scope.selectOption = (correct) ->
         correct ?= @option.correct
-        continue_ = false
+        kill = false
         if !correct and !@clicked
-          continue_ = __.mistake()
-        @clicked ?= not __.clickedCorrect if continue_
+          kill = __.makeMistake()
+        @clicked ?= not __.clickedCorrect if kill
         if correct
+          __.addPoints(__.calcPoints())
           __.nextRound()
         __.clickedCorrect = correct
         
@@ -25,6 +26,10 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
             autoLoad: true
             id: round.au
 
+    calcPoints: ->
+      mistakes = @roundMistakes()
+      (@numOptions-mistakes*2)*25
+      
     initData: (data) ->
       super data
       @numOptions = (data.W[0].dist?.length or 1)+1
@@ -43,6 +48,3 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
       super round
       @clickedCorrect = false
       @initDataRound(@data.W[round])
-
-    calcPoints: (errors) -> (@numOptions-errors*2)*25
-

@@ -52,10 +52,11 @@
               left: p_offset.left - e_offset.left + 4
             });
             if (lis.length === 1) {
+              _this.addPoints(_this.calcPoints());
               _this.nextRound();
             }
           } else {
-            _this.mistake();
+            _this.makeMistake();
             return e.keyframe('incorrect', 400);
           }
         };
@@ -106,8 +107,10 @@
         return this.scope.$apply();
       };
 
-      FatfingersController.prototype.calcPoints = function(errors) {
-        return 100 - 25 * errors;
+      FatfingersController.prototype.calcPoints = function() {
+        var mistakes;
+        mistakes = this.roundMistakes();
+        return 100 - 25 * mistakes;
       };
 
       return FatfingersController;

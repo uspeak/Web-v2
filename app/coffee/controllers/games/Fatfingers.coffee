@@ -37,10 +37,11 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
             top: p_offset.top - e_offset.top + 4
             left: p_offset.left - e_offset.left + 4
           if lis.length==1
+            @addPoints(@calcPoints())
             @nextRound()
             return
         else
-          @mistake()
+          @makeMistake()
           e.keyframe 'incorrect', 400
 
       @scope.$root.clickLetter = (e) ->
@@ -79,7 +80,9 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
       @scope.translation_shuffled = _.shuffle [].concat(@scope.translation, dist)
       @scope.$apply()
 
-    calcPoints: (errors) -> 100-25*errors
+    calcPoints: -> 
+      mistakes = @roundMistakes()
+      100-25*mistakes
   
   # FatfingersController.$inject = ['$scope','GamesPlayed']
   # FatfingersController

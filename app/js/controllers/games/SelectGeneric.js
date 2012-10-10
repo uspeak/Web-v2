@@ -19,20 +19,21 @@
         var __;
         __ = this;
         return this.scope.selectOption = function(correct) {
-          var continue_, _ref;
+          var kill, _ref;
           if (correct == null) {
             correct = this.option.correct;
           }
-          continue_ = false;
+          kill = false;
           if (!correct && !this.clicked) {
-            continue_ = __.mistake();
+            kill = __.makeMistake();
           }
-          if (continue_) {
+          if (kill) {
             if ((_ref = this.clicked) == null) {
               this.clicked = !__.clickedCorrect;
             }
           }
           if (correct) {
+            __.addPoints(__.calcPoints());
             __.nextRound();
           }
           return __.clickedCorrect = correct;
@@ -50,6 +51,12 @@
             });
           }
         });
+      };
+
+      SelectGenericController.prototype.calcPoints = function() {
+        var mistakes;
+        mistakes = this.roundMistakes();
+        return (this.numOptions - mistakes * 2) * 25;
       };
 
       SelectGenericController.prototype.initData = function(data) {
@@ -81,10 +88,6 @@
         SelectGenericController.__super__.goRound.call(this, round);
         this.clickedCorrect = false;
         return this.initDataRound(this.data.W[round]);
-      };
-
-      SelectGenericController.prototype.calcPoints = function(errors) {
-        return (this.numOptions - errors * 2) * 25;
       };
 
       return SelectGenericController;
