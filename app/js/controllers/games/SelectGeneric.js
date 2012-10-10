@@ -33,7 +33,7 @@
             }
           }
           if (correct) {
-            __.addPoints(__.calcPoints());
+            __.addPoints(__.roundPoints());
             __.nextRound();
           }
           return __.clickedCorrect = correct;
@@ -53,7 +53,7 @@
         });
       };
 
-      SelectGenericController.prototype.calcPoints = function() {
+      SelectGenericController.prototype.roundPoints = function() {
         var mistakes;
         mistakes = this.roundMistakes();
         return (this.numOptions - mistakes * 2) * 25;

@@ -9,7 +9,7 @@ define ["Console", "SoundManager", "jQuery","controllers/games/SelectGeneric"], 
       __ = @
       @scope.selectOption = (option) ->
         correct = option == @correct
-        if !correct and !@clicked[option] then __.mistake()
+        if !correct and !@clicked[option] then __.makeMistake()
         @clicked[option] ?= not __.clickedCorrect
         if correct
           __.nextRound()

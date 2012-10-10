@@ -26,7 +26,7 @@ define ["Console", "Underscore", "lib/base64"], (Console, _, Base64) ->
 
     UserService::setToken = (user, pass) ->
       unless pass
-        Console.info "Successful login. Token: {0}".format(user)
+        Console.info "Successful login. Token: #{user}"
         @token = user
       auth = make_base_auth(user, pass or "")
       $http.defaults.headers.post["Authorization"] = auth

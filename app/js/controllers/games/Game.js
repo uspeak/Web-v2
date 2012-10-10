@@ -20,7 +20,7 @@
         this.initScope();
       }
 
-      GameController.maxMistakes = 3;
+      GameController.prototype.maxMistakes = 3;
 
       GameController.prototype.points = 0;
 

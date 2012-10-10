@@ -24,7 +24,7 @@
           var correct, _base, _ref;
           correct = option === this.correct;
           if (!correct && !this.clicked[option]) {
-            __.mistake();
+            __.makeMistake();
           }
           if ((_ref = (_base = this.clicked)[option]) == null) {
             _base[option] = !__.clickedCorrect;

@@ -52,7 +52,7 @@
               left: p_offset.left - e_offset.left + 4
             });
             if (lis.length === 1) {
-              _this.addPoints(_this.calcPoints());
+              _this.addPoints(_this.roundPoints());
               _this.nextRound();
             }
           } else {
@@ -107,7 +107,7 @@
         return this.scope.$apply();
       };
 
-      FatfingersController.prototype.calcPoints = function() {
+      FatfingersController.prototype.roundPoints = function() {
         var mistakes;
         mistakes = this.roundMistakes();
         return 100 - 25 * mistakes;

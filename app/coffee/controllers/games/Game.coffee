@@ -13,7 +13,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
       @initScope()
 
-    @maxMistakes: 3
+    maxMistakes: 3
 
     points: 0
     mistakes: {}

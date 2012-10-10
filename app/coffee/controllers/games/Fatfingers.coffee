@@ -37,7 +37,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
             top: p_offset.top - e_offset.top + 4
             left: p_offset.left - e_offset.left + 4
           if lis.length==1
-            @addPoints(@calcPoints())
+            @addPoints(@roundPoints())
             @nextRound()
             return
         else
@@ -80,7 +80,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
       @scope.translation_shuffled = _.shuffle [].concat(@scope.translation, dist)
       @scope.$apply()
 
-    calcPoints: -> 
+    roundPoints: -> 
       mistakes = @roundMistakes()
       100-25*mistakes
   

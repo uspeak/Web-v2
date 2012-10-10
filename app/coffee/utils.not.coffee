@@ -29,15 +29,5 @@ TimerInterval = (callback, delay) ->
 isString = (o) ->
   typeof o is "string" or (typeof o is "object" and o.constructor is String)
 
-String::format = ->
-  formatted = this
-  i = 0
-
-  while i < arguments_.length
-    regexp = new RegExp("\\{" + i + "\\}", "gi")
-    formatted = formatted.replace(regexp, arguments_[i])
-    i++
-  formatted
-
 window.asFunc = (v) ->
   -> v

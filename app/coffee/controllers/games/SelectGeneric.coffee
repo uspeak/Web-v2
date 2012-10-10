@@ -13,7 +13,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
           kill = __.makeMistake()
         @clicked ?= not __.clickedCorrect if kill
         if correct
-          __.addPoints(__.calcPoints())
+          __.addPoints(__.roundPoints())
           __.nextRound()
         __.clickedCorrect = correct
         
@@ -26,10 +26,10 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
             autoLoad: true
             id: round.au
 
-    calcPoints: ->
+    roundPoints: ->
       mistakes = @roundMistakes()
       (@numOptions-mistakes*2)*25
-      
+
     initData: (data) ->
       super data
       @numOptions = (data.W[0].dist?.length or 1)+1

@@ -4,7 +4,7 @@
   define(["Console", "jQuery"], function(Console, $) {
     "use strict";
     return function($scope, user) {
-      return $scope.register = function() {
+      return $scope.$parent.register = function() {
         var $this, form, user_errors;
         $this = this;
         form = $("#user-register");
@@ -20,20 +20,21 @@
           points: 1000
         }, {
           success: function(data) {
+            Console.info("Registered correctely");
             return $scope.goScreen("user-home");
           },
           error: function(err) {
-            var error, field, offset;
-            console.log(err);
-            error = user_errors.filter("[data-error={0}]".format(err));
-            field = form.find("[name=\"{0}\"]".format(error.data("error-field")));
+            var error, field, name, offset;
+            Console.info("Error when registering " + err);
+            error = user_errors.filter("[data-error=" + err + "]");
+            name = error.data("error-field");
+            field = form.find("[name=" + name + "]");
             offset = field.position();
             error.css({
               top: offset.top + field.outerHeight(true) * 3 / 2 - error.height(),
               left: offset.left + field.outerWidth(true)
             }).addClass("visible");
-            field.addClass("error");
-            return console.log(error, field);
+            return field.addClass("error");
           }
         });
       };

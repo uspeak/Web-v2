@@ -36,7 +36,7 @@
       UserService.prototype.setToken = function(user, pass) {
         var auth;
         if (!pass) {
-          Console.info("Successful login. Token: {0}".format(user));
+          Console.info("Successful login. Token: " + user);
           this.token = user;
         }
         auth = make_base_auth(user, pass || "");

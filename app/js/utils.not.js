@@ -38,18 +38,6 @@
     return typeof o === "string" || (typeof o === "object" && o.constructor === String);
   };
 
-  String.prototype.format = function() {
-    var formatted, i, regexp;
-    formatted = this;
-    i = 0;
-    while (i < arguments_.length) {
-      regexp = new RegExp("\\{" + i + "\\}", "gi");
-      formatted = formatted.replace(regexp, arguments_[i]);
-      i++;
-    }
-    return formatted;
-  };
-
   window.asFunc = function(v) {
     return function() {
       return v;
