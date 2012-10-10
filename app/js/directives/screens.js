@@ -126,7 +126,7 @@
             return moveBackground(lastScreen, prevScreen, true);
           };
           return this.addScreen = function(scope, element, attrs) {
-            var name;
+            var name, showScreen;
             name = attrs.screenId;
             Console.info("Registered screen " + name, scope, attrs);
             screens[name] = {
@@ -134,7 +134,12 @@
               element: element,
               attrs: attrs
             };
-            if (attrs.hasOwnProperty("screenInit")) {
+            if (!DEBUG) {
+              showScreen = name === 'home';
+            } else {
+              showScreen = attrs.hasOwnProperty("screenInit");
+            }
+            if (showScreen) {
               $("#game-background .sun").one("animationend webkitAnimationEnd oanimationend MSAnimationEnd", function(e) {
                 return $scope.goScreen(name);
               });
