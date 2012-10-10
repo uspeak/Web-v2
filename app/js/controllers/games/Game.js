@@ -22,8 +22,6 @@
 
       GameController.maxMistakes = 3;
 
-      GameController.lifes = 3;
-
       GameController.prototype.points = 0;
 
       GameController.prototype.mistakes = {};
@@ -136,7 +134,8 @@
           return _this.scope.$root.$apply();
         });
         this.addPoints(0);
-        return this.goRound(0);
+        this.goRound(0);
+        return this.setLifes(3);
       };
 
       GameController.prototype.makeMistake = function() {
@@ -157,13 +156,26 @@
         return this.mistakes[this.round] || 0;
       };
 
+      GameController.prototype.gameOver = function() {
+        var timeout;
+        Console.info("Game Over!");
+        this.setStatus('gameover');
+        return timeout = setTimeout(this.finish, 1000);
+      };
+
+      GameController.prototype.setLifes = function(lifes) {
+        this.lifes = lifes;
+        Console.info("Set lifes to " + this.lifes);
+        this.scope.$root.gameLifes = this.lifes;
+        if (this.lifes === 0) {
+          this.gameOver();
+          false;
+        }
+        return true;
+      };
+
       GameController.prototype.kill = function() {
-        Console.info('Kill life');
-        this.scope.$root.lifes -= 1;
-        this.scope.$root.$apply();
-        if (this.scope.$root.lifes === 0) {
-          return this.finish();
-        } else {
+        if (this.setLifes(this.lifes - 1)) {
           return this.nextRound();
         }
       };

@@ -315,7 +315,7 @@
         <div id="game-clock" data-help="Clock" ng-class="{quick:gameRemainSeconds<=20,veryquick:gameRemainSeconds<10}" data-help-position="br"></div>
         <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{totalRounds}}</b></div>
         <h1>{{gameTitle}}</h1>
-        <ul id="game-lifes" class="lifes-{{lifes}}" data-help="Vidas" data-help-position="bl">
+        <ul id="game-lifes" class="lifes-{{gameLifes}}" data-help="Vidas" data-help-position="bl">
           <li class="game-life-{{life}}" ng-repeat="life in [1,2,3]"><span>Life</span></li>
         </ul>
         <div id="game-points" data-help="Puntos" data-help-position="bl">Points:<b>{{gamePoints}}</b></div>
@@ -326,6 +326,7 @@
         <span class="game-status" id="game-status-go" ng-switch-when="go">Go!</span>
         <span class="game-status" ng-switch-when="paused">Pausa</span>
         <span class="game-status" ng-switch-when="timeout">Sin tiempo!</span>
+        <span class="game-status" ng-switch-when="gameover">Game Over!</span>
       </ng-switch>
       <game game-id="1" game-controller="Flipcards" game-title="Flip cards" game-description="Descripción flipcards">  <!-- ng-init="active=true;" -->
         <span id="game-flipcards-help" data-help="¿Cuál es la opción correcta?" data-help-position="br" game-variation="1">Match the Spanish word and it's English translation</span>

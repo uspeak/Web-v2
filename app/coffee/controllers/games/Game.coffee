@@ -15,8 +15,6 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     @maxMistakes: 3
 
-    @lifes: 3
-    
     points: 0
     mistakes: {}
     info: {}
@@ -105,6 +103,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
         @scope.$root.$apply()
       @addPoints(0)
       @goRound(0)
+      @setLifes(3)
 
     makeMistake: ->
       Console.info 'Mistake'
@@ -117,13 +116,21 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
 
     roundMistakes: -> @mistakes[@round] or 0
 
+    gameOver: ->
+      Console.info "Game Over!"
+      @setStatus 'gameover'
+      timeout = setTimeout @finish, 1000
+
+    setLifes: (@lifes) ->
+      Console.info "Set lifes to #{ @lifes }"
+      @scope.$root.gameLifes = @lifes
+      if @lifes == 0
+        @gameOver()
+        false
+      true
+
     kill: ->
-      Console.info 'Kill life'
-      @scope.$root.lifes -= 1
-      @scope.$root.$apply()
-      if @scope.$root.lifes == 0
-        @finish()
-      else
+      if @setLifes(@lifes-1)
         @nextRound()
 
     sendData: ->
