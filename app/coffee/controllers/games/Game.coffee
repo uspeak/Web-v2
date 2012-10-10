@@ -87,7 +87,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
     timeout: ->
       Console.info "Timeout!"
       @setStatus 'timeout'
-      timeout = setTimeout @finish, 1000
+      timeout = setTimeout (=> @finish()), 1000
 
     goRound: (@round) ->
       Console.info "Round #{ @round } of #{ @totalRounds }"
@@ -119,7 +119,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
     gameOver: ->
       Console.info "Game Over!"
       @setStatus 'gameover'
-      timeout = setTimeout @finish, 1000
+      timeout = setTimeout (=> @finish()), 1000
 
     setLifes: (@lifes) ->
       Console.info "Set lifes to #{ @lifes }"
@@ -144,7 +144,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
         f = (=> @goRound(@round+1))
       else
         f = @finish
-      timeout = setTimeout f, 1000
+      timeout = setTimeout (=> f()), 1000
 
   GameController.$inject = ['$scope','$element','$attrs','GamesPlayed']
   GameController

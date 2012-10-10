@@ -106,15 +106,19 @@
       };
 
       GameController.prototype.finish = function() {
+        Console.info("****************", this);
         (this.onFinish || function() {})();
         return this.unplay();
       };
 
       GameController.prototype.timeout = function() {
-        var timeout;
+        var timeout,
+          _this = this;
         Console.info("Timeout!");
         this.setStatus('timeout');
-        return timeout = setTimeout(this.finish, 1000);
+        return timeout = setTimeout((function() {
+          return _this.finish();
+        }), 1000);
       };
 
       GameController.prototype.goRound = function(round) {
@@ -157,10 +161,13 @@
       };
 
       GameController.prototype.gameOver = function() {
-        var timeout;
+        var timeout,
+          _this = this;
         Console.info("Game Over!");
         this.setStatus('gameover');
-        return timeout = setTimeout(this.finish, 1000);
+        return timeout = setTimeout((function() {
+          return _this.finish();
+        }), 1000);
       };
 
       GameController.prototype.setLifes = function(lifes) {
@@ -199,7 +206,9 @@
         } else {
           f = this.finish;
         }
-        return timeout = setTimeout(f, 1000);
+        return timeout = setTimeout((function() {
+          return f();
+        }), 1000);
       };
 
       return GameController;
