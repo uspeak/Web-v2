@@ -37,9 +37,10 @@
             correct = __.selectedCard.id === this.card.id;
             Console.info((correct ? "Matched" : "Unmatched"), WOT(__.selectedCard), WOT(this.card));
             this.card.correct = __.selectedCard.correct = correct;
-            __.addInfo(correct, this.card.id);
+            __.addInfo(this.card.id);
             if (correct) {
               matches[this.card.id] = true;
+              __.markWord(wt.id, wt.w, true);
               __.selectedCard = false;
               __.addPoints(50);
             } else {
@@ -59,7 +60,7 @@
         };
       }
 
-      FlipcardsController.prototype.addInfo = function(correct, id) {
+      FlipcardsController.prototype.addInfo = function(id) {
         var d, r;
         d = this.data.W[this.round];
         d = _.find(this.info, function(W) {
@@ -68,7 +69,7 @@
         r = {
           id: id,
           round: roundCards[this.round],
-          ref: correct ? 1 : 2
+          ref: matches[id] ? 1 : 2
         };
         if (d) {
           _.extend(d, r);
@@ -106,6 +107,7 @@
         cards = [];
         for (_i = 0, _len = data.length; _i < _len; _i++) {
           wt = data[_i];
+          this.markWord(wt.id, wt.w);
           cards.push({
             word: wt.w,
             id: wt.id

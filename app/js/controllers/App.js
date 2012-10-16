@@ -6,7 +6,7 @@
 
     var controller;
     Console.group("Entering AppController module.");
-    controller = function($scope, DiagnosticWordsService, GamesService, user, games) {
+    controller = function($scope, user, games) {
       var game, gamehelpscreen, selector;
       gamehelpscreen = $("#game-help-screen");
       game = $("#game");
@@ -89,7 +89,7 @@
         return $scope.$root.audio = !$scope.$root.audio;
       };
     };
-    controller.$inject = ["$scope", "DiagnosticWordsService", "GamesService", "user", "games"];
+    controller.$inject = ["$scope", "user", "games"];
     return controller;
   });
 

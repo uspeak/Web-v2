@@ -9,11 +9,13 @@ define [
   "controllers/games/Yayornay",
   "controllers/games/Braintickle",
   "controllers/popups/Login",
+  "controllers/popups/PostGame",
+  "controllers/popups/PostGameWords",
   "controllers/screens/DiagnosticGames",
   "controllers/screens/DiagnosticRegister",
   "controllers/screens/UserHome"
   "controllers/screens/UserGames"
-  ], (Console, app, whichone, association, fatfingers, challenge, flipcards, yayornay, braintickle, plogin, sdiagnosticgames, sdiagnosticregister, suserhome, susergames) ->
+  ], (Console, app, whichone, association, fatfingers, challenge, flipcards, yayornay, braintickle, plogin, ppostgame, ppostgamewords, sdiagnosticgames, sdiagnosticregister, suserhome, susergames) ->
   "use strict"
   Console.group "Entering controllers module."
   Console.info "App", app
@@ -25,10 +27,13 @@ define [
   Console.info "YayorNay", yayornay
   Console.info "Braintickle", braintickle
   Console.info "PopupLogin", plogin
+  Console.info "PopupPostGame", ppostgame
+  Console.info "PopupPostGameWords", ppostgamewords
   Console.info "DiagnosticGames", sdiagnosticgames
   Console.info "DiagnosticRegister", sdiagnosticregister
   Console.info "UserHome", suserhome
   Console.info "UserGames", susergames
+  
   Console.groupEnd()
   
   ->
@@ -43,6 +48,8 @@ define [
       .controller("Game-Yayornay", yayornay)
       .controller("Game-Braintickle", braintickle)
       .controller("Popup-Login", plogin)
+      .controller("Popup-PostGame", ppostgame)
+      .controller("Popup-PostGameWords", ppostgamewords)
       .controller("Screen-DiagnosticGames", sdiagnosticgames)
       .controller("Screen-DiagnosticRegister", sdiagnosticregister)
       .controller("Screen-UserHome", suserhome)

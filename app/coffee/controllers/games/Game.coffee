@@ -1,7 +1,7 @@
 
 # Standard Libs
 # lib/console/console
-define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
+define ["Console", "SoundManager", "Underscore", "jQuery"], (Console, soundManager, _, $) ->
   "use strict"
 
   class GameController
@@ -18,6 +18,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
     points: 0
     mistakes: {}
     info: []
+    knownWords: []
 
     initScope: ->
     
@@ -26,9 +27,23 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
         soundManager.play sound_id
     
     addPoints: (points) ->
-      @points += points
+      if not points
+        @points = 0
+      else
+        @points += points
       @scope.$root.gamePoints = @points
     
+    markWord: (id, word, known) ->
+      if finded = _.find(@knownWords, (data) -> data.id == id)
+        finded.known = known or false
+      else
+        @knownWords.push {word:word,id:id,known:known}
+      
+      notKnown = if not known then 'not ' else ''
+      Console.info "Marked word #{word} as #{notKnown}known"
+
+      @scope.$root.gameWords = @knownWords
+
     pause: ->
       Console.info 'Pause'
       @setStatus 'paused'
@@ -65,6 +80,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       Console.info 'Init data', @data
       @variation = parseInt(@data.vid)
       @time = @data.time or @data.seconds
+      @knownWords = []
 
       @scope.$root.totalRounds = @totalRounds = @data.W.length
       @scope.$root.gameTitle = @name
@@ -82,7 +98,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       Console.groupEnd()
 
     finish: ->
-      (@onFinish or ->)()
+      @onFinish() if @onFinish
       @sendData()
       @unplay()
 
@@ -92,7 +108,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       timeout = setTimeout (=> @finish()), 1000
 
     goRound: (@round) ->
-      Console.info "Round #{ @round } of #{ @totalRounds }"
+      Console.info "Round #{@round} of #{@totalRounds}"
       @scope.$root.round = @round
 
     start: ->
@@ -103,9 +119,9 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       , (seconds,total) => 
         @scope.$root.gameRemainSeconds = total-seconds
         @scope.$root.$apply()
-      @addPoints(0)
+      @addPoints()
       @goRound(0)
-      @setLifes(3)
+      @setLifes(1)
 
     makeMistake: ->
       Console.info 'Mistake'
@@ -124,7 +140,7 @@ define ["Console", "SoundManager", "jQuery"], (Console, soundManager, $) ->
       timeout = setTimeout (=> @finish()), 1000
 
     setLifes: (@lifes) ->
-      Console.info "Set lifes to #{ @lifes }"
+      Console.info "Set lifes to #{@lifes}"
       @scope.$root.gameLifes = @lifes
       if @lifes == 0
         @gameOver()

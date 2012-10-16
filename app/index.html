@@ -70,7 +70,7 @@
     DEBUG = true && !(document.domain.indexOf('uspeakapp.com')>-1);
     EFFECTS = false || !DEBUG;
     LANG_DIR = 2; //2 aprender inglés, 1 español
-    OFFLINE = true && DEBUG;
+    OFFLINE = false && DEBUG;
     API_BASE = OFFLINE?"/api/":"http://v4.uspeakapp.com/";
   </script>
 </head>
@@ -309,10 +309,39 @@
           <button class="button" ng-class="{disabled:!login_name || !login_pass || loading_api}">entrar</button>
         </form>
       </popup>
+      <popup popup-id="postgame" ng-controller="Popup-PostGame">
+        <h2>¡Felicidades!</h2>
+        <img src="img/games/{{game.controller}}/logo-big.png"/>
+        <h3>Puntos <b>{{gamePoints}}</h3>
+        <h4>Precisión <b>{{gamePoints}}%</h3>
+        <a class="button" ng-click="goGameMenu()">Menú de juegos</a>
+        <a class="button" ng-click="checkWords()">Revisar palabras</a>
+      </popup>
+      <popup popup-id="postgame-words" ng-controller="Popup-PostGameWords">
+        <h2>Revisar palabras</h2>
+        <ol id="postgame-words-list">
+          <li ng-repeat="word in gameWords" ng-class="{known:word.known}">
+            <div ng-click="openWord()">
+              <i ng-class="{'icon-ok':word.known,'icon-remove':!word.known}"></i>{{word.word}}
+              <span class="word-status">
+                <i ng-class="{'icon-chevron-right':openedWord!=word.id,'icon-refresh':openedWord==word.id&&!loaded,'icon-chevron-down':openedWord==word.id&&loaded}"></i>
+              </span>
+            </div>
+            <div ng-show="openedWord==word.id && loaded">
+              <h4>Traducción</h4>
+              <p>{{data.translation}}</p>
+              <h4>Significado</h4>
+              <p>{{data.root}}</p>
+              <h4>Ejemplos</h4>
+              <p>{{data.example}}</p>
+            </div>
+          </li>
+        </ol>
+      </popup>
     </popups>
     <games>
       <div id="game-header">{{gameSeconds}}
-        <div id="game-clock" data-help="Clock" ng-class="{quick:gameRemainSeconds<=20,veryquick:gameRemainSeconds<10}" data-help-position="br"></div>
+        <div id="game-clock" data-help="Clock" ng-class="{quick:gameRemainSeconds<=20, veryquick:gameRemainSeconds<10}" data-help-position="br"></div>
         <div id="game-round" data-help="Ronda" data-help-position="br">Round:<b>{{round+1}}/{{totalRounds}}</b></div>
         <h1>{{gameTitle}}</h1>
         <ul id="game-lifes" class="lifes-{{gameLifes}}" data-help="Vidas" data-help-position="bl">
@@ -399,7 +428,7 @@
       </game>
 
       <div id="game-settings">
-        <a class="exit" ng-click="exit()"><i class="icon-chevron-left"></i></a>
+        <a class="exit" ng-click="exitGame()"><i class="icon-chevron-left"></i></a>
         <a class="help" ng-click="showHelp()">?</a>
         <a class="pause" ng-click="togglePlay()"><i ng-class="{'icon-pause':gameStatus!='paused','icon-play':gameStatus=='paused'}"></i></a> 
         <a class="sound" ng-click="toggleAudio()"><i ng-class="{'icon-volume-off':$root.audio,'icon-volume-up':!$root.audio}"></i></a>

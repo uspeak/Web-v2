@@ -4,6 +4,82 @@
 		"selected_items":
 		[
 			[
+				"add",
+				"addInfo"
+			],
+			[
+				"cli",
+				"clickedCorrect"
+			],
+			[
+				"set",
+				"setLifes"
+			],
+			[
+				"hide",
+				"hidePopup"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"st",
+				"styles_in"
+			],
+			[
+				"sta",
+				"status"
+			],
+			[
+				"tree",
+				"trees_front"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"bac",
+				"background-origin"
+			],
+			[
+				"gam",
+				"game-clock"
+			],
+			[
+				"game",
+				"gameRemainSeconds"
+			],
+			[
+				"click",
+				"clicked"
+			],
+			[
+				"nex",
+				"nextRound"
+			],
+			[
+				"clicke",
+				"clickedCorrect"
+			],
+			[
+				"Game",
+				"GamesPlayed"
+			],
+			[
+				"sound",
+				"sound_id"
+			],
+			[
+				"sou",
+				"soundManager"
+			],
+			[
 				"selec",
 				"selected_card"
 			],
@@ -26,18 +102,6 @@
 			[
 				"last",
 				"last_force"
-			],
-			[
-				"set",
-				"setCenter"
-			],
-			[
-				"add",
-				"addParticles"
-			],
-			[
-				"game",
-				"gameList"
 			],
 			[
 				"ge",
@@ -80,16 +144,8 @@
 				"selected_card"
 			],
 			[
-				"bac",
-				"background"
-			],
-			[
 				"inline",
 				"inline-block"
-			],
-			[
-				"sta",
-				"startData"
 			],
 			[
 				"dialo",
@@ -128,10 +184,6 @@
 				"username"
 			],
 			[
-				"sound",
-				"sound_id"
-			],
-			[
 				"time",
 				"timeout	setTimeout function"
 			],
@@ -150,10 +202,6 @@
 			[
 				"games",
 				"gamesCtrl"
-			],
-			[
-				"click",
-				"clickedInCorrect"
 			],
 			[
 				"contro",
@@ -216,35 +264,106 @@
 	"buffers":
 	[
 		{
-			"file": "app/js/controllers/games/FlipcardsController.js",
+			"file": "app/index.html",
 			"settings":
 			{
-				"buffer_size": 2922,
+				"buffer_size": 22573,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/js/src/test.coffee",
+			"file": "app/coffee/controllers/games/SelectGeneric.coffee",
 			"settings":
 			{
-				"buffer_size": 420,
-				"line_ending": "Unix",
-				"name": "number   = 42"
-			}
-		},
-		{
-			"file": "app/Cakefile",
-			"settings":
-			{
-				"buffer_size": 221,
+				"buffer_size": 1901,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/js/src/test.js",
+			"file": "app/coffee/services/GamesPlayed.coffee",
 			"settings":
 			{
-				"buffer_size": 828,
+				"buffer_size": 696,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/coffee/controllers/games/Fatfingers.coffee",
+			"settings":
+			{
+				"buffer_size": 2813,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/coffee/controllers/games/Flipcards.coffee",
+			"settings":
+			{
+				"buffer_size": 2417,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/coffee/directives/screens.coffee",
+			"settings":
+			{
+				"buffer_size": 4023,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/coffee/controllers/popups/Login.coffee",
+			"settings":
+			{
+				"buffer_size": 486,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/css/app.css",
+			"settings":
+			{
+				"buffer_size": 7157,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/services/UserService.js",
+			"settings":
+			{
+				"buffer_size": 2514,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/coffee/controllers/games/Game.coffee",
+			"settings":
+			{
+				"buffer_size": 3632,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/_/controllers/games/SelectGenericController.js",
+			"settings":
+			{
+				"buffer_size": 2877,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/_/controllers/games/FlipcardsController.js",
+			"settings":
+			{
+				"buffer_size": 2923,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/_/controllers/games/FatfingersController.js",
+			"settings":
+			{
+				"buffer_size": 4543,
 				"line_ending": "Unix"
 			}
 		}
@@ -277,134 +396,134 @@
 	},
 	"file_history":
 	[
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/loader.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/user/games.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/clock.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/bootstrap.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/game.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/gameVariation.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/games.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/GameWordsService.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/FlipcardsController.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/HomeController.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/controllers.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/FatfingersController.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/BraintickleController.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/YayornayController.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/SelectGenericController.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/AppController.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/GamesPlayed.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/animations.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/utils.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/GameController.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/main.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/index.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/demos/ChainDemo.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/d3/examples/uspeak/index.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/springy.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/services.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/behaviour/Attraction.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/math/Vector.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/jquery.drag.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/demos/renderer/DOMRenderer.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/index.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/behaviour/Force.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/engine/Physics.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/jquery.easing.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/demos/uSpeakDemo.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/engine/Particle.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/indexseg.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/springy_files/raphael-min.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/behaviour/ParticleAttraction.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/behaviour/Collision.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/compiled/demos/Demo.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/Coffee-Physics/CakeFile",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/directives.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/popup.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/Cakefile",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/Flipcards.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/Yayornay.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/App.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/screens/DiagnosticRegister.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/utils.not.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/services/UserService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/services/GamesPlayed.coffee",
 		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/popups.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/popups.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/screen.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/directives/games.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/directives/screens.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/animations.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/directives/screen.coffee",
 		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/dialog.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.keyframe.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/background.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/screens.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/app.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/main.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/fatfingers.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/dialog.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.cssanimation.min.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/GamesService.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/topbar.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/directives/directives.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/directives/popups.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/directives/popup.coffee",
 		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/font-awesome.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/loading.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/flipcards.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/braintickle.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/README.md",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/app.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/Game.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/popups/Login.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/screens/DiagnosticGamesIntro.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/screens.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/bootstrap.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/loader.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/services/services.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/controllers.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/users/token_bad.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/Whichone.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/SelectGeneric.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/Fatfingers.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/Challenge.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/Braintickle.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/Association.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/screens/UserGames.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/controllers/games/SelectGenericController.coffee",
 		"/Users/syrus/Proyectos/uSpeak/uspeakv2/.gitignore",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/scripts/fabfile.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/animate.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/UserService.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/words/d3/examples/uspeak/force-html.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/manifest.appcache",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/angular/angular.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.tzineClock.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screen.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/DiagnosticWordsService.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/underscore/underscore-min.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery/jquery.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/background.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/UserValue.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/app.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/DataService.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/screens/settings.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.transit.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/plax.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/base64.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/dialog.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/locale/en_US/LC_MESSAGES/messages.po",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/clock.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/main.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/bootstrap.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/require/soundmanager.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/require/angular.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/require/console.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/require/underscore.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/require/jquery.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/lib/jquery/jquery.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/user/games.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/_/controllers/AppController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/users/token.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/lib/soundmanager2/soundmanager2-jsmin.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/lib/jquery.transit.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/lib/underscore/underscore.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/lib/soundmanager2/soundmanager2.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/lib/console/console.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/index.html",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee/app.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/AppController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/services/UserService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/app.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/services/services.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/AssociationController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/bootstrap.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/build/controllers/AppController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/flipcards.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/directives/gameVariation.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/build/controllers/games/GameController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/directives/game.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/directives/directives.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/directives.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/diagnostics/getDiagnosticWordsBeta3/2/3.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/diagnostics/getDiagnosticWordsBeta3/2/1.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/YayornayController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/SelectGenericController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/FlipcardsController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/ChallengeController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/console/console.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/underscore/underscore.js",
 		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/soundmanager2/soundmanager2.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/loader.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jQuery.tzineClock.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/settings.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/whichone.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/association.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/filters/filters.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/templates/v1/main.html",
-		"/Library/WebServer/Documents/welcomeScreen.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/templates/v1/partial/mainPanel.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/help.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/modules/diagnostic.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/modules/directives.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/topbar.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/media/js/v1/restFunctions.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/_boilerplate.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/games_old.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/__diagnostic.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/modernizr-2.0.6.min.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/AppController2.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/directives/screens_old.js",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/vocab/index.jade",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/vocab/completed.jade",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/email/vocab/es.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/email/vocab/generic.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/admin_views.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/templates/email/vocab/en.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/views.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/forms.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/models.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/locale/es/LC_MESSAGES/messages.po",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/urls.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/models.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/templates/email/beta_generic.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/admin_forms.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/templates/admin/beta/bulk_add.html",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/settings/base.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/media/css/vocab.css",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/context_processors.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/beta/admin.py",
-		"/Users/syrus/Proyectos/uSpeak/uspeak/project/vocab/admin.py"
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/GameController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/userGames/getGameWords/2/1_v1.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/userGames/getGameWords/2/1.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/animate.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery.tzineClock.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/clock.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/jquery/jquery.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/libs/angular/angular.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/webfont.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/utils.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/FatfingersController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/BraintickleController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/WhichoneController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/controllers.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/directives/screens.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/directives/popups.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/directives/screen.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/directives/dialog.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/app.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/filters/filters.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/css/games/fatfingers.css",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/games/FatfingersController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/services/ChallengeWordsService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/challenges/getChallengesWords/2.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/directives/games.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/build/directives/games.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/build/directives/game.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/games/GameController.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/controllers.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/build/controllers/games/FatfingersController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/services/UserService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/services/DiagnosticWordsService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/services/GamesPlayed.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/services/GamesService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/services/GameWordsService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/services/services.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/build/services/services.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/services/DiagnosticWordsService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/services/GamesPlayed.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/services/GamesService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/services/GameWordsService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/build/services/GamesService.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/controllers/AppController.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/userGames/getUserGames/2.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/services/DiagnosticWordsService.js",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js/src/controllers/services/DataService.coffee",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/games/getGameWords/2/6.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/games/getGameWords/2/5.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/games/getGameWords/2/4.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/games/getGameWords/2/3.json",
+		"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/api/games/getGameWords/2/2.json"
 	],
 	"find":
 	{
@@ -415,6 +534,8 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/coffee",
+			"/Users/syrus/Proyectos/uSpeak/uspeakv2/app/js"
 		]
 	},
 	"find_state":
@@ -422,6 +543,100 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"default_opts",
+			"whichone",
+			"send_data",
+			"onfinish",
+			"settimeout",
+			"format",
+			"points",
+			"maxMistakes",
+			"mistake",
+			"addpoints",
+			"addPoints",
+			"gameController",
+			"goGames",
+			"diagnosticWords",
+			"diagnostic",
+			"ng-controller",
+			"form",
+			"screen-init",
+			"block!importa",
+			"uspeak",
+			"block!important",
+			"uspeak",
+			"delay",
+			"effects",
+			"top-bar",
+			"topBar",
+			"top-bar\ntop-bar",
+			"opacity",
+			"top-bar",
+			"points",
+			"sendData",
+			"to",
+			"moveBackground",
+			"moveMovable",
+			"login",
+			"trans",
+			"libs",
+			"order",
+			"screen-init",
+			"variation",
+			"user-games-mainlogo\nuser-games-mainlogo",
+			"user-games-mainlogo",
+			"gimages",
+			"variation",
+			"flipcards",
+			"clock",
+			"time",
+			"clock",
+			"ng-style",
+			"resumeGame",
+			"total_rounds",
+			"totalRounds",
+			"gametitle",
+			"title",
+			"@",
+			"template",
+			"@",
+			"fadeInBackground",
+			"active",
+			"name",
+			"games",
+			"play(",
+			"GamesPlayed",
+			"game-id=\"",
+			"_games",
+			"GameWordsService",
+			"register",
+			"addGame",
+			"gameDescription",
+			"GamesService",
+			"fatfingers",
+			"$this",
+			"translation",
+			"braintickle",
+			"maxMistakes",
+			"start",
+			"initData",
+			"totalRounds",
+			"round",
+			"last_key",
+			"finish",
+			"lifes",
+			"selectOption",
+			"playAudio",
+			"sound_id",
+			"soundManager",
+			"goRound",
+			"total_options",
+			"injector",
+			"finish",
+			"goRound",
+			"data",
+			"startData",
+			"constructor",
 			"deregisterRound",
 			"scree",
 			"game-main-word",
@@ -455,101 +670,7 @@
 			"start",
 			"centerVector",
 			"zoom",
-			"particleCenter",
-			"bounds",
-			"collide",
-			"fixed",
-			"centerVector",
-			"nv.",
-			"particleCenter",
-			"this.center",
-			"particleCenter",
-			"click",
-			".x",
-			"particleCenter",
-			"setRadius",
-			"particleCenter",
-			"());\n",
-			"springToParent",
-			"attract",
-			"fixed",
-			"center_repulsion",
-			"bounds",
-			"_maxSteps",
-			"attract",
-			"repulsion",
-			"addParticles",
-			"domElement",
-			"renderSprings",
-			"this.canvas",
-			"canvas",
-			"resize",
-			"init(",
-			"renderer",
-			"physics",
-			"acc",
-			"pos",
-			"acc",
-			"fixed",
-			"Integr",
-			"Verlet",
-			"Euler",
-			"Attraction",
-			"FOREACH",
-			"foreach",
-			"Collision",
-			"Attraction",
-			"game",
-			"screen-init",
-			"gameDescrip",
-			"addDialog",
-			"cssanimation",
-			"Transition",
-			"bounceindown",
-			"effects",
-			"bounceInDown",
-			"dialog",
-			"opts",
-			"dialog",
-			"bounce",
-			"FlipDialog",
-			"fatfingers",
-			"ng-class",
-			"background",
-			"icon-ok",
-			"options",
-			"yayornay",
-			"play",
-			"hash_sound",
-			"options",
-			"disabled",
-			"effects",
-			"background",
-			"svg",
-			"DS_",
-			"  <link rel=\"stylesheet\" href=\"(.*)\" />",
-			"url(../",
-			"isDiagnostic",
-			"lifes",
-			"diagnostic",
-			"gameList",
-			"User",
-			"gameList",
-			"chooseGame",
-			"_",
-			"nextRound\nnextRound",
-			"nextRound",
-			"DEBUG",
-			".x",
-			"isChrome",
-			"transition",
-			"setfromstring",
-			"movable",
-			"movable\nmovable",
-			"movable",
-			"moveBackground",
-			"settings",
-			"unplay"
+			"particleCenter"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -557,6 +678,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"lib",
+			"gimage",
+			"game-id=\"\" game-controller=\"",
 			"ParticleAttraction",
 			"Force",
 			"Animation",
@@ -584,57 +708,58 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 8,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/js/controllers/games/FlipcardsController.js",
+					"file": "app/index.html",
 					"settings":
 					{
-						"buffer_size": 2922,
+						"buffer_size": 22573,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								522,
-								522
+								7450,
+								8829
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 191.0,
+						"translation.y": 1484.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/js/src/test.coffee",
+					"file": "app/coffee/controllers/games/SelectGeneric.coffee",
 					"settings":
 					{
-						"buffer_size": 420,
+						"buffer_size": 1901,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								420,
-								420
+								710,
+								710
 							]
 						],
 						"settings":
 						{
-							"auto_name": "number   = 42",
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -644,24 +769,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/Cakefile",
+					"file": "app/coffee/services/GamesPlayed.coffee",
 					"settings":
 					{
-						"buffer_size": 221,
+						"buffer_size": 696,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								221,
-								221
+								508,
+								541
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -671,18 +797,158 @@
 				},
 				{
 					"buffer": 3,
-					"file": "app/js/src/test.js",
+					"file": "app/coffee/controllers/games/Fatfingers.coffee",
 					"settings":
 					{
-						"buffer_size": 828,
+						"buffer_size": 2813,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								252,
-								252
+								1855,
+								1864
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 2.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/coffee/controllers/games/Flipcards.coffee",
+					"settings":
+					{
+						"buffer_size": 2417,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1444,
+								1444
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 167.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/coffee/directives/screens.coffee",
+					"settings":
+					{
+						"buffer_size": 4023,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1107,
+								1107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/coffee/controllers/popups/Login.coffee",
+					"settings":
+					{
+						"buffer_size": 486,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								236,
+								235
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/css/app.css",
+					"settings":
+					{
+						"buffer_size": 7157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1590,
+								1590
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1158.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/js/services/UserService.js",
+					"settings":
+					{
+						"buffer_size": 2514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								847,
+								847
 							]
 						],
 						"settings":
@@ -693,6 +959,124 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"file": "app/coffee/controllers/games/Game.coffee",
+					"settings":
+					{
+						"buffer_size": 3632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								753,
+								753
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/js/_/controllers/games/SelectGenericController.js",
+					"settings":
+					{
+						"buffer_size": 2877,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2410,
+								2410
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 362.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/js/_/controllers/games/FlipcardsController.js",
+					"settings":
+					{
+						"buffer_size": 2923,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1423,
+								1425
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/js/_/controllers/games/FatfingersController.js",
+					"settings":
+					{
+						"buffer_size": 4543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2127,
+								2136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 155.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -717,11 +1101,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -733,7 +1124,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 112.0
+		"height": 73.0
 	},
 	"replace":
 	{

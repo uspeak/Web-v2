@@ -17,34 +17,57 @@
           popups = {};
           opened_popups = [];
           $scope.$root.showPopup = function(name) {
-            var el;
-            opened_popups.push(name);
+            var el, last, last_popup;
+            if (opened_popups.length) {
+              last = opened_popups[opened_popups.length - 1];
+              last_popup = popups[last];
+              last_popup.scope.active = false;
+              $(last_popup.element).hide();
+            }
             $scope.active = true;
             popups[name].scope.active = true;
             el = $(popups[name].element);
             el.show();
             if ($scope.$root.effects) {
-              return el.keyframe("flipInPopup", 600);
+              el.keyframe("flipInPopup", 600);
             }
+            opened_popups.push(name);
+            return popups[name];
           };
           hidePopup = function() {
-            var el, f, last;
+            var c, el, f, last, last_popup;
             Console.info("Hided Popup", opened_popups);
             if (!opened_popups.length) {
+              Console.info("No popups");
               $scope.active = false;
               $scope.$apply();
-              return;
-            }
-            last = opened_popups.pop();
-            el = $(popups[last].element);
-            f = function() {
-              el.hide();
-              return hidePopup();
-            };
-            if ($scope.$root.effects) {
-              return el.keyframe("flipOutPopup", 600, f);
+            } else if (opened_popups.length === 1) {
+              last = opened_popups.pop();
+              el = $(popups[last].element);
+              c = popups[last].controller;
+              f = function() {
+                if (c.onHide) {
+                  c.onHide();
+                }
+                el.hide();
+                return hidePopup();
+              };
+              if ($scope.$root.effects) {
+                return el.keyframe("flipOutPopup", 600, f);
+              } else {
+                return f();
+              }
             } else {
-              return f();
+              last = opened_popups.pop();
+              last_popup = popups[last];
+              last_popup.scope.active = false;
+              $(last_popup.element).hide();
+              if (opened_popups.length) {
+                last = opened_popups[opened_popups.length - 1];
+                last_popup = popups[last];
+                last_popup.scope.active = true;
+                return $(last_popup.element).show();
+              }
             }
           };
           $scope.$root.hidePopup = function() {

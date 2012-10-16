@@ -23,6 +23,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
           __.addInfo(@card.id)
           if correct
             matches[@card.id] = true
+            __.markWord wt.id, wt.w, true
             __.selectedCard = false
             __.addPoints(50)
           else
@@ -67,6 +68,7 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
       data = @data.W.slice(inf,sup)
       cards = []
       for wt in data
+        @markWord wt.id, wt.w
         cards.push word:wt.w, id:wt.id
         if @variation == 2
           cards.push img:wt.m, id:wt.id

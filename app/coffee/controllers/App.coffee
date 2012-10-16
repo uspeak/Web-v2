@@ -78,7 +78,7 @@ define ["Console", "jQuery", "Underscore"], (Console, $, _) ->
   # AppController.$inject = ["$scope", "DiagnosticWordsService", "GamesService", "user", "games"]
   # AppController
 
-  controller = ($scope, DiagnosticWordsService, GamesService, user, games) ->
+  controller = ($scope, user, games) ->
     gamehelpscreen = $("#game-help-screen")
     game = $("#game")
     selector = undefined
@@ -151,6 +151,6 @@ define ["Console", "jQuery", "Underscore"], (Console, $, _) ->
     $scope.toggleAudio = ->
       $scope.$root.audio = not $scope.$root.audio
 
-  controller.$inject = ["$scope", "DiagnosticWordsService", "GamesService", "user", "games"]
+  controller.$inject = ["$scope", "user", "games"]
 
   controller

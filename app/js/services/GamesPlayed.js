@@ -7,19 +7,15 @@
     var service;
     Console.group("Entering Games service module.");
     service = function($resource, $http) {
-      var $send, GamesPlayed, default_opts;
+      var $send, GamesPlayed;
       GamesPlayed = $resource("" + API_BASE + "userGames/played.json", {}, {
         send: {
           method: "POST"
         }
       });
-      default_opts = {
-        error: function() {},
-        success: function() {}
-      };
       $send = GamesPlayed.send;
-      GamesPlayed.send = function(game, success) {
-        var opts, send_data,
+      GamesPlayed.send = function(game, success, error) {
+        var send_data,
           _this = this;
         send_data = {
           idg: 1,
@@ -29,10 +25,11 @@
           langdir: LANG_DIR,
           W: game.info || []
         };
-        opts = _.extend({}, default_opts, opts);
         return $send(send_data, function(data) {
           if (isString(data.res)) {
             return success != null ? success.call(_this, data) : void 0;
+          } else {
+            return error != null ? error.call(_this, data) : void 0;
           }
         });
       };

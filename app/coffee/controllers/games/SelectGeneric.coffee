@@ -10,12 +10,13 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
         correct ?= @option.correct
         kill = false
         if !@clicked
-          __.clickedWords.push(@option.word)
+          __.clickedWords.push @option.word
         if !correct and !@clicked
           kill = __.makeMistake()
         @clicked ?= not __.clickedCorrect if kill
         __.clickedCorrect = correct
         if correct
+          __.markWord @id, @word, true
           __.addPoints(__.roundPoints())
           __.nextRound()
 
@@ -55,7 +56,10 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
     initDataRound: (data) ->
       options = _.map data.dist, (word) -> {word:word}
       options.push word: data.m, correct:true
+      @markWord data.id, data.w
+
       @scope.word = data.w
+      @scope.id = data.id
       @scope.options = _.shuffle options
       @scope.$apply()
 
@@ -63,4 +67,4 @@ define ["Console", "SoundManager", "jQuery","Underscore","controllers/games/Game
       super round
       @clickedCorrect = false
       @clickedWords = []
-      @initDataRound(@data.W[round])
+      @initDataRound @data.W[round]

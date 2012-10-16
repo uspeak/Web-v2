@@ -6,13 +6,8 @@ define ["Console", "Underscore"], (Console, _) ->
       send:
         method: "POST"
 
-    default_opts =
-      error: ->
-
-      success: ->
-
     $send = GamesPlayed.send
-    GamesPlayed.send = (game, success) ->
+    GamesPlayed.send = (game, success, error) ->
       send_data =
         idg: 1
         idv: game.data.vid
@@ -21,10 +16,11 @@ define ["Console", "Underscore"], (Console, _) ->
         langdir: LANG_DIR
         W: game.info or []
 
-      opts = _.extend {}, default_opts, opts
       $send send_data, (data) =>
-        success?.call @, data  if isString(data.res)
-
+        if isString(data.res)
+          success?.call @, data
+        else
+          error?.call @, data
 
     GamesPlayed
 

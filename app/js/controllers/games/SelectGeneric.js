@@ -37,6 +37,7 @@
           }
           __.clickedCorrect = correct;
           if (correct) {
+            __.markWord(this.id, this.word, true);
             __.addPoints(__.roundPoints());
             return __.nextRound();
           }
@@ -104,7 +105,9 @@
           word: data.m,
           correct: true
         });
+        this.markWord(data.id, data.w);
         this.scope.word = data.w;
+        this.scope.id = data.id;
         this.scope.options = _.shuffle(options);
         return this.scope.$apply();
       };

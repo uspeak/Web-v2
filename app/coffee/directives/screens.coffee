@@ -113,7 +113,7 @@ define ["Console", "jQuery"], (Console, $) ->
           showScreen = name=='home'
         else
           showScreen = attrs.hasOwnProperty("screenInit")
-          
+
         if showScreen
           $("#game-background .sun").one "animationend webkitAnimationEnd oanimationend MSAnimationEnd", (e) ->
             $scope.goScreen name

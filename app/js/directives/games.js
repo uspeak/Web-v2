@@ -43,8 +43,12 @@
               return game_active.resume();
             }
           };
-          $scope.$parent.exit = function() {
-            if (game_active.isDiagnostic) {
+          $scope.$root.exitGame = function() {
+            if (!game_active) {
+              return;
+            }
+            Console.info("Exiting game");
+            if (game_active.diagnostic) {
               $scope.goScreen("diagnostic-games-intro");
             } else {
               $scope.goScreen("user-games");
@@ -70,9 +74,10 @@
               $game.removeClass("loading");
               Console.info("Game loaded", data);
               return game = play(data, function() {
+                var popup;
                 Console.info("Finished game");
-                $scope.goScreen("user-games");
-                return unplay();
+                popup = $scope.showPopup('postgame');
+                return popup.scope.$parent.game = game_active;
               });
             };
             if (gameId !== 8) {

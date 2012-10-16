@@ -1,4 +1,4 @@
-define ["Console", "Underscore", "services/DiagnosticWordsService", "services/UserService", "services/GameWordsService", "services/ChallengeWordsService", "services/GamesService", "services/GamesPlayed"], (Console, _, dws, us, gws, cws, gs, gp) ->
+define ["Console", "Underscore", "services/DiagnosticWordsService", "services/UserService", "services/UserWordStatus", "services/GameWordsService", "services/ChallengeWordsService", "services/GamesService", "services/GamesPlayed"], (Console, _, dws, us, uws, gws, cws, gs, gp) ->
   "use strict"
   Console.group "Entering Service module."
   Console.info "DiagnosticWordsService", dws
@@ -10,6 +10,7 @@ define ["Console", "Underscore", "services/DiagnosticWordsService", "services/Us
       .factory("GameWordsService", gws)
       .factory("ChallengeWordsService", cws)
       .factory("UserService", us)
+      .factory("UserWordStatus", uws)
       .factory("GamesService", gs)
       .factory("GamesPlayed", gp)
       .factory("user", (UserService) ->

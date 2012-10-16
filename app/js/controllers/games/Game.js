@@ -2,7 +2,7 @@
 (function() {
   var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  define(["Console", "SoundManager", "jQuery"], function(Console, soundManager, $) {
+  define(["Console", "SoundManager", "Underscore", "jQuery"], function(Console, soundManager, _, $) {
     "use strict";
 
     var GameController;
@@ -28,6 +28,8 @@
 
       GameController.prototype.info = [];
 
+      GameController.prototype.knownWords = [];
+
       GameController.prototype.initScope = function() {};
 
       GameController.prototype.playAudio = function(sound_id) {
@@ -37,8 +39,30 @@
       };
 
       GameController.prototype.addPoints = function(points) {
-        this.points += points;
+        if (!points) {
+          this.points = 0;
+        } else {
+          this.points += points;
+        }
         return this.scope.$root.gamePoints = this.points;
+      };
+
+      GameController.prototype.markWord = function(id, word, known) {
+        var finded, notKnown;
+        if (finded = _.find(this.knownWords, function(data) {
+          return data.id === id;
+        })) {
+          finded.known = known || false;
+        } else {
+          this.knownWords.push({
+            word: word,
+            id: id,
+            known: known
+          });
+        }
+        notKnown = !known ? 'not ' : '';
+        Console.info("Marked word " + word + " as " + notKnown + "known");
+        return this.scope.$root.gameWords = this.knownWords;
       };
 
       GameController.prototype.pause = function() {
@@ -86,6 +110,7 @@
         Console.info('Init data', this.data);
         this.variation = parseInt(this.data.vid);
         this.time = this.data.time || this.data.seconds;
+        this.knownWords = [];
         this.scope.$root.totalRounds = this.totalRounds = this.data.W.length;
         this.scope.$root.gameTitle = this.name;
         return this.scope.$parent.gameVariation = this.variation;
@@ -107,7 +132,9 @@
       };
 
       GameController.prototype.finish = function() {
-        (this.onFinish || function() {})();
+        if (this.onFinish) {
+          this.onFinish();
+        }
         this.sendData();
         return this.unplay();
       };
@@ -138,9 +165,9 @@
           _this.scope.$root.gameRemainSeconds = total - seconds;
           return _this.scope.$root.$apply();
         });
-        this.addPoints(0);
+        this.addPoints();
         this.goRound(0);
-        return this.setLifes(3);
+        return this.setLifes(1);
       };
 
       GameController.prototype.makeMistake = function() {

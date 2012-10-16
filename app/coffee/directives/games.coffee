@@ -37,8 +37,10 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
         else
           game_active.resume()
 
-      $scope.$parent.exit = ->
-        if game_active.isDiagnostic
+      $scope.$root.exitGame = ->
+        return if not game_active
+        Console.info "Exiting game"
+        if game_active.diagnostic
           $scope.goScreen "diagnostic-games-intro"
         else
           $scope.goScreen "user-games"
@@ -61,8 +63,10 @@ define ["Console", "Underscore", "jQuery"], (Console, _, $) ->
           Console.info "Game loaded", data
           game = play data, ->
             Console.info "Finished game"
-            $scope.goScreen "user-games"
-            unplay()
+            # $scope.goScreen "user-games"
+            popup = $scope.showPopup 'postgame'
+            popup.scope.$parent.game = game_active
+            # unplay()
         if gameId != 8
           GameWordsService.get
             lang_dir: LANG_DIR
